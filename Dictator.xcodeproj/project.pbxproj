@@ -85,9 +85,9 @@
 			children = (
 				9305C77B17B2A0900020A156 /* GGKAppDelegate.h */,
 				9305C77C17B2A0900020A156 /* GGKAppDelegate.m */,
-				9305C78417B2A0900020A156 /* MainStoryboard.storyboard */,
 				9305C78717B2A0900020A156 /* GGKViewController.h */,
 				9305C78817B2A0900020A156 /* GGKViewController.m */,
+				9305C78417B2A0900020A156 /* MainStoryboard.storyboard */,
 				9305C77317B2A0900020A156 /* Supporting Files */,
 			);
 			path = Dictator;
@@ -96,13 +96,13 @@
 		9305C77317B2A0900020A156 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9305C77417B2A0900020A156 /* Dictator-Info.plist */,
-				9305C77517B2A0900020A156 /* InfoPlist.strings */,
-				9305C77817B2A0900020A156 /* main.m */,
-				9305C77A17B2A0900020A156 /* Dictator-Prefix.pch */,
 				9305C77E17B2A0900020A156 /* Default.png */,
 				9305C78017B2A0900020A156 /* Default@2x.png */,
 				9305C78217B2A0900020A156 /* Default-568h@2x.png */,
+				9305C77417B2A0900020A156 /* Dictator-Info.plist */,
+				9305C77A17B2A0900020A156 /* Dictator-Prefix.pch */,
+				9305C77517B2A0900020A156 /* InfoPlist.strings */,
+				9305C77817B2A0900020A156 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -299,6 +299,7 @@
 				9305C78E17B2A0900020A156 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
