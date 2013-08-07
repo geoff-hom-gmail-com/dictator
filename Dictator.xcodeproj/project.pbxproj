@@ -17,7 +17,8 @@
 		9305C78117B2A0900020A156 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9305C78017B2A0900020A156 /* Default@2x.png */; };
 		9305C78317B2A0900020A156 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9305C78217B2A0900020A156 /* Default-568h@2x.png */; };
 		9305C78617B2A0900020A156 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9305C78417B2A0900020A156 /* MainStoryboard.storyboard */; };
-		9305C78917B2A0900020A156 /* GGKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9305C78817B2A0900020A156 /* GGKViewController.m */; };
+		9305C78917B2A0900020A156 /* GGKRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9305C78817B2A0900020A156 /* GGKRootViewController.m */; };
+		93B1F86017B2AAC5002C2353 /* GGKDictatorDescription.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 93B1F85F17B2AAC5002C2353 /* GGKDictatorDescription.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +36,9 @@
 		9305C78017B2A0900020A156 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		9305C78217B2A0900020A156 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9305C78517B2A0900020A156 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		9305C78717B2A0900020A156 /* GGKViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGKViewController.h; sourceTree = "<group>"; };
-		9305C78817B2A0900020A156 /* GGKViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGKViewController.m; sourceTree = "<group>"; };
+		9305C78717B2A0900020A156 /* GGKRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGKRootViewController.h; sourceTree = "<group>"; };
+		9305C78817B2A0900020A156 /* GGKRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGKRootViewController.m; sourceTree = "<group>"; };
+		93B1F85F17B2AAC5002C2353 /* GGKDictatorDescription.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = GGKDictatorDescription.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +87,8 @@
 			children = (
 				9305C77B17B2A0900020A156 /* GGKAppDelegate.h */,
 				9305C77C17B2A0900020A156 /* GGKAppDelegate.m */,
-				9305C78717B2A0900020A156 /* GGKViewController.h */,
-				9305C78817B2A0900020A156 /* GGKViewController.m */,
+				9305C78717B2A0900020A156 /* GGKRootViewController.h */,
+				9305C78817B2A0900020A156 /* GGKRootViewController.m */,
 				9305C78417B2A0900020A156 /* MainStoryboard.storyboard */,
 				9305C77317B2A0900020A156 /* Supporting Files */,
 			);
@@ -100,6 +102,7 @@
 				9305C78017B2A0900020A156 /* Default@2x.png */,
 				9305C78217B2A0900020A156 /* Default-568h@2x.png */,
 				9305C77417B2A0900020A156 /* Dictator-Info.plist */,
+				93B1F85F17B2AAC5002C2353 /* GGKDictatorDescription.rtf */,
 				9305C77A17B2A0900020A156 /* Dictator-Prefix.pch */,
 				9305C77517B2A0900020A156 /* InfoPlist.strings */,
 				9305C77817B2A0900020A156 /* main.m */,
@@ -164,6 +167,7 @@
 				9305C78117B2A0900020A156 /* Default@2x.png in Resources */,
 				9305C78317B2A0900020A156 /* Default-568h@2x.png in Resources */,
 				9305C78617B2A0900020A156 /* MainStoryboard.storyboard in Resources */,
+				93B1F86017B2AAC5002C2353 /* GGKDictatorDescription.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,7 +180,7 @@
 			files = (
 				9305C77917B2A0900020A156 /* main.m in Sources */,
 				9305C77D17B2A0900020A156 /* GGKAppDelegate.m in Sources */,
-				9305C78917B2A0900020A156 /* GGKViewController.m in Sources */,
+				9305C78917B2A0900020A156 /* GGKRootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +284,43 @@
 			};
 			name = Release;
 		};
+		93B1F85D17B2A620002C2353 /* user-testing */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Geoffrey Hom";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "057F68F5-03CB-4687-AB69-F8EF8D149A8C";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "user-testing";
+		};
+		93B1F85E17B2A620002C2353 /* user-testing */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Dictator/Dictator-Prefix.pch";
+				INFOPLIST_FILE = "Dictator/Dictator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = "user-testing";
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -288,6 +329,7 @@
 			buildConfigurations = (
 				9305C78A17B2A0900020A156 /* Debug */,
 				9305C78B17B2A0900020A156 /* Release */,
+				93B1F85D17B2A620002C2353 /* user-testing */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -297,6 +339,7 @@
 			buildConfigurations = (
 				9305C78D17B2A0900020A156 /* Debug */,
 				9305C78E17B2A0900020A156 /* Release */,
+				93B1F85E17B2A620002C2353 /* user-testing */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

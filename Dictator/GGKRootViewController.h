@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GGKViewController : UIViewController
+@interface GGKRootViewController : UIViewController
 
 @end

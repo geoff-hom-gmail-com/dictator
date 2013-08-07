@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
+// Import order is modeled from http://qualitycoding.org/import-order/.
 #import "GGKAppDelegate.h"
 
 @implementation GGKAppDelegate

@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
-#import "GGKViewController.h"
+#import "GGKRootViewController.h"
 
-@interface GGKViewController ()
+@interface GGKRootViewController ()
 
 @end
 
-@implementation GGKViewController
+@implementation GGKRootViewController
 
 - (void)viewDidLoad
 {
