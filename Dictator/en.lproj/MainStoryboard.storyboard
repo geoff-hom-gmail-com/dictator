@@ -283,54 +283,45 @@
             </objects>
             <point key="canvasLocation" x="1502" y="-633"/>
         </scene>
-        <!--View Controller - Add Players-->
+        <!--Add Players View Controller - Add Players-->
         <scene sceneID="jbO-Nn-6js">
             <objects>
-                <viewController id="tbz-FM-uwj" sceneMemberID="viewController">
+                <viewController id="tbz-FM-uwj" customClass="GGKAddPlayersViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aDa-S6-fg8">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rxn-se-wo7">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rxn-se-wo7">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="tbz-FM-uwj" id="VWd-80-W1p"/>
+                                </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGL-wq-DIk">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Add">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rKh-PO-FO5">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Remove">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Dfw-LW-vWd">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="275" id="zRo-m7-wBQ"/>
-                                </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="ECw-kc-HTS">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="PlayerNameCell" textLabel="DQz-g2-aHl" style="IBUITableViewCellStyleDefault" id="ECw-kc-HTS">
                                         <rect key="frame" x="0.0" y="22" width="280" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQz-g2-aHl">
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="tbz-FM-uwj" id="xqV-er-CJM"/>
+                                    <outlet property="delegate" destination="tbz-FM-uwj" id="CkQ-Ep-X2j"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Players:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GG6-rb-8D2">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -349,22 +340,23 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Rxn-se-wo7" firstAttribute="leading" secondItem="aDa-S6-fg8" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="5vJ-Pn-rhb"/>
+                            <constraint firstAttribute="bottom" secondItem="Dfw-LW-vWd" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="BXt-Uv-LEA"/>
                             <constraint firstItem="GG6-rb-8D2" firstAttribute="top" secondItem="aDa-S6-fg8" secondAttribute="top" constant="20" symbolic="YES" type="default" id="FH9-DE-3KC"/>
                             <constraint firstItem="5yS-wr-zXX" firstAttribute="top" secondItem="aDa-S6-fg8" secondAttribute="top" constant="20" symbolic="YES" type="default" id="J7h-a9-JSf"/>
-                            <constraint firstItem="HGL-wq-DIk" firstAttribute="centerX" secondItem="Rxn-se-wo7" secondAttribute="centerX" type="default" id="Moj-f7-D0M"/>
                             <constraint firstAttribute="trailing" secondItem="Dfw-LW-vWd" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="PZr-5V-8Vs"/>
                             <constraint firstAttribute="trailing" secondItem="Rxn-se-wo7" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="RGL-6u-xXx"/>
-                            <constraint firstAttribute="bottom" secondItem="Dfw-LW-vWd" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="VYK-up-AFh"/>
                             <constraint firstItem="Rxn-se-wo7" firstAttribute="top" secondItem="GG6-rb-8D2" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="XLQ-xU-hEO"/>
                             <constraint firstAttribute="trailing" secondItem="5yS-wr-zXX" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="YNJ-RE-8b2"/>
-                            <constraint firstItem="HGL-wq-DIk" firstAttribute="top" secondItem="Rxn-se-wo7" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="aYi-hI-nL0"/>
-                            <constraint firstItem="5yS-wr-zXX" firstAttribute="leading" secondItem="GG6-rb-8D2" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="bz7-5C-tYr"/>
                             <constraint firstItem="Dfw-LW-vWd" firstAttribute="leading" secondItem="aDa-S6-fg8" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="dZJ-P7-F5w"/>
-                            <constraint firstItem="Dfw-LW-vWd" firstAttribute="top" secondItem="rKh-PO-FO5" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="exM-0N-3D5"/>
-                            <constraint firstItem="rKh-PO-FO5" firstAttribute="centerX" secondItem="HGL-wq-DIk" secondAttribute="centerX" type="default" id="iDQ-c3-dmM"/>
+                            <constraint firstAttribute="trailing" secondItem="GG6-rb-8D2" secondAttribute="trailing" constant="44" id="mOo-DC-tWx"/>
+                            <constraint firstItem="Dfw-LW-vWd" firstAttribute="top" secondItem="Rxn-se-wo7" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="szz-qr-KRp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Players" id="K0u-Pb-HIX"/>
+                    <connections>
+                        <outlet property="numberOfPlayersLabel" destination="5yS-wr-zXX" id="fr0-oG-bdh"/>
+                        <outlet property="playersTableView" destination="Dfw-LW-vWd" id="HaG-gC-OJr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ESn-vF-C17" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -390,6 +382,13 @@
         </scene>
     </scenes>
     <classes>
+        <class className="GGKAddPlayersViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKAddPlayersViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="numberOfPlayersLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
         <class className="GGKRootViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKRootViewController.h"/>
         </class>

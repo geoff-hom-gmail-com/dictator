@@ -6,9 +6,11 @@
 //  Copyright (c) 2013 Geoff Hom. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@class GGKGameModel;
 
 @interface GGKAppDelegate : UIResponder <UIApplicationDelegate>
+
+@property (strong, nonatomic) GGKGameModel *gameModel;
 
 @property (strong, nonatomic) UIWindow *window;
 

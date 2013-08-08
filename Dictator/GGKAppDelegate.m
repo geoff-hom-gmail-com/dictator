@@ -9,11 +9,16 @@
 // Import order is modeled from http://qualitycoding.org/import-order/.
 #import "GGKAppDelegate.h"
 
+#import "GGKGameModel.h"
+
 @implementation GGKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    self.gameModel = [[GGKGameModel alloc] init];
+
     return YES;
 }
 							
