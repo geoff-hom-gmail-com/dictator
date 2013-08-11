@@ -19,6 +19,10 @@
 // List of all available roles.
 @property (strong, nonatomic) IBOutlet UITableView *availableRolesTableView;
 
+// Override.
+// Convey role info.
+- (void)prepareForSegue:(UIStoryboardSegue *)theSegue sender:(id)theSender;
+
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath;
 
 - (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)theSection;

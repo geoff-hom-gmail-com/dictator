@@ -11,6 +11,7 @@
 #import "GGKAppDelegate.h"
 #import "GGKGameModel.h"
 #import "GGKRole.h"
+#import "GGKRoleInfoViewController.h"
 
 @interface GGKSetRolesViewController ()
 
@@ -34,6 +35,23 @@
 @end
 
 @implementation GGKSetRolesViewController
+
+- (void)prepareForSegue:(UIStoryboardSegue *)theSegue sender:(id)theSender
+{
+    if ([theSegue.identifier hasPrefix:@"ShowRoleInfoSelector"]) {
+        
+        // Get role.
+        NSIndexPath *theIndexPath = [self.availableRolesTableView indexPathForCell:theSender];
+        GGKRole *theRole = self.availableRolesArray[theIndexPath.row];
+        
+        // Convey role.
+        GGKRoleInfoViewController *aRoleInfoViewController = (GGKRoleInfoViewController *)theSegue.destinationViewController;
+        aRoleInfoViewController.role = theRole;
+    } else {
+        
+        [super prepareForSegue:theSegue sender:theSender];
+    }
+}
 
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath
 {

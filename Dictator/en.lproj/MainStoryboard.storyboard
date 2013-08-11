@@ -194,7 +194,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="UaC-6E-Voj" kind="push" trigger="accessoryAction" id="ZcV-qf-Dll"/>
+                                            <segue destination="UaC-6E-Voj" kind="push" identifier="ShowRoleInfoSelector" trigger="accessoryAction" id="ZcV-qf-Dll"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -304,26 +304,40 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Role info would go here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLl-k6-H3P">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="hLl-k6-H3P">
+                                <string key="text">Role info would go here
+Line 2
+Line 3
+Line 4
+Line 5</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Role title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WkW-dp-L5g">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Role title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WkW-dp-L5g">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="uAT-dX-Mc7"/>
+                                    <constraint firstAttribute="width" constant="143" id="xQ7-Qi-YH0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="WkW-dp-L5g" firstAttribute="top" secondItem="oOh-s2-RTq" secondAttribute="top" constant="47" id="Gd1-JL-1eL"/>
-                            <constraint firstItem="hLl-k6-H3P" firstAttribute="top" secondItem="oOh-s2-RTq" secondAttribute="top" constant="140" id="QrG-wE-cRA"/>
-                            <constraint firstItem="WkW-dp-L5g" firstAttribute="leading" secondItem="oOh-s2-RTq" secondAttribute="leading" constant="79" id="T4B-HX-qHk"/>
-                            <constraint firstItem="hLl-k6-H3P" firstAttribute="leading" secondItem="oOh-s2-RTq" secondAttribute="leading" constant="85" id="ywd-mv-bkw"/>
+                            <constraint firstItem="hLl-k6-H3P" firstAttribute="leading" secondItem="oOh-s2-RTq" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="38t-my-Oww"/>
+                            <constraint firstItem="WkW-dp-L5g" firstAttribute="top" secondItem="oOh-s2-RTq" secondAttribute="top" constant="20" symbolic="YES" type="default" id="CT0-eh-IZf"/>
+                            <constraint firstAttribute="trailing" secondItem="hLl-k6-H3P" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="XJj-CF-Q0N"/>
+                            <constraint firstItem="hLl-k6-H3P" firstAttribute="top" secondItem="WkW-dp-L5g" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ad7-eY-Op3"/>
+                            <constraint firstItem="WkW-dp-L5g" firstAttribute="centerX" secondItem="hLl-k6-H3P" secondAttribute="centerX" type="default" id="fDe-dt-W6x"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Role Info" id="i3F-Xq-Bf3"/>
+                    <connections>
+                        <outlet property="roleBlurbDetailedLabel" destination="hLl-k6-H3P" id="Llm-kG-GQ8"/>
+                        <outlet property="roleTitleLabel" destination="WkW-dp-L5g" id="CBQ-TB-Xw3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ma-zf-ve4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -437,6 +451,10 @@
         </class>
         <class className="GGKRoleInfoViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKRoleInfoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="roleBlurbDetailedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="roleTitleLabel" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="GGKRootViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKRootViewController.h"/>
