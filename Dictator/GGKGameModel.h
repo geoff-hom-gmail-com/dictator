@@ -10,11 +10,15 @@
 
 @interface GGKGameModel : NSObject
 
-// The number of players in the game.
-//@property (nonatomic, assign) NSInteger numberOfPlayersInteger;
-
 // Players at the start of the game.
 @property (strong, nonatomic) NSArray *allPlayersArray;
+
+// Roles assigned to a specific game.
+// Story: User assigns some roles, then adds/removes players, then comes back. User expects previously assigned roles to still be there.
+@property (strong, nonatomic) NSArray *explicitlyAssignedRolesArray;
+
+// The roles available to all games. May be increased via in-app purchase.
+@property (strong, nonatomic) NSMutableArray *availableRolesMutableArray;
 
 - (id)init;
 

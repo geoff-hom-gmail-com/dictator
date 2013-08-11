@@ -18,9 +18,12 @@
 		9305C78317B2A0900020A156 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9305C78217B2A0900020A156 /* Default-568h@2x.png */; };
 		9305C78617B2A0900020A156 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9305C78417B2A0900020A156 /* MainStoryboard.storyboard */; };
 		9305C78917B2A0900020A156 /* GGKRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9305C78817B2A0900020A156 /* GGKRootViewController.m */; };
+		9321B43917B72C6800A612CA /* GGKRole.m in Sources */ = {isa = PBXBuildFile; fileRef = 9321B43817B72C6800A612CA /* GGKRole.m */; };
+		9321B43C17B7445A00A612CA /* GGKRoleInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9321B43B17B7445A00A612CA /* GGKRoleInfoViewController.m */; };
 		93B1F86017B2AAC5002C2353 /* GGKDescription.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 93B1F85F17B2AAC5002C2353 /* GGKDescription.rtf */; };
 		93B1F86317B2BA49002C2353 /* GGKAddPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B1F86217B2BA49002C2353 /* GGKAddPlayersViewController.m */; };
 		93B1F86617B2BC0D002C2353 /* GGKGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B1F86517B2BC0D002C2353 /* GGKGameModel.m */; };
+		93B1F86917B43949002C2353 /* GGKSetRolesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B1F86817B43949002C2353 /* GGKSetRolesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,11 +43,17 @@
 		9305C78517B2A0900020A156 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		9305C78717B2A0900020A156 /* GGKRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGKRootViewController.h; sourceTree = "<group>"; };
 		9305C78817B2A0900020A156 /* GGKRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGKRootViewController.m; sourceTree = "<group>"; };
+		9321B43717B72C6800A612CA /* GGKRole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKRole.h; sourceTree = "<group>"; };
+		9321B43817B72C6800A612CA /* GGKRole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKRole.m; sourceTree = "<group>"; };
+		9321B43A17B7445A00A612CA /* GGKRoleInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKRoleInfoViewController.h; sourceTree = "<group>"; };
+		9321B43B17B7445A00A612CA /* GGKRoleInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKRoleInfoViewController.m; sourceTree = "<group>"; };
 		93B1F85F17B2AAC5002C2353 /* GGKDescription.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = GGKDescription.rtf; sourceTree = "<group>"; };
 		93B1F86117B2BA49002C2353 /* GGKAddPlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKAddPlayersViewController.h; sourceTree = "<group>"; };
 		93B1F86217B2BA49002C2353 /* GGKAddPlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKAddPlayersViewController.m; sourceTree = "<group>"; };
 		93B1F86417B2BC0D002C2353 /* GGKGameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKGameModel.h; sourceTree = "<group>"; };
 		93B1F86517B2BC0D002C2353 /* GGKGameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKGameModel.m; sourceTree = "<group>"; };
+		93B1F86717B43949002C2353 /* GGKSetRolesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSetRolesViewController.h; sourceTree = "<group>"; };
+		93B1F86817B43949002C2353 /* GGKSetRolesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSetRolesViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +106,14 @@
 				9305C77C17B2A0900020A156 /* GGKAppDelegate.m */,
 				93B1F86417B2BC0D002C2353 /* GGKGameModel.h */,
 				93B1F86517B2BC0D002C2353 /* GGKGameModel.m */,
+				9321B43717B72C6800A612CA /* GGKRole.h */,
+				9321B43817B72C6800A612CA /* GGKRole.m */,
+				9321B43A17B7445A00A612CA /* GGKRoleInfoViewController.h */,
+				9321B43B17B7445A00A612CA /* GGKRoleInfoViewController.m */,
 				9305C78717B2A0900020A156 /* GGKRootViewController.h */,
 				9305C78817B2A0900020A156 /* GGKRootViewController.m */,
+				93B1F86717B43949002C2353 /* GGKSetRolesViewController.h */,
+				93B1F86817B43949002C2353 /* GGKSetRolesViewController.m */,
 				9305C78417B2A0900020A156 /* MainStoryboard.storyboard */,
 				9305C77317B2A0900020A156 /* Supporting Files */,
 			);
@@ -193,6 +208,9 @@
 				9305C78917B2A0900020A156 /* GGKRootViewController.m in Sources */,
 				93B1F86317B2BA49002C2353 /* GGKAddPlayersViewController.m in Sources */,
 				93B1F86617B2BC0D002C2353 /* GGKGameModel.m in Sources */,
+				93B1F86917B43949002C2353 /* GGKSetRolesViewController.m in Sources */,
+				9321B43917B72C6800A612CA /* GGKRole.m in Sources */,
+				9321B43C17B7445A00A612CA /* GGKRoleInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
