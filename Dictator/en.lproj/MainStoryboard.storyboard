@@ -264,6 +264,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="remove1Role" destination="2dr-Bm-p8S" eventType="touchUpInside" id="QIf-rQ-cx1"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -452,39 +455,6 @@ Line 5</string>
             <point key="canvasLocation" x="241" y="-633"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="GGKAddPlayersViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKAddPlayersViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="numberOfPlayersLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="GGKRoleInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKRoleInfoViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="roleBlurbDetailedLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="roleTitleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GGKRootViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKRootViewController.h"/>
-        </class>
-        <class className="GGKSetRolesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKSetRolesViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="add1Role"/>
-                <relationship kind="outlet" name="addRoleButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="assignedRolesTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="availableRolesTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="numberOfPlayersLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="removeRoleButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

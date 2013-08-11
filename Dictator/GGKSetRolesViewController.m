@@ -65,6 +65,9 @@
     self.gameModel.explicitlyAssignedRolesArray = [self.explicitlyAssignedRolesMutableArray copy];
     
     [self updateAssignedRoles];
+    
+    // Because the assigned-roles table data is reloaded at the end, any selection there is removed but the button remains enabled. The button should be disabled.
+    self.removeRoleButton.enabled = NO;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)theSegue sender:(id)theSender
@@ -81,6 +84,41 @@
     } else {
         
         [super prepareForSegue:theSegue sender:theSender];
+    }
+}
+
+- (IBAction)remove1Role
+{
+    // Get selected role. -1. If 0, remove role. Update model. Update townspeople.
+    // Because the table data is reloaded at the end, the selection is removed but the button remains enabled. If a role is still in the table, the user expects the role to still be selected and the button to remain enabled. Else, the button should be disabled.
+    
+    NSIndexPath *theSelectedIndexPath = self.assignedRolesTableView.indexPathForSelectedRow;
+    GGKRole *theSelectedRole = self.allAssignedRolesArray[theSelectedIndexPath.row];
+    
+    GGKRole *aRole = [GGKRole role:theSelectedRole.key fromArray:self.explicitlyAssignedRolesMutableArray];
+    aRole.startingCount--;
+    BOOL reselectRow = YES;
+    if (aRole.startingCount == 0) {
+        
+        [self.explicitlyAssignedRolesMutableArray removeObject:aRole];
+        reselectRow = NO;
+    }
+    
+    self.gameModel.explicitlyAssignedRolesArray = [self.explicitlyAssignedRolesMutableArray copy];
+    
+    [self updateAssignedRoles];
+    
+    if (reselectRow) {
+        
+        [self.assignedRolesTableView selectRowAtIndexPath:theSelectedIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        
+        // Needed to scroll properly. See docs for selectRowAtIndexPath:animated:scrollPosition:.
+        [self.assignedRolesTableView scrollToRowAtIndexPath:theSelectedIndexPath atScrollPosition:UITableViewScrollPositionNone animated:NO];
+        
+        self.removeRoleButton.enabled = YES;
+    } else {
+        
+        self.removeRoleButton.enabled = NO;
     }
 }
 

@@ -22,7 +22,7 @@
 // List of all available roles.
 @property (strong, nonatomic) IBOutlet UITableView *availableRolesTableView;
 
-// Remove 1 of the selected role from the assigned roles.
+// Remove 1 of the selected role from this game.
 @property (strong, nonatomic) IBOutlet UIButton *removeRoleButton;
 
 // Assign 1 of the selected role to this game.
@@ -31,6 +31,9 @@
 // Override.
 // Convey role info.
 - (void)prepareForSegue:(UIStoryboardSegue *)theSegue sender:(id)theSender;
+
+// Remove 1 of the selected role from this game.
+- (IBAction)remove1Role;
 
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath;
 
