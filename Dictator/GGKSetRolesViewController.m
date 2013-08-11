@@ -211,29 +211,23 @@
 - (void)updateAssignedRoles
 {
     // Whoever isn't explicitly assigned should be a townsperson. Update the number of townspeople. May be negative.
+
+    // For each explicitly assigned role, get the count. Total those counts. Compare to number of players.
     
-    if (self.explicitlyAssignedRolesMutableArray == nil) {
+    NSInteger theTotalCount = 0;
+    for (GGKRole *aRole in self.explicitlyAssignedRolesMutableArray) {
         
-        // Assign initial roles: all townspeople.
-        GGKRole *theTownspersonRole = [GGKRole role:GGKTownspersonKeyString fromArray:self.availableRolesArray];
-        theTownspersonRole.startingCount = self.numberOfPlayersInteger;
-        self.allAssignedRolesArray = [NSArray arrayWithObject:theTownspersonRole];
-    } else {
-        
-        // For each explicitly assigned role, get the count. Total those counts. Compare to number of players.
-        NSInteger theTotalCount = 0;
-        for (GGKRole *aRole in self.explicitlyAssignedRolesMutableArray) {
-            
-            theTotalCount += aRole.startingCount;
-        }
-        NSInteger theNumberOfTownspeople = self.numberOfPlayersInteger - theTotalCount;
-        
-        GGKRole *theTownspersonRole = [GGKRole role:GGKTownspersonKeyString fromArray:self.allAssignedRolesArray];
-        theTownspersonRole.startingCount = theNumberOfTownspeople;
-        
-        NSArray *anArray = @[theTownspersonRole];
-        self.allAssignedRolesArray = [anArray arrayByAddingObjectsFromArray:self.explicitlyAssignedRolesMutableArray];
+        theTotalCount += aRole.startingCount;
     }
+    NSInteger theNumberOfTownspeople = self.numberOfPlayersInteger - theTotalCount;
+    GGKRole *theTownspersonRole = [GGKRole role:GGKTownspersonKeyString fromArray:self.allAssignedRolesArray];
+    theTownspersonRole.startingCount = theNumberOfTownspeople;
+    
+    NSArray *anArray = @[theTownspersonRole];
+    self.allAssignedRolesArray = [anArray arrayByAddingObjectsFromArray:self.explicitlyAssignedRolesMutableArray];
+    
+    self.minimumNumberOfPlayersLabel.text = [NSString stringWithFormat:@"%d", theTotalCount];
+
     [self.assignedRolesTableView reloadData];
 }
 
@@ -253,15 +247,17 @@
     // Get available roles.
     self.availableRolesArray = [self.gameModel.availableRolesMutableArray copy];
     
+    // Initialize assigned roles.
+    GGKRole *theTownspersonRole = [GGKRole role:GGKTownspersonKeyString fromArray:self.availableRolesArray];
+    theTownspersonRole.startingCount = self.numberOfPlayersInteger;
+    self.allAssignedRolesArray = [NSArray arrayWithObject:theTownspersonRole];
+    
     // Get previously-assigned roles.
     self.explicitlyAssignedRolesMutableArray = [self.gameModel.explicitlyAssignedRolesArray mutableCopy];
     [self updateAssignedRoles];
     
     self.addRoleButton.enabled = NO;
     self.removeRoleButton.enabled = NO;
-    
-    // Put table into editing mode.
-//    [self.playersTableView setEditing:YES animated:NO];
 }
 
 @end

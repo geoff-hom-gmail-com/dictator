@@ -10,9 +10,6 @@
 
 @interface GGKSetRolesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-// Number of players currently in the game.
-@property (strong, nonatomic) IBOutlet UILabel *numberOfPlayersLabel;
-
 // Assign 1 of the selected role to this game.
 @property (strong, nonatomic) IBOutlet UIButton *addRoleButton;
 
@@ -21,6 +18,12 @@
 
 // List of all available roles.
 @property (strong, nonatomic) IBOutlet UITableView *availableRolesTableView;
+
+// Minimum number of players needed to satisfy all assigned roles.
+@property (strong, nonatomic) IBOutlet UILabel *minimumNumberOfPlayersLabel;
+
+// Number of players currently in the game.
+@property (strong, nonatomic) IBOutlet UILabel *numberOfPlayersLabel;
 
 // Remove 1 of the selected role from this game.
 @property (strong, nonatomic) IBOutlet UIButton *removeRoleButton;

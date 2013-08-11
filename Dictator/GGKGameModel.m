@@ -32,13 +32,13 @@
         
         // Just do these for my testing of the scrolling. Comment out for testers.
         
-        // Assassin.
-        aRole = [[GGKRole alloc] initWithType:GGKAssassinKeyString];
-        [self.availableRolesMutableArray addObject:aRole];
-        
-        // Doctor.
-        aRole = [[GGKRole alloc] initWithType:GGKDoctorKeyString];
-        [self.availableRolesMutableArray addObject:aRole];
+//        // Assassin.
+//        aRole = [[GGKRole alloc] initWithType:GGKAssassinKeyString];
+//        [self.availableRolesMutableArray addObject:aRole];
+//        
+//        // Doctor.
+//        aRole = [[GGKRole alloc] initWithType:GGKDoctorKeyString];
+//        [self.availableRolesMutableArray addObject:aRole];
     }
     return self;
 }

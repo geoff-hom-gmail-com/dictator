@@ -272,27 +272,27 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2uz-ZI-Fhj" firstAttribute="leading" secondItem="GeE-Jo-A7c" secondAttribute="leading" type="default" id="32C-Y2-lq1"/>
+                            <constraint firstItem="B0E-aO-LVH" firstAttribute="top" secondItem="OyA-nj-cOh" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="48i-Xl-rNA"/>
                             <constraint firstItem="uEM-ZF-aEQ" firstAttribute="leading" secondItem="GeE-Jo-A7c" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="8N2-87-8uT"/>
+                            <constraint firstAttribute="bottom" secondItem="awh-HS-atw" secondAttribute="bottom" constant="180" id="ABP-vm-WY5"/>
                             <constraint firstAttribute="trailing" secondItem="U4U-ld-9Aw" secondAttribute="trailing" constant="25" id="Bai-X8-kqX"/>
                             <constraint firstItem="4VQ-Mg-qwl" firstAttribute="leading" secondItem="GeE-Jo-A7c" secondAttribute="leading" constant="85" id="DVw-rQ-xId"/>
+                            <constraint firstItem="iBW-9h-RIh" firstAttribute="top" secondItem="B0E-aO-LVH" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="GcC-D5-A04"/>
+                            <constraint firstItem="iBW-9h-RIh" firstAttribute="top" secondItem="awh-HS-atw" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="GdM-Sx-IIY"/>
                             <constraint firstItem="uEM-ZF-aEQ" firstAttribute="baseline" secondItem="u4I-a7-jp2" secondAttribute="baseline" type="default" id="Ha7-F4-rh8"/>
                             <constraint firstItem="rvC-5H-9cm" firstAttribute="leading" secondItem="GeE-Jo-A7c" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="LzO-g3-Q2a"/>
                             <constraint firstAttribute="trailing" secondItem="B0E-aO-LVH" secondAttribute="trailing" constant="28" id="NZk-f5-nyJ"/>
                             <constraint firstItem="2uz-ZI-Fhj" firstAttribute="trailing" secondItem="GeE-Jo-A7c" secondAttribute="trailing" type="default" id="R3B-1u-kAO"/>
-                            <constraint firstAttribute="bottom" secondItem="iBW-9h-RIh" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="ReR-PI-AyW"/>
                             <constraint firstItem="u4I-a7-jp2" firstAttribute="top" secondItem="GeE-Jo-A7c" secondAttribute="top" constant="10" id="U23-dJ-G9V"/>
                             <constraint firstItem="U4U-ld-9Aw" firstAttribute="baseline" secondItem="OyA-nj-cOh" secondAttribute="baseline" type="default" id="Vty-vI-J51"/>
                             <constraint firstAttribute="trailing" secondItem="iBW-9h-RIh" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="X08-yS-Sph"/>
                             <constraint firstItem="rvC-5H-9cm" firstAttribute="baseline" secondItem="4VQ-Mg-qwl" secondAttribute="baseline" type="default" id="Xh8-pp-qIU"/>
-                            <constraint firstItem="iBW-9h-RIh" firstAttribute="top" secondItem="awh-HS-atw" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="csD-NH-kLI"/>
-                            <constraint firstItem="iBW-9h-RIh" firstAttribute="top" secondItem="B0E-aO-LVH" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="eLX-HW-7lt"/>
+                            <constraint firstAttribute="bottom" secondItem="iBW-9h-RIh" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="arg-rc-C28"/>
                             <constraint firstItem="4VQ-Mg-qwl" firstAttribute="baseline" secondItem="OyA-nj-cOh" secondAttribute="baseline" type="default" id="fnM-gF-JB3"/>
-                            <constraint firstItem="B0E-aO-LVH" firstAttribute="top" secondItem="OyA-nj-cOh" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ir4-m3-ZgC"/>
                             <constraint firstItem="awh-HS-atw" firstAttribute="leading" secondItem="GeE-Jo-A7c" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="jBp-oE-GPD"/>
                             <constraint firstItem="u4I-a7-jp2" firstAttribute="leading" secondItem="OyA-nj-cOh" secondAttribute="leading" type="default" id="lEk-V9-uOq"/>
                             <constraint firstItem="B0E-aO-LVH" firstAttribute="leading" secondItem="OyA-nj-cOh" secondAttribute="leading" type="default" id="mh1-CO-zBs"/>
                             <constraint firstItem="iBW-9h-RIh" firstAttribute="leading" secondItem="GeE-Jo-A7c" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="r7w-8b-ICf"/>
-                            <constraint firstAttribute="bottom" secondItem="B0E-aO-LVH" secondAttribute="bottom" constant="173" id="ryp-yn-lMb"/>
                             <constraint firstItem="2uz-ZI-Fhj" firstAttribute="top" secondItem="uEM-ZF-aEQ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="sUa-gJ-53R"/>
                             <constraint firstItem="2uz-ZI-Fhj" firstAttribute="top" secondItem="u4I-a7-jp2" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="skb-DA-L08"/>
                         </constraints>
@@ -302,6 +302,7 @@
                         <outlet property="addRoleButton" destination="u4I-a7-jp2" id="j7e-K8-38v"/>
                         <outlet property="assignedRolesTableView" destination="iBW-9h-RIh" id="aqX-ph-dan"/>
                         <outlet property="availableRolesTableView" destination="2uz-ZI-Fhj" id="oKG-Xa-6G9"/>
+                        <outlet property="minimumNumberOfPlayersLabel" destination="U4U-ld-9Aw" id="6RP-fa-O5i"/>
                         <outlet property="numberOfPlayersLabel" destination="4VQ-Mg-qwl" id="gdX-fK-WU6"/>
                         <outlet property="removeRoleButton" destination="B0E-aO-LVH" id="cPg-UH-NBk"/>
                     </connections>
@@ -455,6 +456,41 @@ Line 5</string>
             <point key="canvasLocation" x="241" y="-633"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="GGKAddPlayersViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKAddPlayersViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="numberOfPlayersLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="GGKRoleInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKRoleInfoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="roleBlurbDetailedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="roleTitleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GGKRootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKRootViewController.h"/>
+        </class>
+        <class className="GGKSetRolesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKSetRolesViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="add1Role"/>
+                <relationship kind="action" name="remove1Role"/>
+                <relationship kind="outlet" name="addRoleButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="assignedRolesTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="availableRolesTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="minimumNumberOfPlayersLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numberOfPlayersLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="removeRoleButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
