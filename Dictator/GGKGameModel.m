@@ -20,6 +20,7 @@
         self.allPlayersArray = [NSArray array];
         
         // Create available-roles array.
+        // Order presented should be Townsperson, Traitor, then alphabetically.
         
         // Townsperson.
         GGKRole *aRole = [[GGKRole alloc] initWithType:GGKTownspersonKeyString];
