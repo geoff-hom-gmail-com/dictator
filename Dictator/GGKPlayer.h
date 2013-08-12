@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class GGKRole;
+#import "GGKRole.h"
 
 @interface GGKPlayer : NSObject
 

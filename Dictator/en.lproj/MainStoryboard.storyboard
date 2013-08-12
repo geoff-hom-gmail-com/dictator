@@ -429,6 +429,11 @@ line 3</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Your Role" id="cmw-by-I6P"/>
+                    <connections>
+                        <outlet property="otherMembersLabel" destination="dh4-0a-Xtt" id="0Tu-OB-p0W"/>
+                        <outlet property="playerNameLabel" destination="ufx-Xz-fT7" id="2pS-H9-Y36"/>
+                        <outlet property="roleInfoLabel" destination="TO5-xd-QTV" id="LLi-mv-FpG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aHq-3U-XVj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -579,58 +584,6 @@ Line 5</string>
             <point key="canvasLocation" x="241" y="-633"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="GGKAddPlayersViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKAddPlayersViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="numberOfPlayersLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="GGKPregameNightViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKPregameNightViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="currentPlayerNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="verifyPlayerButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="GGKRoleInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKRoleInfoViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="roleBlurbDetailedLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="roleTitleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GGKRootViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKRootViewController.h"/>
-        </class>
-        <class className="GGKSetRolesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKSetRolesViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="add1Role"/>
-                <relationship kind="action" name="remove1Role"/>
-                <relationship kind="outlet" name="addRoleButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="assignedRolesTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="availableRolesTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="minimumNumberOfPlayersLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="numberOfPlayersLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="removeRoleButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="GGKStartGameViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKStartGameViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="startGame"/>
-                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="GGKYourRoleViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKYourRoleViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

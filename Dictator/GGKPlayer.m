@@ -8,8 +8,6 @@
 
 #import "GGKPlayer.h"
 
-#import "GGKRole.h"
-
 @implementation GGKPlayer
 
 @end

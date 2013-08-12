@@ -41,24 +41,34 @@ NSString *GGKTraitorKeyString = @"Traitor";
             
             self.key = theRoleKey;
             self.name = @"Townsperson";
+            self.isTraitor = NO;
             self.blurb1 = @"(Towns.) Townsperson blurb here";
+            self.youAreBlurb1 = @"You are a Townsperson."
+              "\nYou want ??"
+              "\nYour abilities are ??";
             self.startingCount = 0;
         } else if ([theRoleKey isEqualToString:GGKTraitorKeyString]) {
             
             self.key = theRoleKey;
             self.name = @"Traitor";
+            self.isTraitor = YES;
             self.blurb1 = @"(Trait.) Traitor blurb1 here";
+            self.youAreBlurb1 = @"You are a Traitor."
+            "\nYou want ??"
+            "\nYour abilities are ??";
             self.startingCount = 0;
         } else if ([theRoleKey isEqualToString:GGKAssassinKeyString]) {
             
             self.key = theRoleKey;
             self.name = @"Assassin";
+            self.isTraitor = YES;
             self.blurb1 = @"(Trait.) Assassin blurb1 here";
             self.startingCount = 0;
         } else if ([theRoleKey isEqualToString:GGKDoctorKeyString]) {
             
             self.key = theRoleKey;
             self.name = @"Doctor";
+            self.isTraitor = NO;
             self.blurb1 = @"(Towns.) Doctor blurb1 here";
             self.startingCount = 0;
         } else {

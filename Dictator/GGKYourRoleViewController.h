@@ -10,4 +10,16 @@
 
 @interface GGKYourRoleViewController : UIViewController
 
+// Name of the player.
+@property (strong, nonatomic) IBOutlet UILabel *playerNameLabel;
+
+// If a member of a knowing team (e.g., Traitors, Masons), shows who the other members are.
+@property (strong, nonatomic) IBOutlet UILabel *otherMembersLabel;
+
+// Player's role info.
+@property (strong, nonatomic) IBOutlet UILabel *roleInfoLabel;
+
+// Override.
+- (void)viewDidLoad;
+
 @end
