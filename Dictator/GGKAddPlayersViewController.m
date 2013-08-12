@@ -10,6 +10,7 @@
 
 #import "GGKAppDelegate.h"
 #import "GGKGameModel.h"
+#import "GGKPlayer.h"
 
 @interface GGKAddPlayersViewController ()
 
@@ -38,7 +39,8 @@
         aTableViewCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PlayerCellIdentifier];
     }
     
-    aTableViewCell.textLabel.text = [self.currentPlayersMutableArray objectAtIndex:theIndexPath.row];
+    GGKPlayer *aPlayer = [self.currentPlayersMutableArray objectAtIndex:theIndexPath.row];
+    aTableViewCell.textLabel.text = aPlayer.name;
         
     return aTableViewCell;
 }
@@ -73,7 +75,9 @@
 {
     // Add name to array. Update table. Update model.
     
-    [self.currentPlayersMutableArray addObject:theTextField.text];
+    GGKPlayer *aPlayer = [[GGKPlayer alloc] init];
+    aPlayer.name = theTextField.text;
+    [self.currentPlayersMutableArray addObject:aPlayer];
     [self.playersTableView reloadData];
     
     // Scroll to name added.

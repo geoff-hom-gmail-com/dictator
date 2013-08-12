@@ -72,7 +72,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)theSegue sender:(id)theSender
 {
-    if ([theSegue.identifier hasPrefix:@"ShowRoleInfoSelector"]) {
+    if ([theSegue.identifier hasPrefix:@"ShowRoleInfoSegue"]) {
         
         // Get role.
         NSIndexPath *theIndexPath = [self.availableRolesTableView indexPathForCell:theSender];
