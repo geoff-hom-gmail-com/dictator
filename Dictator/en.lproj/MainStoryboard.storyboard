@@ -393,13 +393,18 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="askForNextPlayerOrEnd" destination="Sm9-4s-thj" eventType="touchUpInside" id="ymW-37-kiy"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="TO5-xd-QTV">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="TO5-xd-QTV">
                                 <string key="text">You are X.
 You want Y.
 Your abilties are Z.
 Line 4
-Line 5</string>
+Line 5
+Line 6
+Line 7</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -416,13 +421,13 @@ line 3</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dh4-0a-Xtt" firstAttribute="leading" secondItem="1NR-LB-cm4" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="5Uh-kA-pRU"/>
+                            <constraint firstAttribute="trailing" secondItem="TO5-xd-QTV" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="5bL-gt-KNx"/>
                             <constraint firstItem="TO5-xd-QTV" firstAttribute="top" secondItem="ufx-Xz-fT7" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="7xV-rq-e4R"/>
+                            <constraint firstItem="dh4-0a-Xtt" firstAttribute="top" secondItem="1NR-LB-cm4" secondAttribute="top" constant="220" id="9ro-SU-ocI"/>
                             <constraint firstItem="TO5-xd-QTV" firstAttribute="leading" secondItem="1NR-LB-cm4" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="GY0-HB-n6s"/>
                             <constraint firstItem="ufx-Xz-fT7" firstAttribute="top" secondItem="1NR-LB-cm4" secondAttribute="top" constant="20" symbolic="YES" type="default" id="RPD-e8-W8f"/>
                             <constraint firstAttribute="bottom" secondItem="2CK-BI-TTL" secondAttribute="bottom" constant="79" id="St4-aA-oi2"/>
                             <constraint firstItem="2CK-BI-TTL" firstAttribute="centerX" secondItem="dh4-0a-Xtt" secondAttribute="centerX" type="default" id="V7p-xA-ak4"/>
-                            <constraint firstAttribute="trailing" secondItem="TO5-xd-QTV" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ZR3-3d-HAX"/>
-                            <constraint firstItem="dh4-0a-Xtt" firstAttribute="top" secondItem="1NR-LB-cm4" secondAttribute="top" constant="203" id="gSQ-4o-tZ0"/>
                             <constraint firstAttribute="trailing" secondItem="dh4-0a-Xtt" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="kEd-t5-TKu"/>
                             <constraint firstItem="ufx-Xz-fT7" firstAttribute="leading" secondItem="1NR-LB-cm4" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="u8v-PO-g5a"/>
                             <constraint firstAttribute="trailing" secondItem="ufx-Xz-fT7" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="yXd-xO-u57"/>
@@ -433,11 +438,27 @@ line 3</string>
                         <outlet property="otherMembersLabel" destination="dh4-0a-Xtt" id="0Tu-OB-p0W"/>
                         <outlet property="playerNameLabel" destination="ufx-Xz-fT7" id="2pS-H9-Y36"/>
                         <outlet property="roleInfoLabel" destination="TO5-xd-QTV" id="LLi-mv-FpG"/>
+                        <segue destination="J0R-g8-GJH" kind="push" id="0Xv-3A-upS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aHq-3U-XVj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1938" y="46"/>
+        </scene>
+        <!--View Controller - Day-->
+        <scene sceneID="196-48-4Tn">
+            <objects>
+                <viewController id="J0R-g8-GJH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ibo-Vy-Ags">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Day" id="CTt-Hg-1Ae"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yqt-jd-0Wu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2360" y="46"/>
         </scene>
         <!--Role Info View Controller - Role Info-->
         <scene sceneID="Yo6-yE-TWt">
@@ -584,6 +605,64 @@ Line 5</string>
             <point key="canvasLocation" x="241" y="-633"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="GGKAddPlayersViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKAddPlayersViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="numberOfPlayersLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="GGKPregameNightViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKPregameNightViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="currentPlayerNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="verifyPlayerButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="GGKRoleInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKRoleInfoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="roleBlurbDetailedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="roleTitleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GGKRootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKRootViewController.h"/>
+        </class>
+        <class className="GGKSetRolesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKSetRolesViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="add1Role"/>
+                <relationship kind="action" name="remove1Role"/>
+                <relationship kind="outlet" name="addRoleButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="assignedRolesTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="availableRolesTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="minimumNumberOfPlayersLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numberOfPlayersLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="removeRoleButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="GGKStartGameViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKStartGameViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="startGame"/>
+                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="GGKYourRoleViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKYourRoleViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="askForNextPlayerOrEnd"/>
+                <relationship kind="outlet" name="otherMembersLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="roleInfoLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

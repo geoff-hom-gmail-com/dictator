@@ -43,9 +43,9 @@ NSString *GGKTraitorKeyString = @"Traitor";
             self.name = @"Townsperson";
             self.isTraitor = NO;
             self.blurb1 = @"(Towns.) Townsperson blurb here";
-            self.youAreBlurb1 = @"You are a Townsperson."
-              "\nYou want ??"
-              "\nYour abilities are ??";
+            self.youAreBlurb1 = @"You are an Innocent Townsperson."
+              "\n\nDuring the night, you have no action."
+              "\n\nYou win with the Town.";
             self.startingCount = 0;
         } else if ([theRoleKey isEqualToString:GGKTraitorKeyString]) {
             
@@ -54,8 +54,8 @@ NSString *GGKTraitorKeyString = @"Traitor";
             self.isTraitor = YES;
             self.blurb1 = @"(Trait.) Traitor blurb1 here";
             self.youAreBlurb1 = @"You are a Traitor."
-            "\nYou want ??"
-            "\nYour abilities are ??";
+            "\n\nDuring the night, you and the other Traitors choose one player to kill."
+            "\n\nYou win with the Traitors.";
             self.startingCount = 0;
         } else if ([theRoleKey isEqualToString:GGKAssassinKeyString]) {
             

@@ -25,6 +25,7 @@
 // The roles available to all games. May be increased via in-app purchase.
 @property (strong, nonatomic) NSMutableArray *availableRolesMutableArray;
 
+// Override.
 - (id)init;
 
 @end

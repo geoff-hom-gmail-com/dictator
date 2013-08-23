@@ -18,4 +18,7 @@
 // Player's role in the current game.
 @property (strong, nonatomic) GGKRole *role;
 
+// Override.
+- (id)init;
+
 @end

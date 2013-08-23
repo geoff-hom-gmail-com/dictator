@@ -19,6 +19,22 @@
 
 @implementation GGKYourRoleViewController
 
+- (IBAction)askForNextPlayerOrEnd
+{
+    NSInteger anIndex = [self.gameModel.allPlayersArray indexOfObject:self.gameModel.currentPlayer];
+    NSInteger theNextIndex = anIndex + 1;
+    if (theNextIndex < [self.gameModel.allPlayersArray count]) {
+        
+        // Ask for next player.
+        self.gameModel.currentPlayer = self.gameModel.allPlayersArray[theNextIndex];
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        
+        // Go to first day.
+        
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

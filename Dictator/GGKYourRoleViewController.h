@@ -19,6 +19,9 @@
 // Player's role info.
 @property (strong, nonatomic) IBOutlet UILabel *roleInfoLabel;
 
+// Ask for the next player. If done, go to first day.
+- (IBAction)askForNextPlayerOrEnd;
+
 // Override.
 - (void)viewDidLoad;
 
