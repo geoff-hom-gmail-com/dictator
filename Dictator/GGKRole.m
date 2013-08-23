@@ -46,6 +46,7 @@ NSString *GGKTraitorKeyString = @"Traitor";
             self.youAreBlurb1 = @"You are an Innocent Townsperson."
               "\n\nDuring the night, you have no action."
               "\n\nYou win with the Town.";
+            self.youAreDictator1 = @"Your powers allow you to X.";
             self.startingCount = 0;
         } else if ([theRoleKey isEqualToString:GGKTraitorKeyString]) {
             
@@ -56,6 +57,7 @@ NSString *GGKTraitorKeyString = @"Traitor";
             self.youAreBlurb1 = @"You are a Traitor."
             "\n\nDuring the night, you and the other Traitors choose one player to kill."
             "\n\nYou win with the Traitors.";
+            self.youAreDictator1 = @"Your powers allow you to X.";
             self.startingCount = 0;
         } else if ([theRoleKey isEqualToString:GGKAssassinKeyString]) {
             

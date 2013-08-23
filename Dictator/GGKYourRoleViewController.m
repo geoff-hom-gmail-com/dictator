@@ -31,7 +31,7 @@
     } else {
         
         // Go to first day.
-        
+        [self performSegueWithIdentifier:@"ShowFirstDaySegue" sender:self];
     }
 }
 
@@ -82,6 +82,8 @@
         
         self.otherMembersLabel.hidden = YES;
     }
+    
+    self.navigationItem.hidesBackButton = YES;
 }
 
 @end

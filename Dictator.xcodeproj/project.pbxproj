@@ -18,6 +18,9 @@
 		9305C78317B2A0900020A156 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9305C78217B2A0900020A156 /* Default-568h@2x.png */; };
 		9305C78617B2A0900020A156 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9305C78417B2A0900020A156 /* MainStoryboard.storyboard */; };
 		9305C78917B2A0900020A156 /* GGKRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9305C78817B2A0900020A156 /* GGKRootViewController.m */; };
+		930D9FD917C758B4006ED023 /* GGKDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 930D9FD817C758B4006ED023 /* GGKDayViewController.m */; };
+		930D9FDC17C77060006ED023 /* GGKDictatorElectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 930D9FDB17C77060006ED023 /* GGKDictatorElectedViewController.m */; };
+		930D9FDF17C774AC006ED023 /* GGKYouAreDictatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 930D9FDE17C774AC006ED023 /* GGKYouAreDictatorViewController.m */; };
 		9321B43917B72C6800A612CA /* GGKRole.m in Sources */ = {isa = PBXBuildFile; fileRef = 9321B43817B72C6800A612CA /* GGKRole.m */; };
 		9321B43C17B7445A00A612CA /* GGKRoleInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9321B43B17B7445A00A612CA /* GGKRoleInfoViewController.m */; };
 		9396151817B8AEDE005D6BAB /* GGKStartGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9396151717B8AEDE005D6BAB /* GGKStartGameViewController.m */; };
@@ -47,6 +50,12 @@
 		9305C78517B2A0900020A156 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		9305C78717B2A0900020A156 /* GGKRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGKRootViewController.h; sourceTree = "<group>"; };
 		9305C78817B2A0900020A156 /* GGKRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGKRootViewController.m; sourceTree = "<group>"; };
+		930D9FD717C758B4006ED023 /* GGKDayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKDayViewController.h; sourceTree = "<group>"; };
+		930D9FD817C758B4006ED023 /* GGKDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKDayViewController.m; sourceTree = "<group>"; };
+		930D9FDA17C7705F006ED023 /* GGKDictatorElectedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKDictatorElectedViewController.h; sourceTree = "<group>"; };
+		930D9FDB17C77060006ED023 /* GGKDictatorElectedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKDictatorElectedViewController.m; sourceTree = "<group>"; };
+		930D9FDD17C774AC006ED023 /* GGKYouAreDictatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKYouAreDictatorViewController.h; sourceTree = "<group>"; };
+		930D9FDE17C774AC006ED023 /* GGKYouAreDictatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKYouAreDictatorViewController.m; sourceTree = "<group>"; };
 		9321B43717B72C6800A612CA /* GGKRole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKRole.h; sourceTree = "<group>"; };
 		9321B43817B72C6800A612CA /* GGKRole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKRole.m; sourceTree = "<group>"; };
 		9321B43A17B7445A00A612CA /* GGKRoleInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKRoleInfoViewController.h; sourceTree = "<group>"; };
@@ -116,6 +125,10 @@
 				93B1F86217B2BA49002C2353 /* GGKAddPlayersViewController.m */,
 				9305C77B17B2A0900020A156 /* GGKAppDelegate.h */,
 				9305C77C17B2A0900020A156 /* GGKAppDelegate.m */,
+				930D9FD717C758B4006ED023 /* GGKDayViewController.h */,
+				930D9FD817C758B4006ED023 /* GGKDayViewController.m */,
+				930D9FDA17C7705F006ED023 /* GGKDictatorElectedViewController.h */,
+				930D9FDB17C77060006ED023 /* GGKDictatorElectedViewController.m */,
 				93B1F86417B2BC0D002C2353 /* GGKGameModel.h */,
 				93B1F86517B2BC0D002C2353 /* GGKGameModel.m */,
 				93F0B49417B8C86600224087 /* GGKPlayer.h */,
@@ -132,6 +145,8 @@
 				93B1F86817B43949002C2353 /* GGKSetRolesViewController.m */,
 				9396151617B8AEDE005D6BAB /* GGKStartGameViewController.h */,
 				9396151717B8AEDE005D6BAB /* GGKStartGameViewController.m */,
+				930D9FDD17C774AC006ED023 /* GGKYouAreDictatorViewController.h */,
+				930D9FDE17C774AC006ED023 /* GGKYouAreDictatorViewController.m */,
 				9396151C17B8C6D9005D6BAB /* GGKYourRoleViewController.h */,
 				9396151D17B8C6D9005D6BAB /* GGKYourRoleViewController.m */,
 				9305C78417B2A0900020A156 /* MainStoryboard.storyboard */,
@@ -235,6 +250,9 @@
 				9396151B17B8C6BC005D6BAB /* GGKPregameNightViewController.m in Sources */,
 				9396151E17B8C6DA005D6BAB /* GGKYourRoleViewController.m in Sources */,
 				93F0B49617B8C86600224087 /* GGKPlayer.m in Sources */,
+				930D9FD917C758B4006ED023 /* GGKDayViewController.m in Sources */,
+				930D9FDC17C77060006ED023 /* GGKDictatorElectedViewController.m in Sources */,
+				930D9FDF17C774AC006ED023 /* GGKYouAreDictatorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

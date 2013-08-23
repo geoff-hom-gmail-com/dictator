@@ -438,23 +438,319 @@ line 3</string>
                         <outlet property="otherMembersLabel" destination="dh4-0a-Xtt" id="0Tu-OB-p0W"/>
                         <outlet property="playerNameLabel" destination="ufx-Xz-fT7" id="2pS-H9-Y36"/>
                         <outlet property="roleInfoLabel" destination="TO5-xd-QTV" id="LLi-mv-FpG"/>
-                        <segue destination="J0R-g8-GJH" kind="push" id="0Xv-3A-upS"/>
+                        <segue destination="J0R-g8-GJH" kind="push" identifier="ShowFirstDaySegue" id="0Xv-3A-upS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aHq-3U-XVj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1938" y="46"/>
         </scene>
-        <!--View Controller - Day-->
-        <scene sceneID="196-48-4Tn">
+        <!--Dictator Elected View Controller - Dictator Elected!-->
+        <scene sceneID="l2I-FJ-t8M">
             <objects>
-                <viewController id="J0R-g8-GJH" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ibo-Vy-Ags">
+                <viewController id="CQw-Bd-pLL" customClass="GGKDictatorElectedViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cku-1b-LCu">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Pass the phone to:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Dc-ms-yj4">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ND-Qj-7eJ">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3C-YE-23m">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="215" id="UTs-On-Y6v"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="I am X">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="kgU-wS-rfe" kind="push" id="zdT-ml-il0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2ND-Qj-7eJ" firstAttribute="centerX" secondItem="p3C-YE-23m" secondAttribute="centerX" type="default" id="9C2-Rt-XTW"/>
+                            <constraint firstItem="3Dc-ms-yj4" firstAttribute="top" secondItem="Cku-1b-LCu" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Dga-Dg-BSo"/>
+                            <constraint firstItem="2ND-Qj-7eJ" firstAttribute="top" secondItem="3Dc-ms-yj4" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="DwV-Xe-gqw"/>
+                            <constraint firstItem="3Dc-ms-yj4" firstAttribute="centerX" secondItem="2ND-Qj-7eJ" secondAttribute="centerX" type="default" id="MGy-RP-FYQ"/>
+                            <constraint firstAttribute="trailing" secondItem="2ND-Qj-7eJ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="PAc-58-6jp"/>
+                            <constraint firstItem="2ND-Qj-7eJ" firstAttribute="leading" secondItem="Cku-1b-LCu" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="jfv-9c-9av"/>
+                            <constraint firstItem="p3C-YE-23m" firstAttribute="top" secondItem="Cku-1b-LCu" secondAttribute="top" constant="180" id="uiw-LS-bt7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Dictator Elected!" id="tVj-sp-wWa"/>
+                    <connections>
+                        <outlet property="dictatorNameLabel" destination="2ND-Qj-7eJ" id="0QN-qt-DTY"/>
+                        <outlet property="verifyPlayerButton" destination="p3C-YE-23m" id="Khg-Ep-mX0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pck-vP-5c2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2774" y="46"/>
+        </scene>
+        <!--View Controller - Night-->
+        <scene sceneID="9Vt-1M-C67">
+            <objects>
+                <viewController id="W2u-Be-9lG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gfh-Y0-aDM">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Day" id="CTt-Hg-1Ae"/>
+                    <navigationItem key="navigationItem" title="Night" id="H5a-lh-z5Y"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HXt-vT-11o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2774" y="734"/>
+        </scene>
+        <!--You Are Dictator View Controller - Dictator: X-->
+        <scene sceneID="HNH-o3-Wvg">
+            <objects>
+                <viewController id="kgU-wS-rfe" customClass="GGKYouAreDictatorViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I11-j3-dOh">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GYO-Ht-hFZ">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Exile!">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRS-ui-o8G">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="No exile">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="verifyNoExile" destination="kgU-wS-rfe" eventType="touchUpInside" id="NHt-8o-AVX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="dNa-as-mCD">
+                                <string key="text">X, you are the Dictator!
+
+Your powers allow you to Z.
+Line 4
+Line 5</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="afW-AN-vIY">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="252" id="oDG-9c-y4K"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="PlayerNameCell" id="nYM-Qq-q95">
+                                        <rect key="frame" x="0.0" y="22" width="280" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="kgU-wS-rfe" id="01c-GX-cgv"/>
+                                    <outlet property="delegate" destination="kgU-wS-rfe" id="yDU-ZL-Ip0"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dNa-as-mCD" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="2Kx-pQ-t0V"/>
+                            <constraint firstItem="dNa-as-mCD" firstAttribute="top" secondItem="I11-j3-dOh" secondAttribute="top" constant="20" symbolic="YES" type="default" id="7iw-j9-FCw"/>
+                            <constraint firstItem="dNa-as-mCD" firstAttribute="leading" secondItem="I11-j3-dOh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="AIi-Wn-TeB"/>
+                            <constraint firstAttribute="bottom" secondItem="fRS-ui-o8G" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="PIX-gI-QG2"/>
+                            <constraint firstAttribute="bottom" secondItem="GYO-Ht-hFZ" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="VRr-hp-Gmg"/>
+                            <constraint firstItem="fRS-ui-o8G" firstAttribute="leading" secondItem="I11-j3-dOh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ZJv-5i-HJ2"/>
+                            <constraint firstItem="afW-AN-vIY" firstAttribute="leading" secondItem="I11-j3-dOh" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="f84-fN-ecz"/>
+                            <constraint firstAttribute="trailing" secondItem="afW-AN-vIY" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="fmK-ET-Bqi"/>
+                            <constraint firstAttribute="trailing" secondItem="GYO-Ht-hFZ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="qun-no-M59"/>
+                            <constraint firstItem="afW-AN-vIY" firstAttribute="top" secondItem="dNa-as-mCD" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="rd0-YJ-DjB"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Dictator: X" id="rac-iE-hHw">
+                        <barButtonItem key="rightBarButtonItem" title="Quit" id="A5y-r2-h25">
+                            <connections>
+                                <action selector="verifyQuitGame" destination="kgU-wS-rfe" id="a5j-mq-iG7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dictatorInfoLabel" destination="dNa-as-mCD" id="fvZ-qJ-fVV"/>
+                        <outlet property="exileButton" destination="GYO-Ht-hFZ" id="L3z-yu-FoX"/>
+                        <outlet property="noExileButton" destination="fRS-ui-o8G" id="asO-4c-OPe"/>
+                        <segue destination="W2u-Be-9lG" kind="push" identifier="ShowNightSegue2" id="XrI-Y5-9ZJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A6X-Sz-Bux" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3184" y="46"/>
+        </scene>
+        <!--Day View Controller - Day-->
+        <scene sceneID="196-48-4Tn">
+            <objects>
+                <viewController id="J0R-g8-GJH" customClass="GGKDayViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ibo-Vy-Ags">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Players:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tH-qp-oWH">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="22" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rg5-1l-wVr">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="21" id="ikx-5b-bhT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbg-xf-hQ8">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Elect!">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="electDictator" destination="J0R-g8-GJH" eventType="touchUpInside" id="Jpv-VL-iuJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Votes needed:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nj3-9j-fCY">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="22" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAf-Nc-EUL">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="21" id="5i8-19-Ukw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="il9-cJ-xRr">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="No dictator">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="verifyNoDictator" destination="J0R-g8-GJH" eventType="touchUpInside" id="QBF-xG-xks"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9rT-vw-qBZ">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="252" id="Dv9-AK-beE"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="PlayerNameCell" id="UFR-Vu-5jG">
+                                        <rect key="frame" x="0.0" y="22" width="280" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="J0R-g8-GJH" id="B1M-F0-Gy5"/>
+                                    <outlet property="delegate" destination="J0R-g8-GJH" id="tyo-Rx-jCZ"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Elect a dictator, then select her below." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="239" translatesAutoresizingMaskIntoConstraints="NO" id="DfP-kq-zv8">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7tH-qp-oWH" firstAttribute="top" secondItem="ibo-Vy-Ags" secondAttribute="top" constant="20" symbolic="YES" type="default" id="1PS-lx-1zW"/>
+                            <constraint firstItem="9rT-vw-qBZ" firstAttribute="leading" secondItem="ibo-Vy-Ags" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="2Vr-55-2eb"/>
+                            <constraint firstItem="rg5-1l-wVr" firstAttribute="top" secondItem="ibo-Vy-Ags" secondAttribute="top" constant="20" symbolic="YES" type="default" id="GNJ-aS-Leo"/>
+                            <constraint firstAttribute="trailing" secondItem="UAf-Nc-EUL" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="T6d-ME-qC3"/>
+                            <constraint firstItem="7tH-qp-oWH" firstAttribute="leading" secondItem="ibo-Vy-Ags" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="TCz-35-PLt"/>
+                            <constraint firstAttribute="trailing" secondItem="nj3-9j-fCY" secondAttribute="trailing" constant="44" id="TIF-tx-ja9"/>
+                            <constraint firstItem="9rT-vw-qBZ" firstAttribute="top" secondItem="DfP-kq-zv8" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Zed-ca-0ff"/>
+                            <constraint firstItem="nj3-9j-fCY" firstAttribute="top" secondItem="ibo-Vy-Ags" secondAttribute="top" constant="20" symbolic="YES" type="default" id="a6M-j9-g57"/>
+                            <constraint firstAttribute="trailing" secondItem="9rT-vw-qBZ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ayn-I0-QmE"/>
+                            <constraint firstAttribute="bottom" secondItem="tbg-xf-hQ8" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="ceY-C8-Kq4"/>
+                            <constraint firstItem="DfP-kq-zv8" firstAttribute="leading" secondItem="ibo-Vy-Ags" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="cqc-nG-ic6"/>
+                            <constraint firstAttribute="trailing" secondItem="tbg-xf-hQ8" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="jg2-RJ-lWA"/>
+                            <constraint firstItem="rg5-1l-wVr" firstAttribute="leading" secondItem="ibo-Vy-Ags" secondAttribute="leading" constant="85" id="jqm-NH-s9o"/>
+                            <constraint firstAttribute="bottom" secondItem="il9-cJ-xRr" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="l0v-Fh-Zem"/>
+                            <constraint firstItem="DfP-kq-zv8" firstAttribute="top" secondItem="ibo-Vy-Ags" secondAttribute="top" constant="63" id="lDf-Pj-pE6"/>
+                            <constraint firstItem="il9-cJ-xRr" firstAttribute="leading" secondItem="ibo-Vy-Ags" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="osX-o8-aA7"/>
+                            <constraint firstItem="UAf-Nc-EUL" firstAttribute="top" secondItem="ibo-Vy-Ags" secondAttribute="top" constant="20" symbolic="YES" type="default" id="qud-ij-Rc7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Day" id="CTt-Hg-1Ae">
+                        <barButtonItem key="rightBarButtonItem" title="Quit" id="m6T-it-Vs8">
+                            <connections>
+                                <action selector="verifyQuitGame" destination="J0R-g8-GJH" id="RbC-xg-VN0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="electDictatorButton" destination="tbg-xf-hQ8" id="UOa-1m-8ca"/>
+                        <outlet property="noDictatorButton" destination="il9-cJ-xRr" id="6M1-lJ-Cqe"/>
+                        <outlet property="numberOfPlayersLabel" destination="rg5-1l-wVr" id="6TE-mT-3Ws"/>
+                        <outlet property="numberOfVotesNeededLabel" destination="UAf-Nc-EUL" id="cFp-VZ-sqM"/>
+                        <outlet property="playersTableView" destination="9rT-vw-qBZ" id="YQv-ua-IjG"/>
+                        <segue destination="W2u-Be-9lG" kind="push" identifier="ShowNightSegue" id="3WD-GC-R8T"/>
+                        <segue destination="CQw-Bd-pLL" kind="push" identifier="ShowDictatorElectedSegue" id="tjj-9N-Aph"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yqt-jd-0Wu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -613,6 +909,26 @@ Line 5</string>
                 <relationship kind="outlet" name="playersTableView" candidateClass="UITableView"/>
             </relationships>
         </class>
+        <class className="GGKDayViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKDayViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="electDictator"/>
+                <relationship kind="action" name="verifyNoDictator"/>
+                <relationship kind="action" name="verifyQuitGame"/>
+                <relationship kind="outlet" name="electDictatorButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="noDictatorButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="numberOfPlayersLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numberOfVotesNeededLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="GGKDictatorElectedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKDictatorElectedViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dictatorNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="verifyPlayerButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
         <class className="GGKPregameNightViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKPregameNightViewController.h"/>
             <relationships>
@@ -650,6 +966,16 @@ Line 5</string>
                 <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
             </relationships>
         </class>
+        <class className="GGKYouAreDictatorViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKYouAreDictatorViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="verifyNoExile"/>
+                <relationship kind="action" name="verifyQuitGame"/>
+                <relationship kind="outlet" name="dictatorInfoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="exileButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="noExileButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
         <class className="GGKYourRoleViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GGKYourRoleViewController.h"/>
             <relationships>
@@ -668,4 +994,7 @@ Line 5</string>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="XrI-Y5-9ZJ"/>
+    </inferredMetricsTieBreakers>
 </document>

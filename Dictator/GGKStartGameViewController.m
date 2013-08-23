@@ -50,6 +50,9 @@
         aPlayer.role = theAssignedRole;
         [theAssignedRolesMutableArray removeObject:theAssignedRole];
     }
+    
+    self.gameModel.remainingPlayersMutableArray = [self.gameModel.allPlayersArray mutableCopy];
+    
     self.gameModel.currentPlayer = self.gameModel.allPlayersArray[0];
     
     // Check via log. For testing.

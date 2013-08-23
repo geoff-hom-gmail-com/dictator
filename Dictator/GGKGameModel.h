@@ -10,10 +10,19 @@
 
 #import "GGKPlayer.h"
 
+// Title for alert view for quitting the game.
+extern NSString *QuitGameAlertViewTitleString;
+
 @interface GGKGameModel : NSObject
 
 // Players at the start of the game.
 @property (strong, nonatomic) NSArray *allPlayersArray;
+
+// Non-eliminated players.
+@property (strong, nonatomic) NSMutableArray *remainingPlayersMutableArray;
+
+// The player who's currently dictator.
+@property (strong, nonatomic) GGKPlayer *currentDictatorPlayer;
 
 // The player whose turn it is.
 @property (strong, nonatomic) GGKPlayer *currentPlayer;

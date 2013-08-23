@@ -37,6 +37,9 @@ extern NSString *GGKTraitorKeyString;
 // Description for the role if you are that role. Shown during pregame.
 @property (strong, nonatomic) NSString *youAreBlurb1;
 
+// Description if you are this role and also dictator. Shown after election.
+@property (strong, nonatomic) NSString *youAreDictator1;
+
 // Return the given role from the given array.
 + (GGKRole *)role:(NSString *)theDesiredRoleKey fromArray:(NSArray *)theArray;
 
