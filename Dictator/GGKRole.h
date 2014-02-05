@@ -27,7 +27,8 @@ extern NSString *GGKTraitorKeyString;
 
 // Unique ID for this role.
 @property (strong, nonatomic) NSString *key;
-
+// Long name/title preceded by an article. E.g., "an Innocent Townsperson."
+@property (strong, nonatomic) NSString *longNameWithArticle;
 // Role's name/title. E.g., "Townsperson," "Traitor," "Assassin."
 @property (strong, nonatomic) NSString *name;
 

@@ -8,18 +8,13 @@
 
 #import "GGKStartGameViewController.h"
 
-#import "GGKAppDelegate.h"
 #import "GGKGameModel.h"
 #import "GGKPlayer.h"
 #import "GGKRole.h"
 
 @interface GGKStartGameViewController ()
-
-@property (strong, nonatomic) GGKGameModel *gameModel;
-
 // Number of (plain) Townspeople in the game.
 @property (assign, nonatomic) NSInteger numberOfTownspeople;
-
 @end
 
 @implementation GGKStartGameViewController
@@ -63,16 +58,6 @@
     
     [self performSegueWithIdentifier:@"ShowPregameSegue" sender:self];
 }
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
-    GGKAppDelegate *theAppDelegate = (GGKAppDelegate *)[UIApplication sharedApplication].delegate;
-    self.gameModel = theAppDelegate.gameModel;
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];

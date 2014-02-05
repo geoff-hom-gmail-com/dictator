@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GGKYourRoleViewController : UIViewController
+#import "GGKViewController.h"
+
+@interface GGKYourRoleViewController : GGKViewController
 
 // Name of the player.
 @property (strong, nonatomic) IBOutlet UILabel *playerNameLabel;

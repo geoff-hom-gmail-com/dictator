@@ -32,53 +32,41 @@ NSString *GGKTraitorKeyString = @"Traitor";
     return theDesiredRole;
 }
 
-- (id)initWithType:(NSString *)theRoleKey
-{
+- (id)initWithType:(NSString *)theRoleKey {
     self = [super init];
     if (self) {
-        
-        if ([theRoleKey isEqualToString:GGKTownspersonKeyString]) {
-            
-            self.key = theRoleKey;
+        self.key = theRoleKey;
+        self.isTraitor = NO;
+        self.youAreDictator1 = @"You may pick one player to exile.";
+        self.startingCount = 0;
+        if ([self.key isEqualToString:GGKTownspersonKeyString]) {
             self.name = @"Townsperson";
-            self.isTraitor = NO;
+            self.longNameWithArticle = [NSString stringWithFormat:@"an Innocent %@", self.name];
             self.blurb1 = @"(Towns.) Townsperson blurb here";
             self.youAreBlurb1 = @"You are an Innocent Townsperson."
               "\n\nDuring the night, you have no action."
               "\n\nYou win with the Town.";
-            self.youAreDictator1 = @"Your powers allow you to X.";
-            self.startingCount = 0;
-        } else if ([theRoleKey isEqualToString:GGKTraitorKeyString]) {
-            
-            self.key = theRoleKey;
+        } else if ([self.key isEqualToString:GGKTraitorKeyString]) {
             self.name = @"Traitor";
+            self.longNameWithArticle = [NSString stringWithFormat:@"a %@", self.name];
             self.isTraitor = YES;
             self.blurb1 = @"(Trait.) Traitor blurb1 here";
             self.youAreBlurb1 = @"You are a Traitor."
             "\n\nDuring the night, you and the other Traitors choose one player to kill."
             "\n\nYou win with the Traitors.";
-            self.youAreDictator1 = @"Your powers allow you to X.";
-            self.startingCount = 0;
-        } else if ([theRoleKey isEqualToString:GGKAssassinKeyString]) {
-            
-            self.key = theRoleKey;
+        } else if ([self.key isEqualToString:GGKAssassinKeyString]) {
             self.name = @"Assassin";
+            self.longNameWithArticle = [NSString stringWithFormat:@"an %@", self.name];
             self.isTraitor = YES;
             self.blurb1 = @"(Trait.) Assassin blurb1 here";
-            self.startingCount = 0;
-        } else if ([theRoleKey isEqualToString:GGKDoctorKeyString]) {
-            
-            self.key = theRoleKey;
+        } else if ([self.key isEqualToString:GGKDoctorKeyString]) {
             self.name = @"Doctor";
-            self.isTraitor = NO;
+            self.longNameWithArticle = [NSString stringWithFormat:@"a %@", self.name];
             self.blurb1 = @"(Towns.) Doctor blurb1 here";
-            self.startingCount = 0;
         } else {
-            
-            NSLog(@"Warning: unknown role:%@", theRoleKey);
+            NSLog(@"Warning: unknown role:%@", self.key);
         }
     }
     return self;
 }
-
 @end

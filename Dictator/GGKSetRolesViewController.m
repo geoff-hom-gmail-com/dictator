@@ -8,7 +8,6 @@
 
 #import "GGKSetRolesViewController.h"
 
-#import "GGKAppDelegate.h"
 #import "GGKGameModel.h"
 #import "GGKRole.h"
 #import "GGKRoleInfoViewController.h"
@@ -23,9 +22,6 @@
 
 // Roles the user specifically added to this game.
 @property (strong, nonatomic) NSMutableArray *explicitlyAssignedRolesMutableArray;
-
-@property (strong, nonatomic) GGKGameModel *gameModel;
-
 // Number of players in this game.
 @property (assign, nonatomic) NSInteger numberOfPlayersInteger;
 
@@ -231,16 +227,10 @@
     [self.assignedRolesTableView reloadData];
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
     // Get number of players from model.
-    
-    GGKAppDelegate *theAppDelegate = (GGKAppDelegate *)[UIApplication sharedApplication].delegate;
-    self.gameModel = theAppDelegate.gameModel;
-    
     self.numberOfPlayersInteger = [self.gameModel.allPlayersArray count];
     self.numberOfPlayersLabel.text = [NSString stringWithFormat:@"%d", self.numberOfPlayersInteger];
     

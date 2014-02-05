@@ -472,10 +472,10 @@ line 3</string>
             </objects>
             <point key="canvasLocation" x="2774" y="46"/>
         </scene>
-        <!--View Controller - Night-->
+        <!--Night View Controller - Night-->
         <scene sceneID="9Vt-1M-C67">
             <objects>
-                <viewController id="W2u-Be-9lG" sceneMemberID="viewController">
+                <viewController id="W2u-Be-9lG" customClass="GGKNightViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zNh-LK-3jl"/>
                         <viewControllerLayoutGuide type="bottom" id="Tj5-ld-Zjd"/>
@@ -483,13 +483,39 @@ line 3</string>
                     <view key="view" contentMode="scaleToFill" id="gfh-Y0-aDM">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Pass the phone to:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWK-Xa-7aC">
+                                <rect key="frame" x="88" y="20" width="145" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X87-Ai-70n">
+                                <rect key="frame" x="20" y="49" width="280" height="22"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euZ-1D-1rE">
+                                <rect key="frame" x="53" y="180" width="215" height="44"/>
+                                <state key="normal" title="I am X">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Night" id="H5a-lh-z5Y"/>
+                    <navigationItem key="navigationItem" title="Night" id="H5a-lh-z5Y">
+                        <barButtonItem key="rightBarButtonItem" title="Quit" id="sGR-ig-No7">
+                            <connections>
+                                <action selector="verifyQuitGame" destination="W2u-Be-9lG" id="on2-TD-0iZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HXt-vT-11o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2774" y="734"/>
+            <point key="canvasLocation" x="2360" y="722"/>
         </scene>
         <!--You Are Dictator View Controller - Dictator: X-->
         <scene sceneID="HNH-o3-Wvg">
@@ -511,6 +537,9 @@ line 3</string>
                                 <state key="disabled">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="verifyExile" destination="kgU-wS-rfe" eventType="touchUpInside" id="Lz6-qL-HEc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRS-ui-o8G">
                                 <rect key="frame" x="20" y="353" width="81" height="44"/>
@@ -583,12 +612,69 @@ Line 5</string>
                         <outlet property="dictatorInfoLabel" destination="dNa-as-mCD" id="fvZ-qJ-fVV"/>
                         <outlet property="exileButton" destination="GYO-Ht-hFZ" id="L3z-yu-FoX"/>
                         <outlet property="noExileButton" destination="fRS-ui-o8G" id="asO-4c-OPe"/>
+                        <outlet property="playersTableView" destination="afW-AN-vIY" id="yXh-Tq-sYr"/>
                         <segue destination="W2u-Be-9lG" kind="push" identifier="ShowNightSegue2" id="XrI-Y5-9ZJ"/>
+                        <segue destination="eiH-Vr-GA1" kind="push" identifier="ExileSegue1" id="pT4-kd-9Eo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A6X-Sz-Bux" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3184" y="46"/>
+        </scene>
+        <!--Exiled View Controller - Exiled-->
+        <scene sceneID="rB2-2r-SjP">
+            <objects>
+                <viewController id="eiH-Vr-GA1" customClass="GGKExiledViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="naT-JS-TMY"/>
+                        <viewControllerLayoutGuide type="bottom" id="CgJ-Dh-gSc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h6w-EO-AtN">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="X was exiled!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VeE-Gs-8HL">
+                                <rect key="frame" x="20" y="20" width="280" height="22"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="tOF-AA-VlP">
+                                <rect key="frame" x="20" y="50" width="280" height="91"/>
+                                <string key="text">X was an Innocent Townsperson.
+X was a Traitor.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdg-CX-KGK">
+                                <rect key="frame" x="108" y="264" width="105" height="44"/>
+                                <state key="normal" title="Go to Night">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="askForNextPlayerOrEnd" destination="Sm9-4s-thj" eventType="touchUpInside" id="Wti-Xh-Si4"/>
+                                    <segue destination="W2u-Be-9lG" kind="push" id="QID-sY-Pej"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reveal this to all." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdB-Jj-eJ1">
+                                <rect key="frame" x="91" y="149" width="139" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Exiled" id="f6B-k5-pao"/>
+                    <connections>
+                        <outlet property="exiledPlayerLabel" destination="VeE-Gs-8HL" id="poy-ai-2LN"/>
+                        <outlet property="exiledRoleLabel" destination="tOF-AA-VlP" id="SOh-Xj-wnX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oVQ-yY-tSc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3636" y="8"/>
         </scene>
         <!--Day View Controller - Day-->
         <scene sceneID="196-48-4Tn">
@@ -871,6 +957,6 @@ Line 5</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="3WD-GC-R8T"/>
+        <segue reference="QID-sY-Pej"/>
     </inferredMetricsTieBreakers>
 </document>

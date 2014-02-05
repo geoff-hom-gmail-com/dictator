@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GGKAddPlayersViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+#import "GGKViewController.h"
+
+@interface GGKAddPlayersViewController : GGKViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 // Number of players currently in the game.
 @property (strong, nonatomic) IBOutlet UILabel *numberOfPlayersLabel;

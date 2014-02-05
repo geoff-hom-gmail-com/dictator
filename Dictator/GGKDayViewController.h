@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GGKDayViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+#import "GGKViewController.h"
+
+@interface GGKDayViewController : GGKViewController <UITableViewDataSource, UITableViewDelegate>
 
 // User taps button to elect dictator.
 @property (strong, nonatomic) IBOutlet UIButton *electDictatorButton;
@@ -25,7 +27,8 @@
 
 // List of remaining players.
 @property (strong, nonatomic) IBOutlet UITableView *playersTableView;
-// User handled alert. Could be no dictator. Could be quit game. Could be time up for electing dictator.
+// Override.
+// User handled alert. Could be no dictator. Could be time up for electing dictator.
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
 // Store info and show next screen.
 - (IBAction)electDictator;
@@ -39,10 +42,6 @@
 
 // Make sure player wants to elect no dictator.
 - (IBAction)verifyNoDictator;
-
-// Make sure player wants to end the game.
-- (IBAction)verifyQuitGame;
-
 // Override.
 - (void)viewDidLoad;
 // Override.

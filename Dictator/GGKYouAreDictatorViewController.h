@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GGKYouAreDictatorViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+#import "GGKViewController.h"
+
+@interface GGKYouAreDictatorViewController : GGKViewController <UITableViewDataSource, UITableViewDelegate>
 
 // Info for the given player as dictator.
 @property (strong, nonatomic) IBOutlet UILabel *dictatorInfoLabel;
@@ -18,23 +20,21 @@
 
 // To exile no one.
 @property (strong, nonatomic) IBOutlet UIButton *noExileButton;
-
+// List of remaining players.
+@property (strong, nonatomic) IBOutlet UITableView *playersTableView;
+// Override.
+// User handled alert. Could be no exile. Could be exile.
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
-// So, if user confirmed an action, do it.
-
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath;
 
 - (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)theIndexPath;
 // So, enable/disable buttons accordingly.
 
 - (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)theSection;
-
+// Make sure dictator wants to exile selected person.
+- (IBAction)verifyExile;
 // Make sure player wants to exile no one.
 - (IBAction)verifyNoExile;
-
-// Make sure player wants to end the game.
-- (IBAction)verifyQuitGame;
-
 // Override.
 - (void)viewDidLoad;
 

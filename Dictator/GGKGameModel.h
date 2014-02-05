@@ -10,9 +10,6 @@
 
 #import "GGKPlayer.h"
 
-// Title for alert view for quitting the game.
-extern NSString *QuitGameAlertViewTitleString;
-
 @interface GGKGameModel : NSObject
 
 // Players at the start of the game.
@@ -26,7 +23,8 @@ extern NSString *QuitGameAlertViewTitleString;
 
 // The player whose turn it is.
 @property (strong, nonatomic) GGKPlayer *currentPlayer;
-
+// Player currently being targeted (for exile, etc.)
+@property (strong, nonatomic) GGKPlayer *currentlySelectedPlayer;
 // Roles assigned to a specific game.
 // Story: User assigns some roles, then adds/removes players, then comes back. User expects previously assigned roles to still be there.
 @property (strong, nonatomic) NSArray *explicitlyAssignedRolesArray;

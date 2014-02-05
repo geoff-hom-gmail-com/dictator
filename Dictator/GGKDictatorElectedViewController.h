@@ -8,15 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GGKDictatorElectedViewController : UIViewController
+#import "GGKViewController.h"
 
+@interface GGKDictatorElectedViewController : GGKViewController
 // Name of the current dictator.
 @property (strong, nonatomic) IBOutlet UILabel *dictatorNameLabel;
-
 // If player is dictator, she taps this button.
 @property (strong, nonatomic) IBOutlet UIButton *verifyPlayerButton;
-
 // Override.
 - (void)viewDidLoad;
-
 @end

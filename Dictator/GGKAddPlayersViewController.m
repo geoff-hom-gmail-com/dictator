@@ -8,13 +8,12 @@
 
 #import "GGKAddPlayersViewController.h"
 
-#import "GGKAppDelegate.h"
 #import "GGKGameModel.h"
 #import "GGKPlayer.h"
 
 @interface GGKAddPlayersViewController ()
 
-@property (strong, nonatomic) GGKGameModel *gameModel;
+//@property (strong, nonatomic) GGKGameModel *gameModel;
 
 // All players in the game.
 @property (strong, nonatomic) NSMutableArray *currentPlayersMutableArray;
@@ -106,19 +105,12 @@
     self.numberOfPlayersLabel.text = [NSString stringWithFormat:@"%d", [self.currentPlayersMutableArray count]];
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
     // Get players from model.
-    
-    GGKAppDelegate *theAppDelegate = (GGKAppDelegate *)[UIApplication sharedApplication].delegate;
-    self.gameModel = theAppDelegate.gameModel;
-    
     self.currentPlayersMutableArray = [self.gameModel.allPlayersArray mutableCopy];
     [self updateNumberOfPlayersLabel];
-    
     // Put table into editing mode.
     [self.playersTableView setEditing:YES animated:NO];
 }

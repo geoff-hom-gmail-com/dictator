@@ -8,39 +8,29 @@
 
 #import "GGKYouAreDictatorViewController.h"
 
-#import "GGKAppDelegate.h"
 #import "GGKGameModel.h"
 
 NSString *NoExileAlertViewTitleString = @"No Exile";
 
 @interface GGKYouAreDictatorViewController ()
-
-@property (strong, nonatomic) GGKGameModel *gameModel;
-
 @end
 
 @implementation GGKYouAreDictatorViewController
-
-- (void)alertView:(UIAlertView *)theAlertView clickedButtonAtIndex:(NSInteger)theButtonIndex
-{
-    if ([theAlertView.title isEqualToString:QuitGameAlertViewTitleString]) {
-        
+- (void)alertView:(UIAlertView *)theAlertView clickedButtonAtIndex:(NSInteger)theButtonIndex {
+    [super alertView:theAlertView clickedButtonAtIndex:theButtonIndex];
+    if ([theAlertView.title isEqualToString:NoExileAlertViewTitleString]) {
         if ([[theAlertView buttonTitleAtIndex:theButtonIndex] isEqualToString:@"OK"]) {
-            
-            // Return to start-game screen.
-            UIViewController *theDesiredViewController = self.navigationController.viewControllers[1];
-            [self.navigationController popToViewController:theDesiredViewController animated:YES];
-        }
-    } else if ([theAlertView.title isEqualToString:NoExileAlertViewTitleString]) {
-        
-        if ([[theAlertView buttonTitleAtIndex:theButtonIndex] isEqualToString:@"OK"]) {
-            
             // Go to night.
             [self performSegueWithIdentifier:@"ShowNightSegue2" sender:self];
         }
+    } else if (theAlertView.message == nil) {
+        // If "Exile X?" alert view and dictator said OK, then exile selected player.
+        if ([[theAlertView buttonTitleAtIndex:theButtonIndex] isEqualToString:@"OK"]) {
+            [self.gameModel.remainingPlayersMutableArray removeObject:self.gameModel.currentlySelectedPlayer];
+            [self performSegueWithIdentifier:@"ExileSegue1" sender:self];
+        }
     }
 }
-
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath
 {
     static NSString *PlayerCellIdentifier = @"PlayerNameCell";
@@ -66,33 +56,25 @@ NSString *NoExileAlertViewTitleString = @"No Exile";
 {
     return [self.gameModel.remainingPlayersMutableArray count];
 }
-
-- (IBAction)verifyNoExile
-{
+- (IBAction)verifyExile {
+    NSIndexPath *anIndexPath = [self.playersTableView indexPathForSelectedRow];
+    self.gameModel.currentlySelectedPlayer = [self.gameModel.remainingPlayersMutableArray objectAtIndex:anIndexPath.row];
+    NSString *theAlertTitleString = [NSString stringWithFormat:@"Exile %@?", self.gameModel.currentlySelectedPlayer.name];
+    UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:theAlertTitleString message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    [anAlertView show];
+}
+- (IBAction)verifyNoExile {
     UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:NoExileAlertViewTitleString message:@"Exile no one today?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [anAlertView show];
 }
 
-- (IBAction)verifyQuitGame
-{
-    UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:QuitGameAlertViewTitleString message:@"End this game and return to the main menu?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-    [anAlertView show];
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    GGKAppDelegate *theAppDelegate = (GGKAppDelegate *)[UIApplication sharedApplication].delegate;
-    self.gameModel = theAppDelegate.gameModel;
-    
     self.navigationItem.hidesBackButton = YES;
     GGKPlayer *theDictatorPlayer = self.gameModel.currentDictatorPlayer;
     self.navigationItem.title = [NSString stringWithFormat:@"Dictator: %@!", theDictatorPlayer.name];
-    
     self.dictatorInfoLabel.text = [NSString stringWithFormat:@"%@, you are the Dictator! %@", theDictatorPlayer.name, theDictatorPlayer.role.youAreDictator1];
-    
     self.noExileButton.enabled = YES;
     self.exileButton.enabled = NO;
 }

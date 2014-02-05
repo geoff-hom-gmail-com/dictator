@@ -10,8 +10,6 @@
 
 #import "GGKRole.h"
 
-NSString *QuitGameAlertViewTitleString = @"Quit Game";
-
 @implementation GGKGameModel
 
 - (id)init

@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GGKSetRolesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+#import "GGKViewController.h"
+
+@interface GGKSetRolesViewController : GGKViewController <UITableViewDataSource, UITableViewDelegate>
 
 // Assign 1 of the selected role to this game.
 @property (strong, nonatomic) IBOutlet UIButton *addRoleButton;

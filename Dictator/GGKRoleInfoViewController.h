@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "GGKViewController.h"
 @class GGKRole;
 
-@interface GGKRoleInfoViewController : UIViewController
+@interface GGKRoleInfoViewController : GGKViewController
 
 // The role to display info about.
 @property (strong, nonatomic) GGKRole *role;
