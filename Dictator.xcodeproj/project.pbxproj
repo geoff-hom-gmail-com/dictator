@@ -17,7 +17,6 @@
 		9305C78117B2A0900020A156 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9305C78017B2A0900020A156 /* Default@2x.png */; };
 		9305C78317B2A0900020A156 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9305C78217B2A0900020A156 /* Default-568h@2x.png */; };
 		9305C78617B2A0900020A156 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9305C78417B2A0900020A156 /* MainStoryboard.storyboard */; };
-		9305C78917B2A0900020A156 /* GGKRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9305C78817B2A0900020A156 /* GGKRootViewController.m */; };
 		930D9FD917C758B4006ED023 /* GGKDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 930D9FD817C758B4006ED023 /* GGKDayViewController.m */; };
 		930D9FDC17C77060006ED023 /* GGKDictatorElectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 930D9FDB17C77060006ED023 /* GGKDictatorElectedViewController.m */; };
 		930D9FDF17C774AC006ED023 /* GGKYouAreDictatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 930D9FDE17C774AC006ED023 /* GGKYouAreDictatorViewController.m */; };
@@ -31,6 +30,7 @@
 		93B1F86617B2BC0D002C2353 /* GGKGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B1F86517B2BC0D002C2353 /* GGKGameModel.m */; };
 		93B1F86917B43949002C2353 /* GGKSetRolesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B1F86817B43949002C2353 /* GGKSetRolesViewController.m */; };
 		93F0B49617B8C86600224087 /* GGKPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F0B49517B8C86600224087 /* GGKPlayer.m */; };
+		93F5ECA918A1CC5900248022 /* NSDate+GGKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F5ECA818A1CC5900248022 /* NSDate+GGKAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,8 +48,6 @@
 		9305C78017B2A0900020A156 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		9305C78217B2A0900020A156 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9305C78517B2A0900020A156 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		9305C78717B2A0900020A156 /* GGKRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGKRootViewController.h; sourceTree = "<group>"; };
-		9305C78817B2A0900020A156 /* GGKRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGKRootViewController.m; sourceTree = "<group>"; };
 		930D9FD717C758B4006ED023 /* GGKDayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKDayViewController.h; sourceTree = "<group>"; };
 		930D9FD817C758B4006ED023 /* GGKDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKDayViewController.m; sourceTree = "<group>"; };
 		930D9FDA17C7705F006ED023 /* GGKDictatorElectedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKDictatorElectedViewController.h; sourceTree = "<group>"; };
@@ -75,6 +73,8 @@
 		93B1F86817B43949002C2353 /* GGKSetRolesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSetRolesViewController.m; sourceTree = "<group>"; };
 		93F0B49417B8C86600224087 /* GGKPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPlayer.h; sourceTree = "<group>"; };
 		93F0B49517B8C86600224087 /* GGKPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPlayer.m; sourceTree = "<group>"; };
+		93F5ECA718A1CC5900248022 /* NSDate+GGKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+GGKAdditions.h"; sourceTree = "<group>"; };
+		93F5ECA818A1CC5900248022 /* NSDate+GGKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+GGKAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,8 +139,6 @@
 				9321B43817B72C6800A612CA /* GGKRole.m */,
 				9321B43A17B7445A00A612CA /* GGKRoleInfoViewController.h */,
 				9321B43B17B7445A00A612CA /* GGKRoleInfoViewController.m */,
-				9305C78717B2A0900020A156 /* GGKRootViewController.h */,
-				9305C78817B2A0900020A156 /* GGKRootViewController.m */,
 				93B1F86717B43949002C2353 /* GGKSetRolesViewController.h */,
 				93B1F86817B43949002C2353 /* GGKSetRolesViewController.m */,
 				9396151617B8AEDE005D6BAB /* GGKStartGameViewController.h */,
@@ -150,6 +148,8 @@
 				9396151C17B8C6D9005D6BAB /* GGKYourRoleViewController.h */,
 				9396151D17B8C6D9005D6BAB /* GGKYourRoleViewController.m */,
 				9305C78417B2A0900020A156 /* MainStoryboard.storyboard */,
+				93F5ECA718A1CC5900248022 /* NSDate+GGKAdditions.h */,
+				93F5ECA818A1CC5900248022 /* NSDate+GGKAdditions.m */,
 				9305C77317B2A0900020A156 /* Supporting Files */,
 			);
 			path = Dictator;
@@ -240,12 +240,12 @@
 			files = (
 				9305C77917B2A0900020A156 /* main.m in Sources */,
 				9305C77D17B2A0900020A156 /* GGKAppDelegate.m in Sources */,
-				9305C78917B2A0900020A156 /* GGKRootViewController.m in Sources */,
 				93B1F86317B2BA49002C2353 /* GGKAddPlayersViewController.m in Sources */,
 				93B1F86617B2BC0D002C2353 /* GGKGameModel.m in Sources */,
 				93B1F86917B43949002C2353 /* GGKSetRolesViewController.m in Sources */,
 				9321B43917B72C6800A612CA /* GGKRole.m in Sources */,
 				9321B43C17B7445A00A612CA /* GGKRoleInfoViewController.m in Sources */,
+				93F5ECA918A1CC5900248022 /* NSDate+GGKAdditions.m in Sources */,
 				9396151817B8AEDE005D6BAB /* GGKStartGameViewController.m in Sources */,
 				9396151B17B8C6BC005D6BAB /* GGKPregameNightViewController.m in Sources */,
 				9396151E17B8C6DA005D6BAB /* GGKYourRoleViewController.m in Sources */,
@@ -368,7 +368,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;

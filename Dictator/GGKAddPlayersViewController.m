@@ -34,6 +34,8 @@
     static NSString *PlayerCellIdentifier = @"PlayerNameCell";
     
     UITableViewCell *aTableViewCell = [theTableView dequeueReusableCellWithIdentifier:PlayerCellIdentifier];
+    
+    // should not need this; test
     if (aTableViewCell == nil) {
         
         aTableViewCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PlayerCellIdentifier];

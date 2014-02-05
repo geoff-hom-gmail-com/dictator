@@ -12,7 +12,8 @@
 
 // User taps button to elect dictator.
 @property (strong, nonatomic) IBOutlet UIButton *electDictatorButton;
-
+// If the time shown reaches 0, no dictator is elected.
+@property (strong, nonatomic) IBOutlet UILabel *electDictatorTimerLabel;
 // User taps button to elect no dictator. (Go directly to night phase.)
 @property (strong, nonatomic) IBOutlet UIButton *noDictatorButton;
 
@@ -24,10 +25,8 @@
 
 // List of remaining players.
 @property (strong, nonatomic) IBOutlet UITableView *playersTableView;
-
+// User handled alert. Could be no dictator. Could be quit game. Could be time up for electing dictator.
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
-// So, if user confirmed no dictator, do so.
-
 // Store info and show next screen.
 - (IBAction)electDictator;
 
@@ -46,5 +45,7 @@
 
 // Override.
 - (void)viewDidLoad;
-
+// Override.
+// Cancel any timer.
+- (void)viewWillDisappear:(BOOL)animated;
 @end
