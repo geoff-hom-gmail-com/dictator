@@ -57,6 +57,7 @@ NSString *TimeIsUpAlertViewTitleString = @"Time's Up!";
     NSIndexPath *anIndexPath = [self.playersTableView indexPathForSelectedRow];
     GGKPlayer *aPlayer = [self.gameModel.remainingPlayersMutableArray objectAtIndex:anIndexPath.row];
     self.gameModel.currentDictatorPlayer = aPlayer;
+    self.gameModel.currentPlayer = aPlayer;
     
     [self performSegueWithIdentifier:@"ShowDictatorElectedSegue" sender:self];
 }
@@ -125,6 +126,7 @@ NSString *TimeIsUpAlertViewTitleString = @"Time's Up!";
     self.navigationItem.hidesBackButton = YES;
 }
 - (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     [self cancelCountingTimer];
 }
 @end

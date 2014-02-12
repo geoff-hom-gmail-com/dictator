@@ -29,6 +29,10 @@
 		93B1F86317B2BA49002C2353 /* GGKAddPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B1F86217B2BA49002C2353 /* GGKAddPlayersViewController.m */; };
 		93B1F86617B2BC0D002C2353 /* GGKGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B1F86517B2BC0D002C2353 /* GGKGameModel.m */; };
 		93B1F86917B43949002C2353 /* GGKSetRolesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B1F86817B43949002C2353 /* GGKSetRolesViewController.m */; };
+		93D9CA0318AB268600060531 /* GGKTownspersonNightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D9CA0218AB268600060531 /* GGKTownspersonNightViewController.m */; };
+		93D9CA0618AB26B800060531 /* GGKTraitorNightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D9CA0518AB26B800060531 /* GGKTraitorNightViewController.m */; };
+		93D9CA0918AB2A6E00060531 /* GGKNightSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D9CA0818AB2A6E00060531 /* GGKNightSummaryViewController.m */; };
+		93D9CA0C18AB313300060531 /* GGKAbstractRoleNightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D9CA0B18AB313300060531 /* GGKAbstractRoleNightViewController.m */; };
 		93F0B49617B8C86600224087 /* GGKPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F0B49517B8C86600224087 /* GGKPlayer.m */; };
 		93F5ECA918A1CC5900248022 /* NSDate+GGKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F5ECA818A1CC5900248022 /* NSDate+GGKAdditions.m */; };
 		93F5ECAC18A1FA5F00248022 /* GGKExiledViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F5ECAB18A1FA5E00248022 /* GGKExiledViewController.m */; };
@@ -74,6 +78,14 @@
 		93B1F86517B2BC0D002C2353 /* GGKGameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKGameModel.m; sourceTree = "<group>"; };
 		93B1F86717B43949002C2353 /* GGKSetRolesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSetRolesViewController.h; sourceTree = "<group>"; };
 		93B1F86817B43949002C2353 /* GGKSetRolesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSetRolesViewController.m; sourceTree = "<group>"; };
+		93D9CA0118AB268600060531 /* GGKTownspersonNightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKTownspersonNightViewController.h; sourceTree = "<group>"; };
+		93D9CA0218AB268600060531 /* GGKTownspersonNightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKTownspersonNightViewController.m; sourceTree = "<group>"; };
+		93D9CA0418AB26B800060531 /* GGKTraitorNightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKTraitorNightViewController.h; sourceTree = "<group>"; };
+		93D9CA0518AB26B800060531 /* GGKTraitorNightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKTraitorNightViewController.m; sourceTree = "<group>"; };
+		93D9CA0718AB2A6E00060531 /* GGKNightSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKNightSummaryViewController.h; sourceTree = "<group>"; };
+		93D9CA0818AB2A6E00060531 /* GGKNightSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKNightSummaryViewController.m; sourceTree = "<group>"; };
+		93D9CA0A18AB313300060531 /* GGKAbstractRoleNightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKAbstractRoleNightViewController.h; sourceTree = "<group>"; };
+		93D9CA0B18AB313300060531 /* GGKAbstractRoleNightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKAbstractRoleNightViewController.m; sourceTree = "<group>"; };
 		93F0B49417B8C86600224087 /* GGKPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPlayer.h; sourceTree = "<group>"; };
 		93F0B49517B8C86600224087 /* GGKPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPlayer.m; sourceTree = "<group>"; };
 		93F5ECA718A1CC5900248022 /* NSDate+GGKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+GGKAdditions.h"; sourceTree = "<group>"; };
@@ -130,6 +142,8 @@
 		9305C77217B2A0900020A156 /* Dictator */ = {
 			isa = PBXGroup;
 			children = (
+				93D9CA0A18AB313300060531 /* GGKAbstractRoleNightViewController.h */,
+				93D9CA0B18AB313300060531 /* GGKAbstractRoleNightViewController.m */,
 				93B1F86117B2BA49002C2353 /* GGKAddPlayersViewController.h */,
 				93B1F86217B2BA49002C2353 /* GGKAddPlayersViewController.m */,
 				9305C77B17B2A0900020A156 /* GGKAppDelegate.h */,
@@ -142,6 +156,8 @@
 				93F5ECAB18A1FA5E00248022 /* GGKExiledViewController.m */,
 				93B1F86417B2BC0D002C2353 /* GGKGameModel.h */,
 				93B1F86517B2BC0D002C2353 /* GGKGameModel.m */,
+				93D9CA0718AB2A6E00060531 /* GGKNightSummaryViewController.h */,
+				93D9CA0818AB2A6E00060531 /* GGKNightSummaryViewController.m */,
 				93F5ECAD18A208F000248022 /* GGKNightViewController.h */,
 				93F5ECAE18A208F000248022 /* GGKNightViewController.m */,
 				93F0B49417B8C86600224087 /* GGKPlayer.h */,
@@ -156,6 +172,10 @@
 				93B1F86817B43949002C2353 /* GGKSetRolesViewController.m */,
 				9396151617B8AEDE005D6BAB /* GGKStartGameViewController.h */,
 				9396151717B8AEDE005D6BAB /* GGKStartGameViewController.m */,
+				93D9CA0118AB268600060531 /* GGKTownspersonNightViewController.h */,
+				93D9CA0218AB268600060531 /* GGKTownspersonNightViewController.m */,
+				93D9CA0418AB26B800060531 /* GGKTraitorNightViewController.h */,
+				93D9CA0518AB26B800060531 /* GGKTraitorNightViewController.m */,
 				93F5ECB018A2112800248022 /* GGKViewController.h */,
 				93F5ECB118A2112800248022 /* GGKViewController.m */,
 				930D9FDD17C774AC006ED023 /* GGKYouAreDictatorViewController.h */,
@@ -254,10 +274,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9305C77917B2A0900020A156 /* main.m in Sources */,
+				93D9CA0618AB26B800060531 /* GGKTraitorNightViewController.m in Sources */,
 				93F5ECAF18A208F000248022 /* GGKNightViewController.m in Sources */,
+				93D9CA0918AB2A6E00060531 /* GGKNightSummaryViewController.m in Sources */,
 				9305C77D17B2A0900020A156 /* GGKAppDelegate.m in Sources */,
 				93B1F86317B2BA49002C2353 /* GGKAddPlayersViewController.m in Sources */,
 				93B1F86617B2BC0D002C2353 /* GGKGameModel.m in Sources */,
+				93D9CA0318AB268600060531 /* GGKTownspersonNightViewController.m in Sources */,
 				93B1F86917B43949002C2353 /* GGKSetRolesViewController.m in Sources */,
 				9321B43917B72C6800A612CA /* GGKRole.m in Sources */,
 				9321B43C17B7445A00A612CA /* GGKRoleInfoViewController.m in Sources */,
@@ -267,6 +290,7 @@
 				9396151817B8AEDE005D6BAB /* GGKStartGameViewController.m in Sources */,
 				9396151B17B8C6BC005D6BAB /* GGKPregameNightViewController.m in Sources */,
 				9396151E17B8C6DA005D6BAB /* GGKYourRoleViewController.m in Sources */,
+				93D9CA0C18AB313300060531 /* GGKAbstractRoleNightViewController.m in Sources */,
 				93F0B49617B8C86600224087 /* GGKPlayer.m in Sources */,
 				930D9FD917C758B4006ED023 /* GGKDayViewController.m in Sources */,
 				930D9FDC17C77060006ED023 /* GGKDictatorElectedViewController.m in Sources */,
@@ -403,6 +427,7 @@
 		93B1F85E17B2A620002C2353 /* user-testing */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dictator/Dictator-Prefix.pch";
 				INFOPLIST_FILE = "Dictator/Dictator-Info.plist";
