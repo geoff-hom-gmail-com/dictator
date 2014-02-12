@@ -13,8 +13,6 @@
 
 @interface GGKAddPlayersViewController ()
 
-//@property (strong, nonatomic) GGKGameModel *gameModel;
-
 // All players in the game.
 @property (strong, nonatomic) NSMutableArray *currentPlayersMutableArray;
 

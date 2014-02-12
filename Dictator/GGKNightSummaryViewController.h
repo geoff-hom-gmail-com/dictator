@@ -8,12 +8,9 @@
 
 #import "GGKViewController.h"
 
-// summarize what happened at night. possibilities:
-// no one was killed (or disappeared?)
-// one (or more) people were killed/disappeared
-// if latter, need to say who and their roles
-
 @interface GGKNightSummaryViewController : GGKViewController
+// Text view for reporting what happened last night.
+@property (strong, nonatomic) IBOutlet UITextView *summaryTextView;
 // Override.
 - (void)viewDidLoad;
 @end

@@ -11,14 +11,12 @@
 #import "GGKRole.h"
 
 @interface GGKPlayer : NSObject
-
 // Player's name.
 @property (strong, nonatomic) NSString *name;
-
+// The number of elimination votes this player received last night.
+@property (assign, nonatomic) NSInteger numberOfVotesThisRoundInteger;
 // Player's role in the current game.
 @property (strong, nonatomic) GGKRole *role;
-
 // Override.
 - (id)init;
-
 @end

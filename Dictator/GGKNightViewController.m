@@ -31,11 +31,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.navigationItem.hidesBackButton = YES;
-    // Start to left of the current player/dictator. Will end with current player/dictator.
-    self.gameModel.lastPlayerThisRound = self.gameModel.currentPlayer;
-    NSInteger anIndex = [self.gameModel.remainingPlayersMutableArray indexOfObject:self.gameModel.currentPlayer];
-    NSInteger theNextIndex = (anIndex + 1) % [self.gameModel.remainingPlayersMutableArray count];
-    self.gameModel.currentPlayer = self.gameModel.remainingPlayersMutableArray[theNextIndex];
+    [self.gameModel prepForNight];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

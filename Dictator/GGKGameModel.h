@@ -27,10 +27,18 @@
 @property (strong, nonatomic) NSArray *explicitlyAssignedRolesArray;
 // A round is just passing the device around to all players. After the last player checks the device, we can go to the next step.
 @property (strong, nonatomic) GGKPlayer *lastPlayerThisRound;
+// The players eliminated last night.
+// Currently, either nil or 1 player.
+@property (strong, nonatomic) NSArray *playersEliminatedLastNightArray;
 // Non-eliminated players.
 @property (strong, nonatomic) NSMutableArray *remainingPlayersMutableArray;
-
+// Resolve what happened last night.
+- (void)calculateNightSummary;
 // Override.
 - (id)init;
-
+// Return whether the game is over.
+// Currently, if no more Traitors, the Townspeople win. If the number of Traitors = the number of Townspeople, then the Traitors win.
+- (BOOL)isGameOver;
+// Set up for night phase.
+- (void)prepForNight;
 @end

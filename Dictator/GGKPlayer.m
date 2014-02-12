@@ -9,16 +9,12 @@
 #import "GGKPlayer.h"
 
 @implementation GGKPlayer
-
-- (id)init
-{
+- (id)init {
     self = [super init];
     if (self) {
-        
         self.name = @"Bob Smith";
         self.role = [[GGKRole alloc] initWithType:GGKTownspersonKeyString];
     }
     return self;
 }
-
 @end
