@@ -26,17 +26,20 @@ NSString *GGKPlayersKeyString = @"Players data";
 - (void)calculateNightSummary {
     __block NSInteger theMostVotesInteger = 1;
     // Count how many votes (minimum 1) each player has. Most votes = eliminated. If a tie, choose randomly from those tied.
-    __block NSMutableArray *thePlayersWithMostVotesMutableArray = [NSMutableArray arrayWithCapacity:5];
+    NSMutableArray *thePlayersWithMostVotesMutableArray = [NSMutableArray arrayWithCapacity:5];
     [self.remainingPlayersMutableArray enumerateObjectsUsingBlock:^(GGKPlayer *aPlayer, NSUInteger idx, BOOL *stop) {
         if (aPlayer.numberOfVotesThisRoundInteger > theMostVotesInteger) {
             [thePlayersWithMostVotesMutableArray removeAllObjects];
             [thePlayersWithMostVotesMutableArray addObject:aPlayer];
+            theMostVotesInteger = aPlayer.numberOfVotesThisRoundInteger;
         } else if (aPlayer.numberOfVotesThisRoundInteger == theMostVotesInteger) {
             [thePlayersWithMostVotesMutableArray addObject:aPlayer];
         }
     }];
     NSInteger theNumberOfPlayersWithMostVotes = [thePlayersWithMostVotesMutableArray count];
+//    NSLog(@"players with most votes:%d votes:%d", theNumberOfPlayersWithMostVotes, theMostVotesInteger);
     NSArray *thePlayersToEliminateArray;
+    self.thereWasATieBOOL = NO;
     if (theNumberOfPlayersWithMostVotes == 1) {
         thePlayersToEliminateArray = [thePlayersWithMostVotesMutableArray copy];
     } else if (theNumberOfPlayersWithMostVotes == 0) {
@@ -51,7 +54,7 @@ NSString *GGKPlayersKeyString = @"Players data";
     [self eliminatePlayers:thePlayersToEliminateArray];
 }
 - (void)deleteAllPlayers {
-    self.allPlayersMutableArray = [NSMutableArray arrayWithCapacity:10];
+    [self.allPlayersMutableArray removeAllObjects];
     [self savePlayers];
 }
 - (void)deletePlayer:(GGKPlayer *)thePlayerToDelete {
@@ -60,7 +63,6 @@ NSString *GGKPlayersKeyString = @"Players data";
 }
 - (void)eliminatePlayers:(NSArray *)thePlayersToEliminateArray {
     [thePlayersToEliminateArray enumerateObjectsUsingBlock:^(GGKPlayer *aPlayer, NSUInteger idx, BOOL *stop) {
-        
         [self.remainingPlayersMutableArray removeObject:aPlayer];
     }];
     self.playersEliminatedLastNightArray = thePlayersToEliminateArray;
