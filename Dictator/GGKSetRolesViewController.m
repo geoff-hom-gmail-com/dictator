@@ -8,6 +8,7 @@
 
 #import "GGKSetRolesViewController.h"
 
+#import <QuartzCore/QuartzCore.h>
 #import "GGKGameModel.h"
 #import "GGKRole.h"
 #import "GGKRoleInfoViewController.h"
@@ -246,6 +247,9 @@
     self.explicitlyAssignedRolesMutableArray = [self.gameModel.explicitlyAssignedRolesArray mutableCopy];
     [self updateAssignedRoles];
     
+//    self.addRoleButton.layer.cornerRadius = 2;
+//    self.addRoleButton.layer.borderWidth = 1;
+//    self.addRoleButton.layer.borderColor = [UIColor blueColor].CGColor;
     self.addRoleButton.enabled = NO;
     self.removeRoleButton.enabled = NO;
 }
