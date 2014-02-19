@@ -12,8 +12,8 @@
 
 @interface GGKGameModel : NSObject
 
-// Players at the start of the game.
-@property (strong, nonatomic) NSArray *allPlayersArray;
+// Players at the start of a game.
+@property (strong, nonatomic) NSMutableArray *allPlayersMutableArray;
 // The roles available to all games. May be increased via in-app purchase.
 @property (strong, nonatomic) NSMutableArray *availableRolesMutableArray;
 // The player who's currently dictator.
@@ -32,13 +32,23 @@
 @property (strong, nonatomic) NSArray *playersEliminatedLastNightArray;
 // Non-eliminated players.
 @property (strong, nonatomic) NSMutableArray *remainingPlayersMutableArray;
+// Whether there was a tie at night from the Traitors.
+@property (nonatomic, assign) BOOL thereWasATieBOOL;
+// Add a player with the given name to the permanent roster.
+- (void)addPlayerWithName:(NSString *)theName;
 // Resolve what happened last night.
 - (void)calculateNightSummary;
+// Delete all players from roster; i.e., start a new permanent roster.
+- (void)deleteAllPlayers;
+// Remove the player from the permanent roster.
+- (void)deletePlayer:(GGKPlayer *)thePlayerToDelete;
 // Override.
 - (id)init;
 // Return whether the game is over.
 // Currently, if no more Traitors, the Townspeople win. If the number of Traitors = the number of Townspeople, then the Traitors win.
 - (BOOL)isGameOver;
+// Move the player to the given position in the roster.
+- (void)movePlayer:(GGKPlayer *)thePlayerToMove toIndex:(NSUInteger)theIndex;
 // Set up for night phase.
 - (void)prepForNight;
 @end

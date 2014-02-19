@@ -17,7 +17,7 @@ extern NSString *GGKTownspersonKeyString;
 
 extern NSString *GGKTraitorKeyString;
 
-@interface GGKRole : NSObject
+@interface GGKRole : NSObject <NSCoding>
 
 // Description for the role. Shown when choosing roles for the game.
 @property (strong, nonatomic) NSString *blurb1;
@@ -43,8 +43,10 @@ extern NSString *GGKTraitorKeyString;
 
 // Return the given role from the given array.
 + (GGKRole *)role:(NSString *)theDesiredRoleKey fromArray:(NSArray *)theArray;
-
+// NSCoding protocol.
+- (void)encodeWithCoder:(NSCoder *)aCoder;
+// NSCoding protocol.
+- (id)initWithCoder:(NSCoder *)aDecoder;
 // Designated initializer
 - (id)initWithType:(NSString *)theRoleKey;
-
 @end

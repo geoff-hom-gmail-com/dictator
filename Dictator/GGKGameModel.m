@@ -9,8 +9,20 @@
 #import "GGKGameModel.h"
 
 #import "GGKRole.h"
+// Key for storing data for all players.
+NSString *GGKPlayersKeyString = @"Players data";
+@interface GGKGameModel ()
+// The Traitors eliminate players at night.
+- (void)eliminatePlayers:(NSArray *)thePlayersToEliminateArray;
+@end
 
 @implementation GGKGameModel
+- (void)addPlayerWithName:(NSString *)theName {
+    GGKPlayer *aPlayer = [[GGKPlayer alloc] init];
+    aPlayer.name = theName;
+    [self.allPlayersMutableArray addObject:aPlayer];
+    [self savePlayers];
+}
 - (void)calculateNightSummary {
     __block NSInteger theMostVotesInteger = 1;
     // Count how many votes (minimum 1) each player has. Most votes = eliminated. If a tie, choose randomly from those tied.
@@ -23,24 +35,48 @@
             [thePlayersWithMostVotesMutableArray addObject:aPlayer];
         }
     }];
-    NSInteger theNumberOfPlayersEliminated = [thePlayersWithMostVotesMutableArray count];
-    if (theNumberOfPlayersEliminated == 1) {
-        self.playersEliminatedLastNightArray = [thePlayersWithMostVotesMutableArray copy];
-    } else if (theNumberOfPlayersEliminated == 0) {
-        self.playersEliminatedLastNightArray = nil;
-    } else if (theNumberOfPlayersEliminated > 1) {
-        NSInteger aRandomIndex = arc4random_uniform(theNumberOfPlayersEliminated);
+    NSInteger theNumberOfPlayersWithMostVotes = [thePlayersWithMostVotesMutableArray count];
+    NSArray *thePlayersToEliminateArray;
+    if (theNumberOfPlayersWithMostVotes == 1) {
+        thePlayersToEliminateArray = [thePlayersWithMostVotesMutableArray copy];
+    } else if (theNumberOfPlayersWithMostVotes == 0) {
+        thePlayersToEliminateArray = nil;
+    } else if (theNumberOfPlayersWithMostVotes > 1) {
+        NSInteger aRandomIndex = arc4random_uniform(theNumberOfPlayersWithMostVotes);
         GGKPlayer *theEliminatedPlayer = [thePlayersWithMostVotesMutableArray objectAtIndex:aRandomIndex];
-        self.playersEliminatedLastNightArray = [NSArray arrayWithObject:theEliminatedPlayer];
+        thePlayersToEliminateArray = [NSArray arrayWithObject:theEliminatedPlayer];
+        self.thereWasATieBOOL = YES;
     }
     // see if someone was saved by the doctor, etc.
-    // adjust arrays as necesary
+    [self eliminatePlayers:thePlayersToEliminateArray];
+}
+- (void)deleteAllPlayers {
+    self.allPlayersMutableArray = [NSMutableArray arrayWithCapacity:10];
+    [self savePlayers];
+}
+- (void)deletePlayer:(GGKPlayer *)thePlayerToDelete {
+    [self.allPlayersMutableArray removeObject:thePlayerToDelete];
+    [self savePlayers];
+}
+- (void)eliminatePlayers:(NSArray *)thePlayersToEliminateArray {
+    [thePlayersToEliminateArray enumerateObjectsUsingBlock:^(GGKPlayer *aPlayer, NSUInteger idx, BOOL *stop) {
+        
+        [self.remainingPlayersMutableArray removeObject:aPlayer];
+    }];
+    self.playersEliminatedLastNightArray = thePlayersToEliminateArray;
 }
 - (id)init {
     self = [super init];
     if (self) {
-        
-        self.allPlayersArray = [NSArray array];
+        // Players. If none, make an empty array.
+        NSData *theData = [[NSUserDefaults standardUserDefaults] objectForKey:GGKPlayersKeyString];
+        NSMutableArray *thePlayersMutableArray;
+        if (theData == nil) {
+            thePlayersMutableArray = [NSMutableArray arrayWithCapacity:10];
+        } else {
+            thePlayersMutableArray = [NSKeyedUnarchiver unarchiveObjectWithData:theData];
+        }
+        self.allPlayersMutableArray = thePlayersMutableArray;
         
         // Create available-roles array.
         // Order presented should be Townsperson, Traitor, then alphabetically.
@@ -83,6 +119,11 @@
     }
     return gameIsOver;
 }
+- (void)movePlayer:(GGKPlayer *)thePlayerToMove toIndex:(NSUInteger)theIndex {
+    [self.allPlayersMutableArray removeObject:thePlayerToMove];
+    [self.allPlayersMutableArray insertObject:thePlayerToMove atIndex:theIndex];
+    [self savePlayers];
+}
 - (void)prepForNight {
     // Reset night counters.
     [self.remainingPlayersMutableArray enumerateObjectsUsingBlock:^(GGKPlayer *aPlayer, NSUInteger idx, BOOL *stop) {
@@ -93,5 +134,9 @@
     NSInteger anIndex = [self.remainingPlayersMutableArray indexOfObject:self.currentPlayer];
     NSInteger theNextIndex = (anIndex + 1) % [self.remainingPlayersMutableArray count];
     self.currentPlayer = self.remainingPlayersMutableArray[theNextIndex];
+}
+- (void)savePlayers {
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.allPlayersMutableArray];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:GGKPlayersKeyString];
 }
 @end

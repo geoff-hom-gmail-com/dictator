@@ -17,12 +17,12 @@
 
 - (IBAction)askForNextPlayerOrEnd
 {
-    NSInteger anIndex = [self.gameModel.allPlayersArray indexOfObject:self.gameModel.currentPlayer];
+    NSInteger anIndex = [self.gameModel.allPlayersMutableArray indexOfObject:self.gameModel.currentPlayer];
     NSInteger theNextIndex = anIndex + 1;
-    if (theNextIndex < [self.gameModel.allPlayersArray count]) {
+    if (theNextIndex < [self.gameModel.allPlayersMutableArray count]) {
         
         // Ask for next player.
-        self.gameModel.currentPlayer = self.gameModel.allPlayersArray[theNextIndex];
+        self.gameModel.currentPlayer = self.gameModel.allPlayersMutableArray[theNextIndex];
         [self.navigationController popViewControllerAnimated:YES];
     } else {
         
@@ -41,7 +41,7 @@
         // Show names of other traitors, or none if only 1.
         // Make string of each other traitor's name. Show it.
         NSMutableString *theOtherTraitorsMutableString;
-        for (GGKPlayer *aPlayer in self.gameModel.allPlayersArray) {
+        for (GGKPlayer *aPlayer in self.gameModel.allPlayersMutableArray) {
             if (aPlayer == theCurrentPlayer) {
                 continue;
             }

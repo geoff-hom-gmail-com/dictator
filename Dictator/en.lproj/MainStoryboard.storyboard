@@ -567,7 +567,7 @@ line 3</string>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlayerNameCell" textLabel="ASI-oX-aNn" style="IBUITableViewCellStyleDefault" id="zLF-bg-lT9">
                                         <rect key="frame" x="0.0" y="22" width="280" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zLF-bg-lT9">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zLF-bg-lT9" id="icb-Lw-fpA">
                                             <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -1190,7 +1190,13 @@ Line 5</string>
                             <constraint firstItem="Dfw-LW-vWd" firstAttribute="top" secondItem="Rxn-se-wo7" secondAttribute="bottom" constant="8" symbolic="YES" id="szz-qr-KRp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Players" id="K0u-Pb-HIX"/>
+                    <navigationItem key="navigationItem" title="Add Players" id="K0u-Pb-HIX">
+                        <barButtonItem key="rightBarButtonItem" title="Delete All" id="kMv-cJ-5Fn">
+                            <connections>
+                                <action selector="verifyDeleteAll" destination="tbz-FM-uwj" id="kOH-c8-n8B"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="numberOfPlayersLabel" destination="5yS-wr-zXX" id="fr0-oG-bdh"/>
                         <outlet property="playersTableView" destination="Dfw-LW-vWd" id="HaG-gC-OJr"/>

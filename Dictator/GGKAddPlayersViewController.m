@@ -12,105 +12,82 @@
 #import "GGKPlayer.h"
 
 @interface GGKAddPlayersViewController ()
-
 // All players in the game.
-@property (strong, nonatomic) NSMutableArray *currentPlayersMutableArray;
-
-// Make sure the game model has all the players.
-- (void)updateGameModel;
-
+@property (strong, nonatomic) NSArray *currentPlayersArray;
 // Make sure the user sees the total number of players.
 - (void)updateNumberOfPlayersLabel;
-
 @end
 
 @implementation GGKAddPlayersViewController
-
-- (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath
-{
-    static NSString *PlayerCellIdentifier = @"PlayerNameCell";
-    
-    UITableViewCell *aTableViewCell = [theTableView dequeueReusableCellWithIdentifier:PlayerCellIdentifier];
-    
-    // should not need this; test
-    if (aTableViewCell == nil) {
-        
-        aTableViewCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PlayerCellIdentifier];
+- (void)alertView:(UIAlertView *)theAlertView clickedButtonAtIndex:(NSInteger)theButtonIndex {
+    [super alertView:theAlertView clickedButtonAtIndex:theButtonIndex];
+    // Delete all players.
+    if ([[theAlertView buttonTitleAtIndex:theButtonIndex] isEqualToString:@"OK"]) {
+        // Prep to animate.
+        NSMutableArray *anIndexPathMutableArray = [NSMutableArray arrayWithCapacity:[self.currentPlayersArray count] ];
+        [self.currentPlayersArray enumerateObjectsUsingBlock:^(GGKPlayer *aPlayer, NSUInteger idx, BOOL *stop) {
+            NSIndexPath *anIndexPath = [NSIndexPath indexPathForRow:idx inSection:0];
+            [anIndexPathMutableArray addObject:anIndexPath];
+        }];        
+        // Actually do it.
+        [self.gameModel deleteAllPlayers];
+        self.currentPlayersArray = [self.gameModel.allPlayersMutableArray copy];
+        [self updateNumberOfPlayersLabel];
+        [self.playersTableView deleteRowsAtIndexPaths:anIndexPathMutableArray withRowAnimation:UITableViewRowAnimationFade];
     }
-    
-    GGKPlayer *aPlayer = [self.currentPlayersMutableArray objectAtIndex:theIndexPath.row];
+}
+- (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath {
+    static NSString *PlayerCellIdentifier = @"PlayerNameCell";
+    UITableViewCell *aTableViewCell = [theTableView dequeueReusableCellWithIdentifier:PlayerCellIdentifier];
+    GGKPlayer *aPlayer = [self.currentPlayersArray objectAtIndex:theIndexPath.row];
     aTableViewCell.textLabel.text = aPlayer.name;
-        
     return aTableViewCell;
 }
-
-- (void)tableView:(UITableView *)theTableView commitEditingStyle:(UITableViewCellEditingStyle)theEditingStyle forRowAtIndexPath:(NSIndexPath *)theIndexPath
-{
-    // Remove name from array. Update table. Update model.
-    
-    [self.currentPlayersMutableArray removeObjectAtIndex:theIndexPath.row];
-    
+- (void)tableView:(UITableView *)theTableView commitEditingStyle:(UITableViewCellEditingStyle)theEditingStyle forRowAtIndexPath:(NSIndexPath *)theIndexPath {
+    // Delete player. Update.
+    GGKPlayer *thePlayerToDelete = [self.currentPlayersArray objectAtIndex:theIndexPath.row];
+    [self.gameModel deletePlayer:thePlayerToDelete];
+    self.currentPlayersArray = [self.gameModel.allPlayersMutableArray copy];
+    [self updateNumberOfPlayersLabel];
     [theTableView deleteRowsAtIndexPaths:@[theIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-    
+}
+- (void)tableView:(UITableView *)theTableView moveRowAtIndexPath:(NSIndexPath *)theSourceIndexPath toIndexPath:(NSIndexPath *)theDestinationIndexPath {
+    // Move player. Update.
+    GGKPlayer *thePlayerToMove = [self.currentPlayersArray objectAtIndex:theSourceIndexPath.row];
+    [self.gameModel movePlayer:thePlayerToMove toIndex:theDestinationIndexPath.row];
+    self.currentPlayersArray = [self.gameModel.allPlayersMutableArray copy];
+}
+- (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)theSection {
+    return [self.currentPlayersArray count];
+}
+- (void)textFieldDidEndEditing:(UITextField *)theTextField {
+    // Add player. Update.
+    [self.gameModel addPlayerWithName:theTextField.text];
+    self.currentPlayersArray = [self.gameModel.allPlayersMutableArray copy];
     [self updateNumberOfPlayersLabel];
-    [self updateGameModel];
-}
-
-- (void)tableView:(UITableView *)theTableView moveRowAtIndexPath:(NSIndexPath *)theSourceIndexPath toIndexPath:(NSIndexPath *)theDestinationIndexPath
-{
-    id theObjectToMove = [self.currentPlayersMutableArray objectAtIndex:theSourceIndexPath.row];
-    [self.currentPlayersMutableArray removeObjectAtIndex:theSourceIndexPath.row];
-    [self.currentPlayersMutableArray insertObject:theObjectToMove atIndex:theDestinationIndexPath.row];
-    
-    [self updateGameModel];
-}
-
-- (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)theSection
-{
-    return [self.currentPlayersMutableArray count];
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)theTextField
-{
-    // Add name to array. Update table. Update model.
-    
-    GGKPlayer *aPlayer = [[GGKPlayer alloc] init];
-    aPlayer.name = theTextField.text;
-    [self.currentPlayersMutableArray addObject:aPlayer];
-    [self.playersTableView reloadData];
-    
-    // Scroll to name added.
-    NSIndexPath *anIndexPath = [NSIndexPath indexPathForRow:[self.currentPlayersMutableArray count] - 1 inSection:0];
+    NSIndexPath *anIndexPath = [NSIndexPath indexPathForRow:[self.currentPlayersArray count] - 1 inSection:0];
+    [self.playersTableView insertRowsAtIndexPaths:@[anIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    // Scroll to player added.
     [self.playersTableView scrollToRowAtIndexPath:anIndexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
-    
-    [self updateNumberOfPlayersLabel];
-    [self updateGameModel];
 }
-
-- (BOOL)textFieldShouldReturn:(UITextField *)theTextField
-{
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
     [theTextField resignFirstResponder];
     return YES;
 }
-
-- (void)updateGameModel
-{
-    self.gameModel.allPlayersArray = [self.currentPlayersMutableArray copy];
+- (void)updateNumberOfPlayersLabel {
+    self.numberOfPlayersLabel.text = [NSString stringWithFormat:@"%d", [self.currentPlayersArray count]];
 }
-
-- (void)updateNumberOfPlayersLabel
-{
-    self.numberOfPlayersLabel.text = [NSString stringWithFormat:@"%d", [self.currentPlayersMutableArray count]];
+- (IBAction)verifyDeleteAll {
+    UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:@"Delete All Players?" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    [anAlertView show];
 }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    // Get players from model.
-    self.currentPlayersMutableArray = [self.gameModel.allPlayersArray mutableCopy];
+    // Get data from model.
+    self.currentPlayersArray = [self.gameModel.allPlayersMutableArray copy];
     [self updateNumberOfPlayersLabel];
     // Put table into editing mode.
     [self.playersTableView setEditing:YES animated:NO];
 }
-
 @end

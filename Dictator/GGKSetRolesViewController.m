@@ -231,7 +231,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     // Get number of players from model.
-    self.numberOfPlayersInteger = [self.gameModel.allPlayersArray count];
+    self.numberOfPlayersInteger = [self.gameModel.allPlayersMutableArray count];
     self.numberOfPlayersLabel.text = [NSString stringWithFormat:@"%d", self.numberOfPlayersInteger];
     
     // Get available roles.

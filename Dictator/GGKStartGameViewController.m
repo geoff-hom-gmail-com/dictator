@@ -38,7 +38,7 @@
         [theAssignedRolesMutableArray addObject:anIndividualRole];
     }
     
-    for (GGKPlayer *aPlayer in self.gameModel.allPlayersArray) {
+    for (GGKPlayer *aPlayer in self.gameModel.allPlayersMutableArray) {
         
         uint32_t aRandomNumberInt = arc4random_uniform([theAssignedRolesMutableArray count]);
         GGKRole *theAssignedRole = [theAssignedRolesMutableArray objectAtIndex:aRandomNumberInt];
@@ -46,12 +46,12 @@
         [theAssignedRolesMutableArray removeObject:theAssignedRole];
     }
     
-    self.gameModel.remainingPlayersMutableArray = [self.gameModel.allPlayersArray mutableCopy];
+    self.gameModel.remainingPlayersMutableArray = [self.gameModel.allPlayersMutableArray mutableCopy];
     
-    self.gameModel.currentPlayer = self.gameModel.allPlayersArray[0];
+    self.gameModel.currentPlayer = self.gameModel.allPlayersMutableArray[0];
     
     // Check via log. For testing.
-    for (GGKPlayer *aPlayer in self.gameModel.allPlayersArray) {
+    for (GGKPlayer *aPlayer in self.gameModel.allPlayersMutableArray) {
     
         NSLog(@"SGVC player name: %@, role: %@", aPlayer.name, aPlayer.role.name);
     }
@@ -64,7 +64,7 @@
     
     // Enable start only if players >= minimum players.
     
-    NSInteger theNumberOfPlayersInteger = [self.gameModel.allPlayersArray count];
+    NSInteger theNumberOfPlayersInteger = [self.gameModel.allPlayersMutableArray count];
     NSInteger theMinimumNumberOfPlayersInteger = 0;
     for (GGKRole *aRole in self.gameModel.explicitlyAssignedRolesArray) {
         

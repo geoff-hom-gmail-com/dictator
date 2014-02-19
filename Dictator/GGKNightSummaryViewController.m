@@ -22,15 +22,24 @@
     // Report what happened last night.
     [self.gameModel calculateNightSummary];
     NSArray *thePlayersEliminatedLastNightArray = self.gameModel.playersEliminatedLastNightArray;
+    NSString *theSummaryTextString;
     if (thePlayersEliminatedLastNightArray == nil) {
-        self.summaryTextView.text = @"Last night, no one was eliminated.";
+        theSummaryTextString = @"Last night, no one was eliminated.";
     } else {
         // For now, assuming only 0 or 1 players can be eliminated.
         GGKPlayer *theEliminatedPlayer = thePlayersEliminatedLastNightArray[0];
-        self.summaryTextView.text = [NSString stringWithFormat:@"Last night, %@ was eliminated!"
-                                     "\n%@ was %@."
-                                     "\n\nReveal this to all.", theEliminatedPlayer.name, theEliminatedPlayer.name, theEliminatedPlayer.role.longNameWithArticle];
+        // If there was a voting tie, note that.
+        NSString *theTieTextString = nil;
+        if (self.gameModel.thereWasATieBOOL) {
+            // "Last night, whispered arguments were heard … and %@ was eliminated!"
+            theTieTextString = @"whispered arguments were heard … and ";
+        } else {
+            theSummaryTextString = [NSString stringWithFormat:@"Last night, %@%@ was eliminated!"
+                                    "\n%@ was %@."
+                                    "\n\nReveal this to all.", theTieTextString, theEliminatedPlayer.name, theEliminatedPlayer.name, theEliminatedPlayer.role.longNameWithArticle];
+        }
     }
+    self.summaryTextView.text = theSummaryTextString;
     if ([self.gameModel isGameOver]) {
         NSLog(@"TEMP NOTE: Game should be over!");
     }

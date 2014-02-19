@@ -11,7 +11,8 @@
 NSString *GGKAssassinKeyString = @"Assassin";
 
 NSString *GGKDoctorKeyString = @"Doctor";
-
+// Key for storing a role's key.
+NSString *GGKRoleKeyKeyString = @"Role key.";
 NSString *GGKTownspersonKeyString = @"Townsperson";
 
 NSString *GGKTraitorKeyString = @"Traitor";
@@ -31,7 +32,20 @@ NSString *GGKTraitorKeyString = @"Traitor";
     }
     return theDesiredRole;
 }
-
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.key forKey:GGKRoleKeyKeyString];
+}
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    NSString *aKeyString = [aDecoder decodeObjectForKey:GGKRoleKeyKeyString];
+    self = [[GGKRole alloc] initWithType:aKeyString];
+//    self = [super init];
+//    if (self) {
+//        self.key = [aDecoder decodeObjectForKey:GGKRoleKeyKeyString];
+//        self = [self initWithType:self.key];
+//        self.role = [aDecoder decodeObjectForKey:GGKPlayerRoleKeyString];
+//    }
+    return self;
+}
 - (id)initWithType:(NSString *)theRoleKey {
     self = [super init];
     if (self) {
