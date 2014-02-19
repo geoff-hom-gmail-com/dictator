@@ -67,6 +67,16 @@ NSString *GGKPlayersKeyString = @"Players data";
     }];
     self.playersEliminatedLastNightArray = thePlayersToEliminateArray;
 }
+- (void)exilePlayer:(GGKPlayer *)thePlayer {
+    // If the dictator exiled herself, make the next person the current player.
+    if (thePlayer == self.currentDictatorPlayer) {
+//        NSLog(@"Dictator exiled herself!");
+        NSInteger anIndex = [self.remainingPlayersMutableArray indexOfObject:thePlayer];
+        NSInteger theNextIndex = (anIndex + 1) % [self.remainingPlayersMutableArray count];
+        self.currentPlayer = self.remainingPlayersMutableArray[theNextIndex];
+    }
+    [self.remainingPlayersMutableArray removeObject:thePlayer];
+}
 - (id)init {
     self = [super init];
     if (self) {
@@ -115,7 +125,8 @@ NSString *GGKPlayersKeyString = @"Players data";
             theNumberOfRemainingTowniesInteger++;
         }
     }];
-    if ((theNumberOfRemainingTraitorsInteger == 0) ||
+    self.townDidWinBOOL = (theNumberOfRemainingTraitorsInteger == 0);
+    if (self.townDidWinBOOL ||
         (theNumberOfRemainingTraitorsInteger >= theNumberOfRemainingTowniesInteger)) {
         gameIsOver = YES;
     }

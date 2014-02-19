@@ -15,6 +15,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *exiledPlayerLabel;
 // Label for showing the exiled player's role.
 @property (strong, nonatomic) IBOutlet UILabel *exiledRoleLabel;
+// If game over, end. Else, go to Night phase.
+- (IBAction)goToNightOrEnd;
 // Override.
 - (void)viewDidLoad;
 @end

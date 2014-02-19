@@ -34,6 +34,8 @@
 @property (strong, nonatomic) NSMutableArray *remainingPlayersMutableArray;
 // Whether there was a tie at night from the Traitors.
 @property (nonatomic, assign) BOOL thereWasATieBOOL;
+// Whether the Townspeople won.
+@property (nonatomic, assign) BOOL townDidWinBOOL;
 // Add a player with the given name to the permanent roster.
 - (void)addPlayerWithName:(NSString *)theName;
 // Resolve what happened last night.
@@ -42,10 +44,12 @@
 - (void)deleteAllPlayers;
 // Remove the player from the permanent roster.
 - (void)deletePlayer:(GGKPlayer *)thePlayerToDelete;
+// The Dictator exiles a player during the day.
+- (void)exilePlayer:(GGKPlayer *)thePlayer;
 // Override.
 - (id)init;
 // Return whether the game is over.
-// Currently, if no more Traitors, the Townspeople win. If the number of Traitors = the number of Townspeople, then the Traitors win.
+// Currently, if no more Traitors, the Townspeople win. If the number of Traitors ≥ the number of Townspeople, then the Traitors win.
 - (BOOL)isGameOver;
 // Move the player to the given position in the roster.
 - (void)movePlayer:(GGKPlayer *)thePlayerToMove toIndex:(NSUInteger)theIndex;

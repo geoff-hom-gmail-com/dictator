@@ -26,7 +26,7 @@ NSString *NoExileAlertViewTitleString = @"No Exile";
     } else if (theAlertView.message == nil) {
         // If "Exile X?" alert view and dictator said OK, then exile selected player.
         if ([[theAlertView buttonTitleAtIndex:theButtonIndex] isEqualToString:@"OK"]) {
-            [self.gameModel.remainingPlayersMutableArray removeObject:self.gameModel.currentlySelectedPlayer];
+            [self.gameModel exilePlayer:self.gameModel.currentlySelectedPlayer];
             [self performSegueWithIdentifier:@"ExileSegue1" sender:self];
         }
     }

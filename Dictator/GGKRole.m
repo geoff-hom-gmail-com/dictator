@@ -66,7 +66,7 @@ NSString *GGKTraitorKeyString = @"Traitor";
             self.isTraitor = YES;
             self.blurb1 = @"(Trait.) Traitor blurb1 here";
             self.youAreBlurb1 = @"You are a Traitor."
-            "\n\nDuring the night, you and the other Traitors choose one player to kill."
+            "\n\nDuring the night, you and the other Traitors choose one player to eliminate."
             "\n\nYou win with the Traitors.";
         } else if ([self.key isEqualToString:GGKAssassinKeyString]) {
             self.name = @"Assassin";

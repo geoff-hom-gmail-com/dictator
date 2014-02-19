@@ -15,19 +15,19 @@
 
 @implementation GGKYourRoleViewController
 
-- (IBAction)askForNextPlayerOrEnd
-{
+- (IBAction)askForNextPlayerOrEnd {
     NSInteger anIndex = [self.gameModel.allPlayersMutableArray indexOfObject:self.gameModel.currentPlayer];
     NSInteger theNextIndex = anIndex + 1;
     if (theNextIndex < [self.gameModel.allPlayersMutableArray count]) {
-        
         // Ask for next player.
         self.gameModel.currentPlayer = self.gameModel.allPlayersMutableArray[theNextIndex];
         [self.navigationController popViewControllerAnimated:YES];
     } else {
-        
-        // Go to first day.
-        [self performSegueWithIdentifier:@"ShowFirstDaySegue" sender:self];
+        if ([self.gameModel isGameOver]) {
+            [self performSegueWithIdentifier:@"ShowGameOverSegue" sender:self];
+        } else {
+            [self performSegueWithIdentifier:@"ShowFirstDaySegue" sender:self];
+        }
     }
 }
 - (void)viewDidLoad {

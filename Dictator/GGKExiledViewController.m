@@ -14,6 +14,13 @@
 @end
 
 @implementation GGKExiledViewController
+- (IBAction)goToNightOrEnd {
+    if ([self.gameModel isGameOver]) {
+        [self performSegueWithIdentifier:@"ShowGameOverSegue" sender:self];
+    } else {
+        [self performSegueWithIdentifier:@"ShowNightSegue" sender:self];
+    }
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.

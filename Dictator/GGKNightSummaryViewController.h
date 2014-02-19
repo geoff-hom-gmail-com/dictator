@@ -11,6 +11,8 @@
 @interface GGKNightSummaryViewController : GGKViewController
 // Text view for reporting what happened last night.
 @property (strong, nonatomic) IBOutlet UITextView *summaryTextView;
+// If game over, end. Else, go to Day phase.
+- (IBAction)goToDayOrEnd;
 // Override.
 - (void)viewDidLoad;
 @end
