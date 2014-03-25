@@ -8,6 +8,8 @@
 
 #import "GGKRole.h"
 
+#import "GGKGameModel.h"
+
 NSString *GGKAssassinKeyString = @"Assassin";
 
 NSString *GGKDoctorKeyString = @"Doctor";
@@ -65,9 +67,9 @@ NSString *GGKTraitorKeyString = @"Traitor";
             self.longNameWithArticle = [NSString stringWithFormat:@"a %@", self.name];
             self.isTraitor = YES;
             self.blurb1 = @"(Trait.) Traitor blurb1 here";
-            self.youAreBlurb1 = @"You are a Traitor."
-            "\n\nDuring the night, you and the other Traitors choose one player to eliminate."
-            "\n\nYou win with the Traitors.";
+            self.youAreBlurb1 = [NSString stringWithFormat:@"You are a Traitor."
+            "\n\nDuring the night, you and the other Traitors choose one player to %@."
+            "\n\nYou win with the Traitors.", GGKEliminateString];
         } else if ([self.key isEqualToString:GGKAssassinKeyString]) {
             self.name = @"Assassin";
             self.longNameWithArticle = [NSString stringWithFormat:@"an %@", self.name];

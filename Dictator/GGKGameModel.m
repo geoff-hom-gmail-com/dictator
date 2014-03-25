@@ -9,8 +9,14 @@
 #import "GGKGameModel.h"
 
 #import "GGKRole.h"
+
+// Keys for saving data.
 // Key for storing data for all players.
 NSString *GGKPlayersKeyString = @"Players data";
+
+NSString *GGKEliminateString = @"eliminate";
+NSString *GGKEliminatedString = @"eliminated";
+
 @interface GGKGameModel ()
 // The Traitors eliminate players at night.
 - (void)eliminatePlayers:(NSArray *)thePlayersToEliminateArray;

@@ -10,6 +10,11 @@
 
 #import "GGKPlayer.h"
 
+// Verb for a player being removed at night.
+extern NSString *GGKEliminateString;
+// Verb, past tense, for a player being removed at night.
+extern NSString *GGKEliminatedString;
+
 @interface GGKGameModel : NSObject
 
 // Players at the start of a game.

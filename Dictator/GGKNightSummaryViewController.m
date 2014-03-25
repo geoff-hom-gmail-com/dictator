@@ -31,7 +31,7 @@
     NSArray *thePlayersEliminatedLastNightArray = self.gameModel.playersEliminatedLastNightArray;
     NSString *theSummaryTextString;
     if (thePlayersEliminatedLastNightArray == nil) {
-        theSummaryTextString = @"Last night, no one was eliminated.";
+        theSummaryTextString = [NSString stringWithFormat:@"Last night, no one was %@.", GGKEliminatedString];
     } else {
         // For now, assuming only 0 or 1 players can be eliminated.
         GGKPlayer *theEliminatedPlayer = thePlayersEliminatedLastNightArray[0];
@@ -41,9 +41,9 @@
             // "Last night, whispered arguments were heard … and %@ was eliminated!"
             theTieTextString = @"whispered arguments were heard … and ";
         }
-        theSummaryTextString = [NSString stringWithFormat:@"Last night, %@%@ was eliminated!"
+        theSummaryTextString = [NSString stringWithFormat:@"Last night, %@%@ was %@!"
                                 "\n%@ was %@."
-                                "\n\nReveal this to all.", theTieTextString, theEliminatedPlayer.name, theEliminatedPlayer.name, theEliminatedPlayer.role.longNameWithArticle];
+                                "\n\nReveal this to all.", theTieTextString, theEliminatedPlayer.name, GGKEliminatedString, theEliminatedPlayer.name, theEliminatedPlayer.role.longNameWithArticle];
     }
     self.summaryTextView.text = theSummaryTextString;
     if ([self.gameModel isGameOver]) {

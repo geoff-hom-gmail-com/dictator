@@ -75,7 +75,7 @@
     return YES;
 }
 - (void)updateNumberOfPlayersLabel {
-    self.numberOfPlayersLabel.text = [NSString stringWithFormat:@"%d", [self.currentPlayersArray count]];
+    self.numberOfPlayersLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[self.currentPlayersArray count]];
 }
 - (IBAction)verifyDeleteAll {
     UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:@"Delete All Players?" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
