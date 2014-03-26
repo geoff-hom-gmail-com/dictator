@@ -15,14 +15,10 @@
 @end
 
 @implementation GGKRoleInfoViewController
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
     self.roleTitleLabel.text = self.role.name;
-    self.roleBlurbDetailedLabel.text = self.role.blurb1;
+    self.roleBlurbDetailedLabel.text = self.role.longBlurb;
 }
-
 @end

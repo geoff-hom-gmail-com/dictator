@@ -147,7 +147,7 @@
         }
         GGKRole *aRole = [self.availableRolesArray objectAtIndex:theIndexPath.row];
         aTableViewCell.textLabel.text = aRole.name;
-        aTableViewCell.detailTextLabel.text = aRole.blurb1;
+        aTableViewCell.detailTextLabel.text = aRole.shortBlurb;
     } else if (theTableView == self.assignedRolesTableView) {
         
         theCellIdentifier = @"AssignedRoleCell";

@@ -21,8 +21,6 @@
 
 // Role blurb, detailed.
 @property (strong, nonatomic) IBOutlet UILabel *roleBlurbDetailedLabel;
-
 // Override.
 - (void)viewDidLoad;
-
 @end

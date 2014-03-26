@@ -101,13 +101,13 @@ NSString *GGKExiledString = @"exiled";
         
         // Create available-roles array.
         // Order presented should be Townsperson, Traitor, then alphabetically.
-        
         // Townsperson.
         GGKRole *aRole = [[GGKRole alloc] initWithType:GGKTownspersonKeyString];
         self.availableRolesMutableArray = [NSMutableArray arrayWithObject:aRole];
-        
         // Traitor.
         aRole = [[GGKRole alloc] initWithType:GGKTraitorKeyString];
+        [self.availableRolesMutableArray addObject:aRole];
+        aRole = [[GGKRole alloc] initWithType:GGKPrivateEyeKeyString];
         [self.availableRolesMutableArray addObject:aRole];
         
         // Just do these for my testing of the scrolling. Comment out for testers.
