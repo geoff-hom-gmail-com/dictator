@@ -11,7 +11,9 @@
 #import "GGKGameModel.h"
 
 @interface GGKYouAreDictatorViewController ()
-// Title for alert view. To determine which alert view was shown.
+// Title for alert view to confirm exile. To determine which alert view was shown.
+@property (strong, nonatomic) NSString *exileTitleString;
+// Title for alert view to confirm no exile. To determine which alert view was shown.
 @property (strong, nonatomic) NSString *noExileTitleString;
 @end
 
@@ -23,12 +25,9 @@
             // Go to night.
             [self performSegueWithIdentifier:@"ShowNightSegue2" sender:self];
         }
-        // this should be more robust; set it to a property
-        //WILO
-        // but can do this after the rest has been replaced (i.e. in another commit)
-    } else if (theAlertView.message == nil) {
-        // If "Exile X?" alert view and dictator said OK, then exile selected player.
+    } else if ([theAlertView.title isEqualToString:self.exileTitleString]) {
         if ([[theAlertView buttonTitleAtIndex:theButtonIndex] isEqualToString:@"OK"]) {
+            // Exile selected player.
             [self.gameModel exilePlayer:self.gameModel.currentlySelectedPlayer];
             [self performSegueWithIdentifier:@"ExileSegue1" sender:self];
         }
@@ -62,8 +61,8 @@
 - (IBAction)verifyExile {
     NSIndexPath *anIndexPath = [self.playersTableView indexPathForSelectedRow];
     self.gameModel.currentlySelectedPlayer = [self.gameModel.remainingPlayersMutableArray objectAtIndex:anIndexPath.row];
-    NSString *theAlertTitleString = [NSString stringWithFormat:@"%@ %@?", GGKExileTitleString, self.gameModel.currentlySelectedPlayer.name];
-    UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:theAlertTitleString message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    self.exileTitleString = [NSString stringWithFormat:@"%@ %@?", GGKExileTitleString, self.gameModel.currentlySelectedPlayer.name];
+    UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:self.exileTitleString message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [anAlertView show];
 }
 - (IBAction)verifyNoExile {
