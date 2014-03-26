@@ -14,6 +14,12 @@
 extern NSString *GGKEliminateString;
 // Verb, past tense, for a player being removed at night.
 extern NSString *GGKEliminatedString;
+// Verb for a player being removed during the day.
+extern NSString *GGKExileString;
+// Verb, capitalized, for a player being removed during the day.
+extern NSString *GGKExileTitleString;
+// Verb, past tense, for a player being removed during the day.
+extern NSString *GGKExiledString;
 
 @interface GGKGameModel : NSObject
 

@@ -16,6 +16,9 @@ NSString *GGKPlayersKeyString = @"Players data";
 
 NSString *GGKEliminateString = @"eliminate";
 NSString *GGKEliminatedString = @"eliminated";
+NSString *GGKExileString = @"exile";
+NSString *GGKExileTitleString = @"Exile";
+NSString *GGKExiledString = @"exiled";
 
 @interface GGKGameModel ()
 // The Traitors eliminate players at night.

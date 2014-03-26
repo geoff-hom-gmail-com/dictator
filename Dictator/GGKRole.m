@@ -53,7 +53,7 @@ NSString *GGKTraitorKeyString = @"Traitor";
     if (self) {
         self.key = theRoleKey;
         self.isTraitor = NO;
-        self.youAreDictator1 = @"You may pick one player to exile.";
+        self.youAreDictator1 = [NSString stringWithFormat:@"You may pick one player to %@.", GGKExileString];
         self.startingCount = 0;
         if ([self.key isEqualToString:GGKTownspersonKeyString]) {
             self.name = @"Townsperson";

@@ -10,19 +10,22 @@
 
 #import "GGKGameModel.h"
 
-NSString *NoExileAlertViewTitleString = @"No Exile";
-
 @interface GGKYouAreDictatorViewController ()
+// Title for alert view. To determine which alert view was shown.
+@property (strong, nonatomic) NSString *noExileTitleString;
 @end
 
 @implementation GGKYouAreDictatorViewController
 - (void)alertView:(UIAlertView *)theAlertView clickedButtonAtIndex:(NSInteger)theButtonIndex {
     [super alertView:theAlertView clickedButtonAtIndex:theButtonIndex];
-    if ([theAlertView.title isEqualToString:NoExileAlertViewTitleString]) {
+    if ([theAlertView.title isEqualToString:self.noExileTitleString]) {
         if ([[theAlertView buttonTitleAtIndex:theButtonIndex] isEqualToString:@"OK"]) {
             // Go to night.
             [self performSegueWithIdentifier:@"ShowNightSegue2" sender:self];
         }
+        // this should be more robust; set it to a property
+        //WILO
+        // but can do this after the rest has been replaced (i.e. in another commit)
     } else if (theAlertView.message == nil) {
         // If "Exile X?" alert view and dictator said OK, then exile selected player.
         if ([[theAlertView buttonTitleAtIndex:theButtonIndex] isEqualToString:@"OK"]) {
@@ -59,15 +62,15 @@ NSString *NoExileAlertViewTitleString = @"No Exile";
 - (IBAction)verifyExile {
     NSIndexPath *anIndexPath = [self.playersTableView indexPathForSelectedRow];
     self.gameModel.currentlySelectedPlayer = [self.gameModel.remainingPlayersMutableArray objectAtIndex:anIndexPath.row];
-    NSString *theAlertTitleString = [NSString stringWithFormat:@"Exile %@?", self.gameModel.currentlySelectedPlayer.name];
+    NSString *theAlertTitleString = [NSString stringWithFormat:@"%@ %@?", GGKExileTitleString, self.gameModel.currentlySelectedPlayer.name];
     UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:theAlertTitleString message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [anAlertView show];
 }
 - (IBAction)verifyNoExile {
-    UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:NoExileAlertViewTitleString message:@"Exile no one today?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    NSString *aMessageString = [NSString stringWithFormat:@"%@ no one today?", GGKExileTitleString];
+    UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:self.noExileTitleString message:aMessageString delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [anAlertView show];
 }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
@@ -77,6 +80,6 @@ NSString *NoExileAlertViewTitleString = @"No Exile";
     self.dictatorInfoLabel.text = [NSString stringWithFormat:@"%@, you are the Dictator! %@", theDictatorPlayer.name, theDictatorPlayer.role.youAreDictator1];
     self.noExileButton.enabled = YES;
     self.exileButton.enabled = NO;
+    self.noExileTitleString = [NSString stringWithFormat:@"No %@", GGKExileTitleString];
 }
-
 @end
