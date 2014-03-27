@@ -41,9 +41,9 @@
             // "Last night, whispered arguments were heard … and %@ was eliminated!"
             theTieTextString = @"whispered arguments were heard … and ";
         }
-        theSummaryTextString = [NSString stringWithFormat:@"Last night, %@%@ was %@!"
-                                "\n%@ was %@."
-                                "\n\nReveal this to all.", theTieTextString, theEliminatedPlayer.name, GGKEliminatedString, theEliminatedPlayer.name, theEliminatedPlayer.role.longNameWithArticle];
+        theSummaryTextString = [NSString stringWithFormat:@"Reveal this to all:"
+                                "\n\nLast night, %@%@ was %@!"
+                                "\n%@ was %@.", theTieTextString, theEliminatedPlayer.name, GGKEliminatedString, theEliminatedPlayer.name, theEliminatedPlayer.role.longNameWithArticle];
     }
     self.summaryTextView.text = theSummaryTextString;
     if ([self.gameModel isGameOver]) {
