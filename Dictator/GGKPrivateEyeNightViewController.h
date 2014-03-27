@@ -1,24 +1,24 @@
 //
-//  GGKTownspersonNightViewController.h
+//  GGKPrivateEyeNightViewController.h
 //  Dictator
 //
-//  Created by Geoff Hom on 2/11/14.
+//  Created by Geoff Hom on 3/26/14.
 //  Copyright (c) 2014 Geoff Hom. All rights reserved.
 //
 
 #import "GGKAbstractRoleNightViewController.h"
 
-@interface GGKTownspersonNightViewController : GGKAbstractRoleNightViewController <UITableViewDataSource, UITableViewDelegate>
+@interface GGKPrivateEyeNightViewController : GGKAbstractRoleNightViewController <UITableViewDataSource, UITableViewDelegate>
 // List of remaining players, except this one, in the game.
 @property (strong, nonatomic) IBOutlet UITableView *remainingPlayersMinusSelfTableView;
-// Townsperson has to guess a Traitor. (Just for fun/stats at end. Also, so the other players can't tell this person is a Townsperson because they don't do anything.) When done, taps this button.
+// Private Eye has to investigate someone. When done, taps this button.
 @property (strong, nonatomic) IBOutlet UIButton *thisPersonButton;
 // Override.
-// Record who the Townsperson suspected as Traitor.
+// Show an alert with the investigation results.
 - (void)doRoleActions;
 // Each row is a remaining player.
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath;
-// The Townsperson selected a suspect. So, enable the button to proceed.
+// The player chose someone. So, enable the button to proceed.
 - (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)theIndexPath;
 - (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)theSection;
 // Override.

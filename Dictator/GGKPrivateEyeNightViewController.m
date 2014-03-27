@@ -1,27 +1,32 @@
 //
-//  GGKTownspersonNightViewController.m
+//  GGKPrivateEyeNightViewController.m
 //  Dictator
 //
-//  Created by Geoff Hom on 2/11/14.
+//  Created by Geoff Hom on 3/26/14.
 //  Copyright (c) 2014 Geoff Hom. All rights reserved.
 //
 
-#import "GGKTownspersonNightViewController.h"
+#import "GGKPrivateEyeNightViewController.h"
 
 #import "GGKGameModel.h"
 
-@interface GGKTownspersonNightViewController ()
+@interface GGKPrivateEyeNightViewController ()
 // All remaining players, minus this one.
 @property (strong, nonatomic) NSArray *remainingPlayersMinusSelfArray;
 @end
 
-@implementation GGKTownspersonNightViewController
+@implementation GGKPrivateEyeNightViewController
 - (void)doRoleActions {
     [super doRoleActions];
-    // Could store a history of each player's guesses and report them at the end. For now, just log it.
     NSIndexPath *theSelectedIndexPath = [self.remainingPlayersMinusSelfTableView indexPathForSelectedRow];
-    GGKPlayer *theSuspectedPlayer = self.remainingPlayersMinusSelfArray[theSelectedIndexPath.row];
-    NSLog(@"ToNVC tV dSRAIP suspected player: %@", theSuspectedPlayer.name);
+    GGKPlayer *theTargetPlayer = self.remainingPlayersMinusSelfArray[theSelectedIndexPath.row];
+    NSString *theWinConditionString = @"Town";
+    if (theTargetPlayer.role.isTraitor) {
+        theWinConditionString = @"Traitors";
+    }
+    NSString *theMessageString = [NSString stringWithFormat:@"%@ wins with the %@.", theTargetPlayer.name, theWinConditionString];
+    UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:@"Investigation Complete" message:theMessageString delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [anAlertView show];
 }
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath {
     UITableViewCell *aTableViewCell = [theTableView dequeueReusableCellWithIdentifier:@"PlayerNameCell"];

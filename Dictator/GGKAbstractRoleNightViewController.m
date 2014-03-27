@@ -11,7 +11,6 @@
 #import "GGKGameModel.h"
 
 @interface GGKAbstractRoleNightViewController ()
-
 @end
 
 @implementation GGKAbstractRoleNightViewController

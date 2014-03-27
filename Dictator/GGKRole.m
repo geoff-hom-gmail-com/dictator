@@ -67,7 +67,10 @@ NSString *GGKTraitorKeyString = @"Traitor";
             self.name = @"Private Eye";
             self.longNameWithArticle = [NSString stringWithFormat:@"a %@", self.name];
             self.shortBlurb = @"(Towns.) Private Eye blurb here";
-            self.longBlurb = @"During the night, the Private Eye selects one player other than herself. The game then tells the Private Eye if her target wins with the traitors or with the town.";
+            self.longBlurb = @"During the night, the Private Eye selects another player. The Private Eye learns whether that player wins with the Traitors or with the Town.";
+            self.youAreBlurb1 = @"You are a Private Eye."
+                "\n\nDuring the night, you choose a player and learn whether she wins with the Traitors or with the Town."
+                "\n\nYou win with the Town.";
         } else if ([self.key isEqualToString:GGKAssassinKeyString]) {
             self.name = @"Assassin";
             self.longNameWithArticle = [NSString stringWithFormat:@"an %@", self.name];
