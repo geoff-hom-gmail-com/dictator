@@ -21,6 +21,7 @@
     NSIndexPath *theSelectedIndexPath = [self.remainingPlayersTableView indexPathForSelectedRow];
     GGKPlayer *theSelectedPlayer = [self.gameModel.remainingPlayersMutableArray objectAtIndex:theSelectedIndexPath.row];
     theSelectedPlayer.numberOfVotesThisRoundInteger++;
+    [self askForNextPlayerOrEnd];
 }
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath {
     UITableViewCell *aTableViewCell;

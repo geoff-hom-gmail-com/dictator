@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9304E71618E3B8B60096D3D0 /* GGKPrivateEyeNightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9304E71518E3B8B60096D3D0 /* GGKPrivateEyeNightViewController.m */; };
 		9305C76D17B2A0900020A156 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9305C76C17B2A0900020A156 /* UIKit.framework */; };
 		9305C76F17B2A0900020A156 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9305C76E17B2A0900020A156 /* Foundation.framework */; };
 		9305C77117B2A0900020A156 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9305C77017B2A0900020A156 /* CoreGraphics.framework */; };
@@ -31,7 +30,6 @@
 		93B1F86317B2BA49002C2353 /* GGKAddPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B1F86217B2BA49002C2353 /* GGKAddPlayersViewController.m */; };
 		93B1F86617B2BC0D002C2353 /* GGKGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B1F86517B2BC0D002C2353 /* GGKGameModel.m */; };
 		93B1F86917B43949002C2353 /* GGKSetRolesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B1F86817B43949002C2353 /* GGKSetRolesViewController.m */; };
-		93D9CA0318AB268600060531 /* GGKTownspersonNightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D9CA0218AB268600060531 /* GGKTownspersonNightViewController.m */; };
 		93D9CA0618AB26B800060531 /* GGKTraitorNightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D9CA0518AB26B800060531 /* GGKTraitorNightViewController.m */; };
 		93D9CA0918AB2A6E00060531 /* GGKNightSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D9CA0818AB2A6E00060531 /* GGKNightSummaryViewController.m */; };
 		93D9CA0C18AB313300060531 /* GGKAbstractRoleNightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D9CA0B18AB313300060531 /* GGKAbstractRoleNightViewController.m */; };
@@ -44,8 +42,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9304E71418E3B8B60096D3D0 /* GGKPrivateEyeNightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPrivateEyeNightViewController.h; sourceTree = "<group>"; };
-		9304E71518E3B8B60096D3D0 /* GGKPrivateEyeNightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPrivateEyeNightViewController.m; sourceTree = "<group>"; };
 		9305C76917B2A0900020A156 /* Dictator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dictator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9305C76C17B2A0900020A156 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9305C76E17B2A0900020A156 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -85,8 +81,6 @@
 		93B1F86517B2BC0D002C2353 /* GGKGameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKGameModel.m; sourceTree = "<group>"; };
 		93B1F86717B43949002C2353 /* GGKSetRolesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSetRolesViewController.h; sourceTree = "<group>"; };
 		93B1F86817B43949002C2353 /* GGKSetRolesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSetRolesViewController.m; sourceTree = "<group>"; };
-		93D9CA0118AB268600060531 /* GGKTownspersonNightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKTownspersonNightViewController.h; sourceTree = "<group>"; };
-		93D9CA0218AB268600060531 /* GGKTownspersonNightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKTownspersonNightViewController.m; sourceTree = "<group>"; };
 		93D9CA0418AB26B800060531 /* GGKTraitorNightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKTraitorNightViewController.h; sourceTree = "<group>"; };
 		93D9CA0518AB26B800060531 /* GGKTraitorNightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKTraitorNightViewController.m; sourceTree = "<group>"; };
 		93D9CA0718AB2A6E00060531 /* GGKNightSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKNightSummaryViewController.h; sourceTree = "<group>"; };
@@ -177,8 +171,6 @@
 				93F0B49517B8C86600224087 /* GGKPlayer.m */,
 				9396151917B8C6BC005D6BAB /* GGKPregameNightViewController.h */,
 				9396151A17B8C6BC005D6BAB /* GGKPregameNightViewController.m */,
-				9304E71418E3B8B60096D3D0 /* GGKPrivateEyeNightViewController.h */,
-				9304E71518E3B8B60096D3D0 /* GGKPrivateEyeNightViewController.m */,
 				9321B43717B72C6800A612CA /* GGKRole.h */,
 				9321B43817B72C6800A612CA /* GGKRole.m */,
 				9321B43A17B7445A00A612CA /* GGKRoleInfoViewController.h */,
@@ -187,8 +179,6 @@
 				93B1F86817B43949002C2353 /* GGKSetRolesViewController.m */,
 				9396151617B8AEDE005D6BAB /* GGKStartGameViewController.h */,
 				9396151717B8AEDE005D6BAB /* GGKStartGameViewController.m */,
-				93D9CA0118AB268600060531 /* GGKTownspersonNightViewController.h */,
-				93D9CA0218AB268600060531 /* GGKTownspersonNightViewController.m */,
 				93D9CA0418AB26B800060531 /* GGKTraitorNightViewController.h */,
 				93D9CA0518AB26B800060531 /* GGKTraitorNightViewController.m */,
 				93F5ECB018A2112800248022 /* GGKViewController.h */,
@@ -297,7 +287,6 @@
 				93EE6EC218B4AAB100D4A059 /* GGKGameOverViewController.m in Sources */,
 				93B1F86317B2BA49002C2353 /* GGKAddPlayersViewController.m in Sources */,
 				93B1F86617B2BC0D002C2353 /* GGKGameModel.m in Sources */,
-				93D9CA0318AB268600060531 /* GGKTownspersonNightViewController.m in Sources */,
 				93B1F86917B43949002C2353 /* GGKSetRolesViewController.m in Sources */,
 				9321B43917B72C6800A612CA /* GGKRole.m in Sources */,
 				9321B43C17B7445A00A612CA /* GGKRoleInfoViewController.m in Sources */,
@@ -306,7 +295,6 @@
 				93F5ECA918A1CC5900248022 /* NSDate+GGKAdditions.m in Sources */,
 				9396151817B8AEDE005D6BAB /* GGKStartGameViewController.m in Sources */,
 				9396151B17B8C6BC005D6BAB /* GGKPregameNightViewController.m in Sources */,
-				9304E71618E3B8B60096D3D0 /* GGKPrivateEyeNightViewController.m in Sources */,
 				9396151E17B8C6DA005D6BAB /* GGKYourRoleViewController.m in Sources */,
 				93D9CA0C18AB313300060531 /* GGKAbstractRoleNightViewController.m in Sources */,
 				93F0B49617B8C86600224087 /* GGKPlayer.m in Sources */,

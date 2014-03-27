@@ -19,6 +19,9 @@
 // When done choosing, player taps this button.
 @property (strong, nonatomic) IBOutlet UIButton *thisPersonButton;
 // Override.
+// User handled alert. Could be private-eye investigation.
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
+// Override.
 - (void)doRoleActions;
 // Each row is a remaining player.
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath;

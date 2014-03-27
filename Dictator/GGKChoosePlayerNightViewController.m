@@ -18,21 +18,26 @@
 @end
 
 @implementation GGKChoosePlayerNightViewController
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    [self askForNextPlayerOrEnd];
+}
 - (void)doRoleActions {
     [super doRoleActions];
     NSIndexPath *theSelectedIndexPath = [self.remainingPlayersMinusSelfTableView indexPathForSelectedRow];
     GGKPlayer *theChosenPlayer = self.remainingPlayersMinusSelfArray[theSelectedIndexPath.row];
     NSString *theCurrentRoleString = self.currentRole.key;
     if ([theCurrentRoleString isEqualToString:GGKTownspersonKeyString]) {
+        [self askForNextPlayerOrEnd];
     } else if ([theCurrentRoleString isEqualToString:GGKDoctorKeyString]) {
         [self.gameModel.playersToSaveMutableArray addObject:theChosenPlayer];
+        [self askForNextPlayerOrEnd];
     } else if ([theCurrentRoleString isEqualToString:GGKPrivateEyeKeyString]) {
         NSString *theWinConditionString = @"Town";
         if (theChosenPlayer.role.isTraitor) {
             theWinConditionString = @"Traitors";
         }
         NSString *theMessageString = [NSString stringWithFormat:@"%@ wins with the %@.", theChosenPlayer.name, theWinConditionString];
-        UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:@"Investigation Complete" message:theMessageString delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:@"Investigation Complete" message:theMessageString delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
         [anAlertView show];
     } else {
         NSLog(@"CPNVC warning: unknown role, %@", theCurrentRoleString);

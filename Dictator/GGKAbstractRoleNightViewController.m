@@ -28,7 +28,6 @@
 }
 - (IBAction)handlePlayerDone {
     [self doRoleActions];
-    [self askForNextPlayerOrEnd];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

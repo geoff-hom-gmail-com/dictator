@@ -21,13 +21,8 @@
     NSArray *theChoosePlayerRoleArray = @[GGKTownspersonKeyString, GGKDoctorKeyString, GGKPrivateEyeKeyString];
     if ([theChoosePlayerRoleArray containsObject:theCurrentRoleString]) {
         theSegue = @"ShowChoosePlayerNightSegue";
-//    }
-//    if ([theCurrentRoleString isEqualToString:GGKTownspersonKeyString]) {
-//        theSegue = @"ShowTownspersonNightSegue";
     } else if ([theCurrentRoleString isEqualToString:GGKTraitorKeyString]) {
         theSegue = @"ShowTraitorNightSegue";
-//    } else if ([theCurrentRoleString isEqualToString:GGKPrivateEyeKeyString]) {
-//        theSegue = @"ShowPrivateEyeNightSegue";
     } else {
         NSLog(@"NVC warning: unknown role, %@", theCurrentRoleString);
     }

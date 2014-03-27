@@ -575,95 +575,13 @@ The Traitors win!</string>
                     <connections>
                         <outlet property="currentPlayerNameLabel" destination="X87-Ai-70n" id="M8X-M8-byv"/>
                         <outlet property="verifyPlayerButton" destination="euZ-1D-1rE" id="jmO-LT-iff"/>
-                        <segue destination="uGE-wo-0ud" kind="push" identifier="ShowTownspersonNightSegue" id="Nqd-4Z-eIu"/>
                         <segue destination="f6S-c8-1Tj" kind="push" identifier="ShowTraitorNightSegue" id="CNX-rg-9zF"/>
-                        <segue destination="x4X-Zr-l5d" kind="push" identifier="ShowPrivateEyeNightSegue" id="wBr-5G-5aY"/>
                         <segue destination="t9A-g0-3MO" kind="push" identifier="ShowChoosePlayerNightSegue" id="vhJ-oa-48N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HXt-vT-11o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2360" y="722"/>
-        </scene>
-        <!--Townsperson Night View Controller - Townsperson-->
-        <scene sceneID="Bli-TS-R3C">
-            <objects>
-                <viewController id="uGE-wo-0ud" customClass="GGKTownspersonNightViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="OMC-Kz-OGs"/>
-                        <viewControllerLayoutGuide type="bottom" id="YaT-3c-Z5s"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="95C-tV-LbJ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Who do you think is a Traitor?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJE-jE-QHi">
-                                <rect key="frame" x="46" y="20" width="229" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faD-ad-w9K">
-                                <rect key="frame" x="104" y="353" width="112" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="This Person!">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="disabled">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="handlePlayerDone" destination="uGE-wo-0ud" eventType="touchUpInside" id="Ktj-dG-PxK"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="caM-tJ-2dO">
-                                <rect key="frame" x="20" y="49" width="280" height="296"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlayerNameCell" textLabel="ASI-oX-aNn" style="IBUITableViewCellStyleDefault" id="zLF-bg-lT9">
-                                        <rect key="frame" x="0.0" y="22" width="280" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zLF-bg-lT9" id="icb-Lw-fpA">
-                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ASI-oX-aNn">
-                                                    <rect key="frame" x="15" y="0.0" width="250" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="uGE-wo-0ud" id="ruG-AZ-6e3"/>
-                                    <outlet property="delegate" destination="uGE-wo-0ud" id="eHX-9L-FoO"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Townsperson" id="I8C-RK-BPN">
-                        <barButtonItem key="rightBarButtonItem" title="Quit" id="vz3-ZS-9n8">
-                            <connections>
-                                <action selector="verifyQuitGame" destination="uGE-wo-0ud" id="CKa-0d-YDb"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <connections>
-                        <outlet property="remainingPlayersMinusSelfTableView" destination="caM-tJ-2dO" id="LHn-HI-Zas"/>
-                        <outlet property="thisPersonButton" destination="faD-ad-w9K" id="5Ws-XC-P8M"/>
-                        <segue destination="d1k-Ho-aSW" kind="push" identifier="ShowNightSummarySegue" id="1dt-Xx-T9U"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZcQ-Os-1Qv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2800" y="722"/>
         </scene>
         <!--Night Summary View Controller - Night Summary-->
         <scene sceneID="HuN-KR-AHk">
@@ -1285,85 +1203,6 @@ abcdefghijklmnopqrstuvwxyzabcdefghijklm</string>
             </objects>
             <point key="canvasLocation" x="639" y="-633"/>
         </scene>
-        <!--Private Eye Night View Controller - Private Eye-->
-        <scene sceneID="yUG-GY-dtH">
-            <objects>
-                <viewController id="x4X-Zr-l5d" customClass="GGKPrivateEyeNightViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ghe-js-WdX"/>
-                        <viewControllerLayoutGuide type="bottom" id="OCc-uX-aVf"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vb8-vY-XAY">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Investigate whom?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBV-WM-41c">
-                                <rect key="frame" x="58" y="20" width="205" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wt4-nl-x4W">
-                                <rect key="frame" x="104" y="353" width="112" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="This Person!">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="disabled">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="handlePlayerDone" destination="x4X-Zr-l5d" eventType="touchUpInside" id="jIk-RT-ZhE"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="pJW-nR-EgF">
-                                <rect key="frame" x="20" y="49" width="280" height="296"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlayerNameCell" textLabel="9Xa-4h-zT4" style="IBUITableViewCellStyleDefault" id="9RA-d9-Dxk">
-                                        <rect key="frame" x="0.0" y="22" width="280" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9RA-d9-Dxk" id="raU-fK-kdL">
-                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9Xa-4h-zT4">
-                                                    <rect key="frame" x="15" y="0.0" width="250" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="x4X-Zr-l5d" id="Lqf-Ut-5c6"/>
-                                    <outlet property="delegate" destination="x4X-Zr-l5d" id="Ni3-2f-pqd"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Private Eye" id="c1B-lh-Ywt">
-                        <barButtonItem key="rightBarButtonItem" title="Quit" id="rqZ-aO-NqG">
-                            <connections>
-                                <action selector="verifyQuitGame" destination="x4X-Zr-l5d" id="1cY-hG-mUh"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <connections>
-                        <outlet property="remainingPlayersMinusSelfTableView" destination="pJW-nR-EgF" id="XOD-Rj-o6g"/>
-                        <outlet property="thisPersonButton" destination="Wt4-nl-x4W" id="nAw-NY-zPG"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JT7-O1-0a6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2800" y="1870"/>
-        </scene>
         <!--Choose Player Night View Controller - Role Name-->
         <scene sceneID="D4W-4e-gNv">
             <objects>
@@ -1443,7 +1282,7 @@ abcdefghijklmnopqrstuvwxyzabcdefghijklm</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CF9-cl-0sx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2346" y="1672"/>
+            <point key="canvasLocation" x="2800" y="722"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

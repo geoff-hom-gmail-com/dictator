@@ -14,7 +14,7 @@
 // Do what the player said.
 // Subclasses should override.
 - (void)doRoleActions;
-// The player finished, so do her actions, then go to next player.
+// The player finished, so do her actions.
 - (IBAction)handlePlayerDone;
 // Override.
 - (void)viewDidLoad;
