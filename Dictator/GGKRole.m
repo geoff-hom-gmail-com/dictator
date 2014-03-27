@@ -52,8 +52,8 @@ NSString *GGKTraitorKeyString = @"Traitor";
             self.shortBlurb = @"(Towns.) Townsperson blurb here";
             self.longBlurb = self.shortBlurb;
             self.youAreBlurb1 = @"You are an Innocent Townsperson."
-              "\n\nDuring the night, you have no action."
-              "\n\nYou win with the Town.";
+                "\n\nYou win with the Town."
+                "\n\nDuring the night, you have no action.";
         } else if ([self.key isEqualToString:GGKTraitorKeyString]) {
             self.name = @"Traitor";
             self.longNameWithArticle = [NSString stringWithFormat:@"a %@", self.name];
@@ -61,16 +61,16 @@ NSString *GGKTraitorKeyString = @"Traitor";
             self.shortBlurb = @"(Trait.) Traitor blurb1 here";
             self.longBlurb = self.shortBlurb;
             self.youAreBlurb1 = [NSString stringWithFormat:@"You are a Traitor."
-            "\n\nDuring the night, you and the other Traitors choose one player to %@."
-            "\n\nYou win with the Traitors.", GGKEliminateString];
+                                 "\n\nYou win with the Traitors."
+                                 "\n\nDuring the night, you and the other Traitors choose one player to %@.", GGKEliminateString];
         } else if ([self.key isEqualToString:GGKPrivateEyeKeyString]) {
             self.name = @"Private Eye";
             self.longNameWithArticle = [NSString stringWithFormat:@"a %@", self.name];
             self.shortBlurb = @"(Towns.) Private Eye blurb here";
             self.longBlurb = @"During the night, the Private Eye selects another player. The Private Eye learns whether that player wins with the Traitors or with the Town.";
             self.youAreBlurb1 = @"You are a Private Eye."
-                "\n\nDuring the night, you choose a player and learn whether she wins with the Traitors or with the Town."
-                "\n\nYou win with the Town.";
+                "\n\nYou win with the Town."
+                "\n\nDuring the night, you choose a player and learn whether she wins with the Traitors or with the Town.";
         } else if ([self.key isEqualToString:GGKAssassinKeyString]) {
             self.name = @"Assassin";
             self.longNameWithArticle = [NSString stringWithFormat:@"an %@", self.name];
