@@ -26,6 +26,7 @@
 		9396151817B8AEDE005D6BAB /* GGKStartGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9396151717B8AEDE005D6BAB /* GGKStartGameViewController.m */; };
 		9396151B17B8C6BC005D6BAB /* GGKPregameNightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9396151A17B8C6BC005D6BAB /* GGKPregameNightViewController.m */; };
 		9396151E17B8C6DA005D6BAB /* GGKYourRoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9396151D17B8C6D9005D6BAB /* GGKYourRoleViewController.m */; };
+		93A8188E18E42F4000AA29AB /* GGKChoosePlayerNightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A8188D18E42F4000AA29AB /* GGKChoosePlayerNightViewController.m */; };
 		93B1F86017B2AAC5002C2353 /* GGKDescription.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 93B1F85F17B2AAC5002C2353 /* GGKDescription.rtf */; };
 		93B1F86317B2BA49002C2353 /* GGKAddPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B1F86217B2BA49002C2353 /* GGKAddPlayersViewController.m */; };
 		93B1F86617B2BC0D002C2353 /* GGKGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B1F86517B2BC0D002C2353 /* GGKGameModel.m */; };
@@ -75,6 +76,8 @@
 		9396151A17B8C6BC005D6BAB /* GGKPregameNightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKPregameNightViewController.m; sourceTree = "<group>"; };
 		9396151C17B8C6D9005D6BAB /* GGKYourRoleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKYourRoleViewController.h; sourceTree = "<group>"; };
 		9396151D17B8C6D9005D6BAB /* GGKYourRoleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKYourRoleViewController.m; sourceTree = "<group>"; };
+		93A8188C18E42F4000AA29AB /* GGKChoosePlayerNightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKChoosePlayerNightViewController.h; sourceTree = "<group>"; };
+		93A8188D18E42F4000AA29AB /* GGKChoosePlayerNightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKChoosePlayerNightViewController.m; sourceTree = "<group>"; };
 		93B1F85F17B2AAC5002C2353 /* GGKDescription.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = GGKDescription.rtf; sourceTree = "<group>"; };
 		93B1F86117B2BA49002C2353 /* GGKAddPlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKAddPlayersViewController.h; sourceTree = "<group>"; };
 		93B1F86217B2BA49002C2353 /* GGKAddPlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKAddPlayersViewController.m; sourceTree = "<group>"; };
@@ -154,6 +157,8 @@
 				93B1F86217B2BA49002C2353 /* GGKAddPlayersViewController.m */,
 				9305C77B17B2A0900020A156 /* GGKAppDelegate.h */,
 				9305C77C17B2A0900020A156 /* GGKAppDelegate.m */,
+				93A8188C18E42F4000AA29AB /* GGKChoosePlayerNightViewController.h */,
+				93A8188D18E42F4000AA29AB /* GGKChoosePlayerNightViewController.m */,
 				930D9FD717C758B4006ED023 /* GGKDayViewController.h */,
 				930D9FD817C758B4006ED023 /* GGKDayViewController.m */,
 				930D9FDA17C7705F006ED023 /* GGKDictatorElectedViewController.h */,
@@ -286,6 +291,7 @@
 				9305C77917B2A0900020A156 /* main.m in Sources */,
 				93D9CA0618AB26B800060531 /* GGKTraitorNightViewController.m in Sources */,
 				93F5ECAF18A208F000248022 /* GGKNightViewController.m in Sources */,
+				93A8188E18E42F4000AA29AB /* GGKChoosePlayerNightViewController.m in Sources */,
 				93D9CA0918AB2A6E00060531 /* GGKNightSummaryViewController.m in Sources */,
 				9305C77D17B2A0900020A156 /* GGKAppDelegate.m in Sources */,
 				93EE6EC218B4AAB100D4A059 /* GGKGameOverViewController.m in Sources */,

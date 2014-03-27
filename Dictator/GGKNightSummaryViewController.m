@@ -30,7 +30,7 @@
     [self.gameModel calculateNightSummary];
     NSArray *thePlayersEliminatedLastNightArray = self.gameModel.playersEliminatedLastNightArray;
     NSString *theSummaryTextString;
-    if (thePlayersEliminatedLastNightArray == nil) {
+    if ((thePlayersEliminatedLastNightArray == nil) || ([thePlayersEliminatedLastNightArray count] == 0)) {
         theSummaryTextString = [NSString stringWithFormat:@"Last night, no one was %@.", GGKEliminatedString];
     } else {
         // For now, assuming only 0 or 1 players can be eliminated.

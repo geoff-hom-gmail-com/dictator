@@ -71,16 +71,19 @@ NSString *GGKTraitorKeyString = @"Traitor";
             self.youAreBlurb1 = @"You are a Private Eye."
                 "\n\nYou win with the Town."
                 "\n\nDuring the night, you choose a player and learn whether she wins with the Traitors or with the Town.";
+        } else if ([self.key isEqualToString:GGKDoctorKeyString]) {
+            self.name = @"Doctor";
+            self.longNameWithArticle = [NSString stringWithFormat:@"a %@", self.name];
+            self.shortBlurb = @"(Towns.) Doctor blurb1 here";
+            self.longBlurb = [NSString stringWithFormat:@"During the night, the Doctor selects another player. If someone attempts to %@ that player that night, she survives.", GGKEliminateString];
+            self.youAreBlurb1 = [NSString stringWithFormat:@"You are a Doctor."
+                                 "\n\nYou win with the Town."
+                                 "\n\nDuring the night, you choose another player. If someone attempts to %@ her that night, she survives.", GGKEliminateString];
         } else if ([self.key isEqualToString:GGKAssassinKeyString]) {
             self.name = @"Assassin";
             self.longNameWithArticle = [NSString stringWithFormat:@"an %@", self.name];
             self.isTraitor = YES;
             self.shortBlurb = @"(Trait.) Assassin blurb1 here";
-            self.longBlurb = self.shortBlurb;
-        } else if ([self.key isEqualToString:GGKDoctorKeyString]) {
-            self.name = @"Doctor";
-            self.longNameWithArticle = [NSString stringWithFormat:@"a %@", self.name];
-            self.shortBlurb = @"(Towns.) Doctor blurb1 here";
             self.longBlurb = self.shortBlurb;
         } else {
             NSLog(@"Warning: unknown role:%@", self.key);

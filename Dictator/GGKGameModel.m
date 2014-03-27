@@ -47,20 +47,21 @@ NSString *GGKExiledString = @"exiled";
     }];
     NSInteger theNumberOfPlayersWithMostVotes = [thePlayersWithMostVotesMutableArray count];
 //    NSLog(@"players with most votes:%d votes:%d", theNumberOfPlayersWithMostVotes, theMostVotesInteger);
-    NSArray *thePlayersToEliminateArray;
+    NSMutableArray *thePlayersToEliminateMutableArray;
     self.thereWasATieBOOL = NO;
     if (theNumberOfPlayersWithMostVotes == 1) {
-        thePlayersToEliminateArray = [thePlayersWithMostVotesMutableArray copy];
+        thePlayersToEliminateMutableArray = [thePlayersWithMostVotesMutableArray mutableCopy];
     } else if (theNumberOfPlayersWithMostVotes == 0) {
-        thePlayersToEliminateArray = nil;
+        thePlayersToEliminateMutableArray = nil;
     } else if (theNumberOfPlayersWithMostVotes > 1) {
         NSInteger aRandomIndex = arc4random_uniform(theNumberOfPlayersWithMostVotes);
         GGKPlayer *theEliminatedPlayer = [thePlayersWithMostVotesMutableArray objectAtIndex:aRandomIndex];
-        thePlayersToEliminateArray = [NSArray arrayWithObject:theEliminatedPlayer];
+        thePlayersToEliminateMutableArray = [NSMutableArray arrayWithObject:theEliminatedPlayer];
         self.thereWasATieBOOL = YES;
     }
-    // see if someone was saved by the doctor, etc.
-    [self eliminatePlayers:thePlayersToEliminateArray];
+    // Check if the doctor saved someone.
+    [thePlayersToEliminateMutableArray removeObjectsInArray:self.playersToSaveMutableArray];
+    [self eliminatePlayers:thePlayersToEliminateMutableArray];
 }
 - (void)deleteAllPlayers {
     [self.allPlayersMutableArray removeAllObjects];
@@ -101,23 +102,15 @@ NSString *GGKExiledString = @"exiled";
         
         // Create available-roles array.
         // Order presented should be Townsperson, Traitor, then alphabetically.
-        // Townsperson.
         GGKRole *aRole = [[GGKRole alloc] initWithType:GGKTownspersonKeyString];
         self.availableRolesMutableArray = [NSMutableArray arrayWithObject:aRole];
-        // Traitor.
-        aRole = [[GGKRole alloc] initWithType:GGKTraitorKeyString];
-        [self.availableRolesMutableArray addObject:aRole];
-        aRole = [[GGKRole alloc] initWithType:GGKPrivateEyeKeyString];
-        [self.availableRolesMutableArray addObject:aRole];
-        
-        // Just do these for my testing of the scrolling. Comment out for testers.
+        for (NSString *aKeyString in @[GGKTraitorKeyString, GGKDoctorKeyString, GGKPrivateEyeKeyString]) {
+            aRole = [[GGKRole alloc] initWithType:aKeyString];
+            [self.availableRolesMutableArray addObject:aRole];
+        }
         
 //        // Assassin.
 //        aRole = [[GGKRole alloc] initWithType:GGKAssassinKeyString];
-//        [self.availableRolesMutableArray addObject:aRole];
-//        
-//        // Doctor.
-//        aRole = [[GGKRole alloc] initWithType:GGKDoctorKeyString];
 //        [self.availableRolesMutableArray addObject:aRole];
     }
     return self;
@@ -151,6 +144,7 @@ NSString *GGKExiledString = @"exiled";
     [self.remainingPlayersMutableArray enumerateObjectsUsingBlock:^(GGKPlayer *aPlayer, NSUInteger idx, BOOL *stop) {
         aPlayer.numberOfVotesThisRoundInteger = 0;
     }];
+    self.playersToSaveMutableArray = [NSMutableArray arrayWithCapacity:5];
     // Start to left of the current player/dictator. Will end with current player/dictator.
     self.lastPlayerThisRound = self.currentPlayer;
     NSInteger anIndex = [self.remainingPlayersMutableArray indexOfObject:self.currentPlayer];

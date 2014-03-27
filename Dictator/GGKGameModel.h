@@ -41,6 +41,8 @@ extern NSString *GGKExiledString;
 // The players eliminated last night.
 // Currently, either nil or 1 player.
 @property (strong, nonatomic) NSArray *playersEliminatedLastNightArray;
+// Players to save from elimination tonight.
+@property (strong, nonatomic) NSMutableArray *playersToSaveMutableArray;
 // Non-eliminated players.
 @property (strong, nonatomic) NSMutableArray *remainingPlayersMutableArray;
 // Whether there was a tie at night from the Traitors.
