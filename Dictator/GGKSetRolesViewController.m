@@ -159,7 +159,7 @@
         }
         GGKRole *aRole = [self.allAssignedRolesArray objectAtIndex:theIndexPath.row];
         aTableViewCell.textLabel.text = aRole.name;
-        aTableViewCell.detailTextLabel.text = [NSString stringWithFormat:@"%d", aRole.startingCount];
+        aTableViewCell.detailTextLabel.text = [NSString stringWithFormat:@"%ld", (long)aRole.startingCount];
     }
     
     return aTableViewCell;
@@ -223,7 +223,7 @@
     NSArray *anArray = @[theTownspersonRole];
     self.allAssignedRolesArray = [anArray arrayByAddingObjectsFromArray:self.explicitlyAssignedRolesMutableArray];
     
-    self.minimumNumberOfPlayersLabel.text = [NSString stringWithFormat:@"%d", theTotalCount];
+    self.minimumNumberOfPlayersLabel.text = [NSString stringWithFormat:@"%ld", (long)theTotalCount];
 
     [self.assignedRolesTableView reloadData];
 }
@@ -233,7 +233,7 @@
 	// Do any additional setup after loading the view.
     // Get number of players from model.
     self.numberOfPlayersInteger = [self.gameModel.allPlayersMutableArray count];
-    self.numberOfPlayersLabel.text = [NSString stringWithFormat:@"%d", self.numberOfPlayersInteger];
+    self.numberOfPlayersLabel.text = [NSString stringWithFormat:@"%ld", (long)self.numberOfPlayersInteger];
     
     // Get available roles.
     self.availableRolesArray = [self.gameModel.availableRolesMutableArray copy];

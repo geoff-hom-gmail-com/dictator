@@ -40,7 +40,7 @@
     
     for (GGKPlayer *aPlayer in self.gameModel.allPlayersMutableArray) {
         
-        uint32_t aRandomNumberInt = arc4random_uniform([theAssignedRolesMutableArray count]);
+        uint32_t aRandomNumberInt = arc4random_uniform((uint32_t)[theAssignedRolesMutableArray count]);
         GGKRole *theAssignedRole = [theAssignedRolesMutableArray objectAtIndex:aRandomNumberInt];
         aPlayer.role = theAssignedRole;
         [theAssignedRolesMutableArray removeObject:theAssignedRole];

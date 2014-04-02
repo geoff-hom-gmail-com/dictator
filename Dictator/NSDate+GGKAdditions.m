@@ -16,7 +16,7 @@
     NSInteger theNumberOfMinutes = theRemainderInSecondsInteger / theNumberOfSecondsInAMinute;
     theRemainderInSecondsInteger = theRemainderInSecondsInteger % theNumberOfSecondsInAMinute;
     NSInteger theNumberOfSeconds = theRemainderInSecondsInteger;
-    NSString *aString = [NSString stringWithFormat:@"%2d:%02d", theNumberOfMinutes, theNumberOfSeconds];
+    NSString *aString = [NSString stringWithFormat:@"%2ld:%02ld", (long)theNumberOfMinutes, (long)theNumberOfSeconds];
     return aString;
 }
 @end

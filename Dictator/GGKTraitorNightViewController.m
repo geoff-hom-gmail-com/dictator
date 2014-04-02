@@ -29,7 +29,7 @@
         aTableViewCell = [theTableView dequeueReusableCellWithIdentifier:@"HitListCell"];
         GGKPlayer *aPlayer = [self.hitListMutableArray objectAtIndex:theIndexPath.row];
         aTableViewCell.textLabel.text = aPlayer.name;
-        aTableViewCell.detailTextLabel.text = [NSString stringWithFormat:@"%d", aPlayer.numberOfVotesThisRoundInteger];
+        aTableViewCell.detailTextLabel.text = [NSString stringWithFormat:@"%ld", (long)aPlayer.numberOfVotesThisRoundInteger];
     } else if (theTableView == self.remainingPlayersTableView) {
         aTableViewCell = [theTableView dequeueReusableCellWithIdentifier:@"PlayerNameCell"];
         GGKPlayer *aPlayer = [self.gameModel.remainingPlayersMutableArray objectAtIndex:theIndexPath.row];

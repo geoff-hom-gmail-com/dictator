@@ -54,7 +54,7 @@ NSString *GGKExiledString = @"exiled";
     } else if (theNumberOfPlayersWithMostVotes == 0) {
         thePlayersToEliminateMutableArray = nil;
     } else if (theNumberOfPlayersWithMostVotes > 1) {
-        NSInteger aRandomIndex = arc4random_uniform(theNumberOfPlayersWithMostVotes);
+        NSInteger aRandomIndex = arc4random_uniform((uint32_t)theNumberOfPlayersWithMostVotes);
         GGKPlayer *theEliminatedPlayer = [thePlayersWithMostVotesMutableArray objectAtIndex:aRandomIndex];
         thePlayersToEliminateMutableArray = [NSMutableArray arrayWithObject:theEliminatedPlayer];
         self.thereWasATieBOOL = YES;

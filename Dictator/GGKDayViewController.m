@@ -113,9 +113,9 @@ NSString *TimeIsUpAlertViewTitleString = @"Time's Up!";
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     NSInteger theNumberOfPlayersInteger = [self.gameModel.remainingPlayersMutableArray count];
-    self.numberOfPlayersLabel.text = [NSString stringWithFormat:@"%d", theNumberOfPlayersInteger];
+    self.numberOfPlayersLabel.text = [NSString stringWithFormat:@"%ld", (long)theNumberOfPlayersInteger];
     NSInteger theNumberOfVotesNeededInteger = (theNumberOfPlayersInteger / 2) + 1;
-    self.numberOfVotesNeededLabel.text = [NSString stringWithFormat:@"%d", theNumberOfVotesNeededInteger];
+    self.numberOfVotesNeededLabel.text = [NSString stringWithFormat:@"%ld", (long)theNumberOfVotesNeededInteger];
     self.noDictatorButton.enabled = YES;
     self.numberOfSecondsToElectDictator = 60 * 3;
     self.electDictatorTimerLabel.text = [NSDate ggk_minuteSecondStringForTimeInterval:self.numberOfSecondsToElectDictator];
