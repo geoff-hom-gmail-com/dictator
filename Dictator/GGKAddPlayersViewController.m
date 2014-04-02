@@ -14,13 +14,12 @@
 @interface GGKAddPlayersViewController ()
 // All players in the game.
 @property (strong, nonatomic) NSArray *currentPlayersArray;
+// Whether to cancel adding the current player.
+@property (assign, nonatomic) BOOL doCancelAddPlayer;
 // Keyboard extension. (A cancel button.)
 @property (strong, nonatomic) UIInputView *keyboardAccessoryInputView;
-
-// doesn't quite work yet
-// keyboard hides, but it still adds a player
+// Make sure the player won't be added and dismiss the keyboard.
 - (void)cancelAddPlayer;
-
 // Make sure the user sees the total number of players.
 - (void)updateNumberOfPlayersLabel;
 @end
@@ -44,6 +43,7 @@
     }
 }
 - (void)cancelAddPlayer {
+    self.doCancelAddPlayer = YES;
     [self.playerNameTextField resignFirstResponder];
 }
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath {
@@ -71,17 +71,20 @@
     return [self.currentPlayersArray count];
 }
 - (void)textFieldDidEndEditing:(UITextField *)theTextField {
-    // Add player. Update.
-    [self.gameModel addPlayerWithName:theTextField.text];
-    self.currentPlayersArray = [self.gameModel.allPlayersMutableArray copy];
-    [self updateNumberOfPlayersLabel];
-    NSIndexPath *anIndexPath = [NSIndexPath indexPathForRow:[self.currentPlayersArray count] - 1 inSection:0];
-    [self.playersTableView insertRowsAtIndexPaths:@[anIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    // Scroll to player added.
-    [self.playersTableView scrollToRowAtIndexPath:anIndexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
+    if (!self.doCancelAddPlayer) {
+        // Add player. Update.
+        [self.gameModel addPlayerWithName:theTextField.text];
+        self.currentPlayersArray = [self.gameModel.allPlayersMutableArray copy];
+        [self updateNumberOfPlayersLabel];
+        NSIndexPath *anIndexPath = [NSIndexPath indexPathForRow:[self.currentPlayersArray count] - 1 inSection:0];
+        [self.playersTableView insertRowsAtIndexPaths:@[anIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        // Scroll to player added.
+        [self.playersTableView scrollToRowAtIndexPath:anIndexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
+    }
 }
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)theTextField {
     theTextField.inputAccessoryView = self.keyboardAccessoryInputView;
+    self.doCancelAddPlayer = NO;
     return YES;
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
