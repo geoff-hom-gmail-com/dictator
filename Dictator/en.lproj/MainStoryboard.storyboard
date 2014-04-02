@@ -1177,6 +1177,7 @@ abcdefghijklmnopqrstuvwxyzabcdefghijklm</string>
                     </navigationItem>
                     <connections>
                         <outlet property="numberOfPlayersLabel" destination="5yS-wr-zXX" id="fr0-oG-bdh"/>
+                        <outlet property="playerNameTextField" destination="Rxn-se-wo7" id="cAa-qU-xdo"/>
                         <outlet property="playersTableView" destination="Dfw-LW-vWd" id="HaG-gC-OJr"/>
                     </connections>
                 </viewController>

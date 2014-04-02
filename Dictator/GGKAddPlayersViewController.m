@@ -14,6 +14,13 @@
 @interface GGKAddPlayersViewController ()
 // All players in the game.
 @property (strong, nonatomic) NSArray *currentPlayersArray;
+// Keyboard extension. (A cancel button.)
+@property (strong, nonatomic) UIInputView *keyboardAccessoryInputView;
+
+// doesn't quite work yet
+// keyboard hides, but it still adds a player
+- (void)cancelAddPlayer;
+
 // Make sure the user sees the total number of players.
 - (void)updateNumberOfPlayersLabel;
 @end
@@ -35,6 +42,9 @@
         [self updateNumberOfPlayersLabel];
         [self.playersTableView deleteRowsAtIndexPaths:anIndexPathMutableArray withRowAnimation:UITableViewRowAnimationFade];
     }
+}
+- (void)cancelAddPlayer {
+    [self.playerNameTextField resignFirstResponder];
 }
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath {
     static NSString *PlayerCellIdentifier = @"PlayerNameCell";
@@ -70,6 +80,10 @@
     // Scroll to player added.
     [self.playersTableView scrollToRowAtIndexPath:anIndexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
 }
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)theTextField {
+    theTextField.inputAccessoryView = self.keyboardAccessoryInputView;
+    return YES;
+}
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
     [theTextField resignFirstResponder];
     return YES;
@@ -89,5 +103,17 @@
     [self updateNumberOfPlayersLabel];
     // Put table into editing mode.
     [self.playersTableView setEditing:YES animated:NO];
+    // Make accessory view for keyboard.
+    CGSize theToolbarSize = CGSizeMake(self.view.frame.size.width, 44);
+    UIToolbar *aToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, theToolbarSize.width, theToolbarSize.height)];
+    // Make toolbar-background transparent.
+    [aToolbar setBackgroundImage:[[UIImage alloc] init] forToolbarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [aToolbar setShadowImage:[UIImage new] forToolbarPosition:UIBarPositionAny];
+    UIBarButtonItem *aCancelBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelAddPlayer)];
+    UIBarButtonItem *aFlexibleSpaceBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    aToolbar.items = @[aFlexibleSpaceBarButtonItem, aCancelBarButtonItem];
+    UIInputView *anInputView = [[UIInputView alloc] initWithFrame:CGRectMake(0, 0, theToolbarSize.width, theToolbarSize.height) inputViewStyle:UIInputViewStyleKeyboard];
+    [anInputView addSubview:aToolbar];
+    self.keyboardAccessoryInputView = anInputView;
 }
 @end
