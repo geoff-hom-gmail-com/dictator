@@ -25,11 +25,9 @@
 // Move the given row.
 - (void)tableView:(UITableView *)theTableView moveRowAtIndexPath:(NSIndexPath *)theSourceIndexPath toIndexPath:(NSIndexPath *)theDestinationIndexPath;
 - (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)theSection;
-// Text field finished editing. So, add named player.
-- (void)textFieldDidEndEditing:(UITextField *)theTextField;
 // Add accessory view.
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField;
-// Text field should return. So, dismiss the keyboard.
+// Add player. Dismiss keyboard.
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField;
 // Ensure the user wants to delete all players.
 - (IBAction)verifyDeleteAll;
