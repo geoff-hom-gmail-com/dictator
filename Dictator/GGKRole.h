@@ -14,6 +14,7 @@ extern NSString *GGKDoctorKeyString;
 extern NSString *GGKPrivateEyeKeyString;
 extern NSString *GGKTownspersonKeyString;
 extern NSString *GGKTraitorKeyString;
+extern NSString *GGKVigilanteKeyString;
 
 @interface GGKRole : NSObject <NSCoding>
 // Whether this role is a traitorous one.

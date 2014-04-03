@@ -365,8 +365,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CK-BI-TTL">
-                                <rect key="frame" x="139" y="307" width="42" height="30"/>
-                                <state key="normal" title="Got it!">
+                                <rect key="frame" x="139" y="307" width="43" height="30"/>
+                                <state key="normal" title="Got It!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -446,8 +446,8 @@ The Traitors win!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlx-34-Mpu">
-                                <rect key="frame" x="139" y="193" width="42" height="30"/>
-                                <state key="normal" title="Got it!">
+                                <rect key="frame" x="139" y="193" width="43" height="30"/>
+                                <state key="normal" title="Got It!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -786,8 +786,8 @@ The Traitors win!</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRS-ui-o8G">
-                                <rect key="frame" x="20" y="366" width="56" height="30"/>
-                                <state key="normal" title="No exile">
+                                <rect key="frame" x="20" y="366" width="57" height="30"/>
+                                <state key="normal" title="No Exile">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="disabled">
@@ -809,10 +809,10 @@ Line 5</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="afW-AN-vIY">
-                                <rect key="frame" x="20" y="130" width="280" height="252"/>
+                                <rect key="frame" x="20" y="130" width="280" height="228"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="252" id="oDG-9c-y4K"/>
+                                    <constraint firstAttribute="height" constant="228" id="oDG-9c-y4K"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="PlayerNameCell" id="nYM-Qq-q95">
@@ -946,7 +946,7 @@ X was a Traitor.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbg-xf-hQ8">
-                                <rect key="frame" x="236" y="353" width="64" height="44"/>
+                                <rect key="frame" x="261" y="360" width="39" height="30"/>
                                 <state key="normal" title="Elect!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -970,8 +970,8 @@ X was a Traitor.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="il9-cJ-xRr">
-                                <rect key="frame" x="20" y="353" width="103" height="44"/>
-                                <state key="normal" title="No dictator">
+                                <rect key="frame" x="20" y="360" width="79" height="30"/>
+                                <state key="normal" title="No Dictator">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="disabled">
@@ -1223,7 +1223,7 @@ abcdefghijklmnopqrstuvwxyzabcdefghijklm</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWG-k0-cc8">
-                                <rect key="frame" x="104" y="353" width="112" height="44"/>
+                                <rect key="frame" x="215" y="366" width="85" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="This Person!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1263,6 +1263,19 @@ abcdefghijklmnopqrstuvwxyzabcdefghijklm</string>
                                     <outlet property="delegate" destination="t9A-g0-3MO" id="UeV-fC-ryc"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TnZ-uf-jW5">
+                                <rect key="frame" x="20" y="366" width="53" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="No One">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleNoOneChosen" destination="t9A-g0-3MO" eventType="touchUpInside" id="GNT-6U-dLn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1275,6 +1288,7 @@ abcdefghijklmnopqrstuvwxyzabcdefghijklm</string>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="noOneButton" destination="TnZ-uf-jW5" id="ahA-jH-gSJ"/>
                         <outlet property="promptLabel" destination="EDv-Tp-wSd" id="z97-eo-Gbd"/>
                         <outlet property="remainingPlayersMinusSelfTableView" destination="Iy5-6v-wKO" id="CD2-Up-gIZ"/>
                         <outlet property="thisPersonButton" destination="eWG-k0-cc8" id="Nma-jV-nLq"/>
@@ -1292,9 +1306,9 @@ abcdefghijklmnopqrstuvwxyzabcdefghijklm</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ruW-HK-vpc"/>
-        <segue reference="0Xv-3A-upS"/>
-        <segue reference="NLO-Im-Luf"/>
+        <segue reference="XrI-Y5-9ZJ"/>
+        <segue reference="lZo-Qd-yd0"/>
         <segue reference="kql-9d-lQN"/>
+        <segue reference="9Fh-aH-0pd"/>
     </inferredMetricsTieBreakers>
 </document>

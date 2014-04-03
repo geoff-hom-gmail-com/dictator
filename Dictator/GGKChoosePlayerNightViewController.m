@@ -39,8 +39,21 @@
         NSString *theMessageString = [NSString stringWithFormat:@"%@ wins with the %@.", theChosenPlayer.name, theWinConditionString];
         UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:@"Investigation Complete" message:theMessageString delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
         [anAlertView show];
+    } else if ([theCurrentRoleString isEqualToString:GGKVigilanteKeyString]) {
+        if (![self.gameModel.playersToVigilanteEliminateMutableArray containsObject:theChosenPlayer]) {
+            [self.gameModel.playersToVigilanteEliminateMutableArray addObject:theChosenPlayer];
+        }
+        [self askForNextPlayerOrEnd];
     } else {
         NSLog(@"CPNVC warning: unknown role, %@", theCurrentRoleString);
+    }
+}
+- (IBAction)handleNoOneChosen {
+    NSString *theCurrentRoleString = self.currentRole.key;
+    if ([theCurrentRoleString isEqualToString:GGKVigilanteKeyString]) {
+        [self askForNextPlayerOrEnd];
+    } else {
+        NSLog(@"hNOC warning: unknown role, %@", theCurrentRoleString);
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath {
@@ -68,10 +81,18 @@
         thePromptString = @"Save whom?";
     } else if ([theCurrentRoleString isEqualToString:GGKPrivateEyeKeyString]) {
         thePromptString = @"Investigate whom?";
+    } else if ([theCurrentRoleString isEqualToString:GGKVigilanteKeyString]) {
+        thePromptString = [NSString stringWithFormat:@"%@ whom?", GGKEliminateTitleString];
     } else {
         NSLog(@"CPNVC warning: unknown role, %@", theCurrentRoleString);
     }
     self.promptLabel.text = thePromptString;
+    NSArray *theRolesWhichCanPassArray = @[GGKVigilanteKeyString];
+    if ([theRolesWhichCanPassArray containsObject:theCurrentRoleString]) {
+        self.noOneButton.hidden = NO;
+    } else {
+        self.noOneButton.hidden = YES;
+    }
     self.thisPersonButton.enabled = NO;
     // Make list of remaining players, minus this one.
     NSMutableArray *aTestMutableArray = [self.gameModel.remainingPlayersMutableArray mutableCopy];

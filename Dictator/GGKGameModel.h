@@ -12,6 +12,8 @@
 
 // Verb for a player being removed at night.
 extern NSString *GGKEliminateString;
+// Verb, capitalized, for a player being removed at night.
+extern NSString *GGKEliminateTitleString;
 // Verb, past tense, for a player being removed at night.
 extern NSString *GGKEliminatedString;
 // Verb for a player being removed during the day.
@@ -38,11 +40,15 @@ extern NSString *GGKExiledString;
 @property (strong, nonatomic) NSArray *explicitlyAssignedRolesArray;
 // A round is just passing the device around to all players. After the last player checks the device, we can go to the next step.
 @property (strong, nonatomic) GGKPlayer *lastPlayerThisRound;
-// The players eliminated last night.
+// The players eliminated last night by Traitors.
 // Currently, either nil or 1 player.
 @property (strong, nonatomic) NSArray *playersEliminatedLastNightArray;
+// The players eliminated last night by Vigilantes.
+@property (strong, nonatomic) NSArray *playersVigilanteEliminatedLastNightArray;
 // Players to save from elimination tonight.
 @property (strong, nonatomic) NSMutableArray *playersToSaveMutableArray;
+// Players to eliminate tonight via the Vigilantes.
+@property (strong, nonatomic) NSMutableArray *playersToVigilanteEliminateMutableArray;
 // Non-eliminated players.
 @property (strong, nonatomic) NSMutableArray *remainingPlayersMutableArray;
 // Whether there was a tie at night from the Traitors.

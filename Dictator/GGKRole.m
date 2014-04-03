@@ -18,6 +18,7 @@ NSString *GGKPrivateEyeKeyString = @"Private Eye";
 NSString *GGKRoleKeyKeyString = @"Role key.";
 NSString *GGKTownspersonKeyString = @"Townsperson";
 NSString *GGKTraitorKeyString = @"Traitor";
+NSString *GGKVigilanteKeyString = @"Vigilante";
 
 @implementation GGKRole
 
@@ -79,6 +80,14 @@ NSString *GGKTraitorKeyString = @"Traitor";
             self.youAreBlurb1 = [NSString stringWithFormat:@"You are a Doctor."
                                  "\n\nYou win with the Town."
                                  "\n\nDuring the night, you choose another player. If someone attempts to %@ her that night, she survives.", GGKEliminateString];
+        } else if ([self.key isEqualToString:GGKVigilanteKeyString]) {
+            self.name = @"Vigilante";
+            self.longNameWithArticle = [NSString stringWithFormat:@"a %@", self.name];
+            self.shortBlurb = @"(Towns.) Vigilante blurb1 here";
+            self.longBlurb = [NSString stringWithFormat:@"During the night, the Vigilante may select another player. That player is %@.", GGKEliminatedString];
+            self.youAreBlurb1 = [NSString stringWithFormat:@"You are a Vigilante."
+                                 "\n\nYou win with the Town."
+                                 "\n\nDuring the night, you may choose another player. That player is %@.", GGKEliminatedString];
         } else if ([self.key isEqualToString:GGKAssassinKeyString]) {
             self.name = @"Assassin";
             self.longNameWithArticle = [NSString stringWithFormat:@"an %@", self.name];

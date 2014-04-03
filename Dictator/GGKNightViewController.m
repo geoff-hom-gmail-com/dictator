@@ -18,7 +18,7 @@
 - (IBAction)showNightActions {
     NSString *theSegue;
     NSString *theCurrentRoleString = self.gameModel.currentPlayer.role.key;
-    NSArray *theChoosePlayerRoleArray = @[GGKTownspersonKeyString, GGKDoctorKeyString, GGKPrivateEyeKeyString];
+    NSArray *theChoosePlayerRoleArray = @[GGKTownspersonKeyString, GGKDoctorKeyString, GGKPrivateEyeKeyString, GGKVigilanteKeyString];
     if ([theChoosePlayerRoleArray containsObject:theCurrentRoleString]) {
         theSegue = @"ShowChoosePlayerNightSegue";
     } else if ([theCurrentRoleString isEqualToString:GGKTraitorKeyString]) {

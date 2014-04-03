@@ -15,6 +15,7 @@
 NSString *GGKPlayersKeyString = @"Players data";
 
 NSString *GGKEliminateString = @"eliminate";
+NSString *GGKEliminateTitleString = @"Eliminate";
 NSString *GGKEliminatedString = @"eliminated";
 NSString *GGKExileString = @"exile";
 NSString *GGKExileTitleString = @"Exile";
@@ -23,6 +24,8 @@ NSString *GGKExiledString = @"exiled";
 @interface GGKGameModel ()
 // The Traitors eliminate players at night.
 - (void)eliminatePlayers:(NSArray *)thePlayersToEliminateArray;
+// Each vigilante eliminates a player at night.
+- (void)vigilanteEliminatePlayers;
 @end
 
 @implementation GGKGameModel
@@ -60,8 +63,14 @@ NSString *GGKExiledString = @"exiled";
         self.thereWasATieBOOL = YES;
     }
     // Check if the doctor saved someone.
+    // Traitor elimination.
     [thePlayersToEliminateMutableArray removeObjectsInArray:self.playersToSaveMutableArray];
+    // Vigilante-eliminate.
+    [self.playersToVigilanteEliminateMutableArray removeObjectsInArray:self.playersToSaveMutableArray];
+    // If traitors and vigilantes choose same people, the elimination is done by the traitors.
+    [self.playersToVigilanteEliminateMutableArray removeObjectsInArray:thePlayersToEliminateMutableArray];
     [self eliminatePlayers:thePlayersToEliminateMutableArray];
+    [self vigilanteEliminatePlayers];
 }
 - (void)deleteAllPlayers {
     [self.allPlayersMutableArray removeAllObjects];
@@ -99,19 +108,14 @@ NSString *GGKExiledString = @"exiled";
             thePlayersMutableArray = [NSKeyedUnarchiver unarchiveObjectWithData:theData];
         }
         self.allPlayersMutableArray = thePlayersMutableArray;
-        
         // Create available-roles array.
-        // Order presented should be Townsperson, Traitor, then alphabetically.
+        // Order: Townsperson, Traitor, then alphabetically.
         GGKRole *aRole = [[GGKRole alloc] initWithType:GGKTownspersonKeyString];
         self.availableRolesMutableArray = [NSMutableArray arrayWithObject:aRole];
-        for (NSString *aKeyString in @[GGKTraitorKeyString, GGKDoctorKeyString, GGKPrivateEyeKeyString]) {
+        for (NSString *aKeyString in @[GGKTraitorKeyString, GGKDoctorKeyString, GGKPrivateEyeKeyString, GGKVigilanteKeyString]) {
             aRole = [[GGKRole alloc] initWithType:aKeyString];
             [self.availableRolesMutableArray addObject:aRole];
         }
-        
-//        // Assassin.
-//        aRole = [[GGKRole alloc] initWithType:GGKAssassinKeyString];
-//        [self.availableRolesMutableArray addObject:aRole];
     }
     return self;
 }
@@ -145,6 +149,7 @@ NSString *GGKExiledString = @"exiled";
         aPlayer.numberOfVotesThisRoundInteger = 0;
     }];
     self.playersToSaveMutableArray = [NSMutableArray arrayWithCapacity:5];
+    self.playersToVigilanteEliminateMutableArray = [NSMutableArray arrayWithCapacity:5];
     // Start to left of the current player/dictator. Will end with current player/dictator.
     self.lastPlayerThisRound = self.currentPlayer;
     NSInteger anIndex = [self.remainingPlayersMutableArray indexOfObject:self.currentPlayer];
@@ -154,5 +159,11 @@ NSString *GGKExiledString = @"exiled";
 - (void)savePlayers {
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.allPlayersMutableArray];
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:GGKPlayersKeyString];
+}
+- (void)vigilanteEliminatePlayers {
+    [self.playersToVigilanteEliminateMutableArray enumerateObjectsUsingBlock:^(GGKPlayer *aPlayer, NSUInteger idx, BOOL *stop) {
+        [self.remainingPlayersMutableArray removeObject:aPlayer];
+    }];
+    self.playersVigilanteEliminatedLastNightArray = [self.playersToVigilanteEliminateMutableArray copy];
 }
 @end

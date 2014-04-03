@@ -12,6 +12,8 @@
 #import "GGKAbstractRoleNightViewController.h"
 
 @interface GGKChoosePlayerNightViewController : GGKAbstractRoleNightViewController <UITableViewDataSource, UITableViewDelegate>
+// When choosing no one (i.e., choosing to pass), player taps this button. Available for only some roles.
+@property (weak, nonatomic) IBOutlet UIButton *noOneButton;
 // The prompt for the current player. Role-specific.
 @property (strong, nonatomic) IBOutlet UILabel *promptLabel;
 // List of remaining players, except this one, in the game.
@@ -23,6 +25,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
 // Override.
 - (void)doRoleActions;
+- (IBAction)handleNoOneChosen;
 // Each row is a remaining player.
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath;
 // The player chose someone. So, enable the button to proceed.
