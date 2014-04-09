@@ -12,6 +12,7 @@
 extern NSString *GGKAssassinKeyString;
 extern NSString *GGKDarkJudgeKeyString;
 extern NSString *GGKDoctorKeyString;
+extern NSString *GGKHermitKeyString;
 extern NSString *GGKKingpinKeyString;
 extern NSString *GGKPrivateEyeKeyString;
 extern NSString *GGKTownspersonKeyString;

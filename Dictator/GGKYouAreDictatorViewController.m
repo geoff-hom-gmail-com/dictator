@@ -11,6 +11,8 @@
 #import "GGKGameModel.h"
 
 @interface GGKYouAreDictatorViewController ()
+// Players that can be exiled today.
+@property (strong, nonatomic) NSArray *exilablePlayersArray;
 // Title for alert view to confirm exile. To determine which alert view was shown.
 @property (strong, nonatomic) NSString *exileTitleString;
 // Title for alert view to confirm no exile. To determine which alert view was shown.
@@ -43,7 +45,7 @@
         aTableViewCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PlayerCellIdentifier];
     }
     
-    GGKPlayer *aPlayer = [self.gameModel.remainingPlayersMutableArray objectAtIndex:theIndexPath.row];
+    GGKPlayer *aPlayer = [self.exilablePlayersArray objectAtIndex:theIndexPath.row];
     aTableViewCell.textLabel.text = aPlayer.name;
     
     return aTableViewCell;
@@ -54,13 +56,12 @@
     self.exileButton.enabled = YES;
 }
 
-- (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)theSection
-{
-    return [self.gameModel.remainingPlayersMutableArray count];
+- (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)theSection {
+    return [self.exilablePlayersArray count];
 }
 - (IBAction)verifyExile {
     NSIndexPath *anIndexPath = [self.playersTableView indexPathForSelectedRow];
-    self.gameModel.currentlySelectedPlayer = [self.gameModel.remainingPlayersMutableArray objectAtIndex:anIndexPath.row];
+    self.gameModel.currentlySelectedPlayer = [self.exilablePlayersArray objectAtIndex:anIndexPath.row];
     self.exileTitleString = [NSString stringWithFormat:@"%@ %@?", GGKExileTitleString, self.gameModel.currentlySelectedPlayer.name];
     UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:self.exileTitleString message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [anAlertView show];
@@ -80,5 +81,11 @@
     self.noExileButton.enabled = YES;
     self.exileButton.enabled = NO;
     self.noExileTitleString = [NSString stringWithFormat:@"No %@", GGKExileTitleString];
+    self.exilablePlayersArray = [self.gameModel.remainingPlayersMutableArray copy];
+    // Hermit must exile herself.
+    if ([theDictatorPlayer.role.key isEqualToString:GGKHermitKeyString]) {
+        self.noExileButton.enabled = NO;
+        self.exilablePlayersArray = @[theDictatorPlayer];
+    }
 }
 @end

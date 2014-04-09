@@ -26,7 +26,7 @@
     NSIndexPath *theSelectedIndexPath = [self.remainingPlayersMinusSelfTableView indexPathForSelectedRow];
     GGKPlayer *theChosenPlayer = self.remainingPlayersMinusSelfArray[theSelectedIndexPath.row];
     NSString *theCurrentRoleString = self.currentRole.key;
-    if ([theCurrentRoleString isEqualToString:GGKTownspersonKeyString]) {
+    if ([@[GGKTownspersonKeyString, GGKHermitKeyString] containsObject:theCurrentRoleString]) {
         [self askForNextPlayerOrEnd];
     } else if ([theCurrentRoleString isEqualToString:GGKDoctorKeyString]) {
         [self.gameModel.playersToSaveMutableArray addObject:theChosenPlayer];
@@ -85,7 +85,7 @@
     NSString *theCurrentRoleString = self.currentRole.key;
     self.navigationItem.title = theCurrentRoleString;
     NSString *thePromptString;
-    if ([theCurrentRoleString isEqualToString:GGKTownspersonKeyString]) {
+    if ([@[GGKTownspersonKeyString, GGKHermitKeyString] containsObject:theCurrentRoleString]) {
         thePromptString = @"Who do you think is a Traitor?";
     } else if ([theCurrentRoleString isEqualToString:GGKDoctorKeyString]) {
         thePromptString = @"Save whom?";

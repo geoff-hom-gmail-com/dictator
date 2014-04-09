@@ -93,12 +93,14 @@ NSString *GGKExiledString = @"exiled";
     self.playersEliminatedLastNightArray = thePlayersToEliminateArray;
 }
 - (void)exilePlayer:(GGKPlayer *)thePlayer {
-    // If the dictator exiled herself, make the next person the current player.
+    // If the dictator exiled herself, make the previous person the current player.
     if (thePlayer == self.currentDictatorPlayer) {
 //        NSLog(@"Dictator exiled herself!");
         NSInteger anIndex = [self.remainingPlayersMutableArray indexOfObject:thePlayer];
-        NSInteger theNextIndex = (anIndex + 1) % [self.remainingPlayersMutableArray count];
-        self.currentPlayer = self.remainingPlayersMutableArray[theNextIndex];
+//        NSInteger theNextIndex = (anIndex + 1) % [self.remainingPlayersMutableArray count];
+        NSInteger thePreviousIndex = (anIndex - 1) % [self.remainingPlayersMutableArray count];
+        self.currentDictatorPlayer = nil;
+        self.currentPlayer = self.remainingPlayersMutableArray[thePreviousIndex];
     }
     [self.remainingPlayersMutableArray removeObject:thePlayer];
 }
@@ -118,7 +120,7 @@ NSString *GGKExiledString = @"exiled";
         // Order: Townsperson, Traitor, then alphabetically.
         GGKRole *aRole = [[GGKRole alloc] initWithType:GGKTownspersonKeyString];
         self.availableRolesMutableArray = [NSMutableArray arrayWithObject:aRole];
-        for (NSString *aKeyString in @[GGKTraitorKeyString, GGKDarkJudgeKeyString, GGKDoctorKeyString, GGKKingpinKeyString, GGKPrivateEyeKeyString, GGKVigilanteKeyString]) {
+        for (NSString *aKeyString in @[GGKTraitorKeyString, GGKDarkJudgeKeyString, GGKDoctorKeyString, GGKHermitKeyString, GGKKingpinKeyString, GGKPrivateEyeKeyString, GGKVigilanteKeyString]) {
             aRole = [[GGKRole alloc] initWithType:aKeyString];
             [self.availableRolesMutableArray addObject:aRole];
         }

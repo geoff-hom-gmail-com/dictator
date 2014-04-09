@@ -14,6 +14,7 @@
 NSString *GGKAssassinKeyString = @"Assassin";
 NSString *GGKDarkJudgeKeyString = @"Dark Judge";
 NSString *GGKDoctorKeyString = @"Doctor";
+NSString *GGKHermitKeyString = @"Hermit";
 NSString *GGKKingpinKeyString = @"Kingpin";
 NSString *GGKPrivateEyeKeyString = @"Private Eye";
 // Key for storing a role's key.
@@ -108,6 +109,15 @@ NSString *GGKVigilanteKeyString = @"Vigilante";
             self.youAreBlurb1 = [NSString stringWithFormat:@"You are a Dark Judge."
                                  "\n\nYou win with the Traitors."
                                  "\n\nDuring the night, you may %@ the Dictator, and it can't be prevented.", GGKExileString];
+        } else if ([self.key isEqualToString:GGKHermitKeyString]) {
+            self.name = @"Hermit";
+            self.longNameWithArticle = [NSString stringWithFormat:@"a %@", self.name];
+            self.shortBlurb = @"(Towns.) Hermit blurb1 here";
+            //
+            self.longBlurb = [NSString stringWithFormat:@"If elected Dictator, the Hermit automatically %@s herself. That night, the Traitors do not get to %@ anyone.", GGKExileString, GGKEliminateString];
+            self.youAreBlurb1 = [NSString stringWithFormat:@"You are a Hermit."
+                                 "\n\nYou win with the Town."
+                                 "\n\nIf elected Dictator, you automatically %@ yourself. That night, the Traitors do not get to %@ anyone.", GGKExileString, GGKEliminateString];
         } else {
             NSLog(@"Warning: unknown role:%@", self.key);
         }
