@@ -19,9 +19,10 @@
     NSString *theSegue;
     NSString *theCurrentRoleString = self.gameModel.currentPlayer.role.key;
     NSArray *theChoosePlayerRoleArray = @[GGKTownspersonKeyString, GGKDoctorKeyString, GGKPrivateEyeKeyString, GGKVigilanteKeyString];
+    NSArray *theTraitorRoleArray = @[GGKTraitorKeyString, GGKKingpinKeyString];
     if ([theChoosePlayerRoleArray containsObject:theCurrentRoleString]) {
         theSegue = @"ShowChoosePlayerNightSegue";
-    } else if ([theCurrentRoleString isEqualToString:GGKTraitorKeyString]) {
+    } else if ([theTraitorRoleArray containsObject:theCurrentRoleString]) {
         theSegue = @"ShowTraitorNightSegue";
     } else {
         NSLog(@"NVC warning: unknown role, %@", theCurrentRoleString);

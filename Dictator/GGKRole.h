@@ -11,6 +11,7 @@
 // Keys for saving data.
 extern NSString *GGKAssassinKeyString;
 extern NSString *GGKDoctorKeyString;
+extern NSString *GGKKingpinKeyString;
 extern NSString *GGKPrivateEyeKeyString;
 extern NSString *GGKTownspersonKeyString;
 extern NSString *GGKTraitorKeyString;

@@ -13,6 +13,7 @@
 // Keys for saving data.
 NSString *GGKAssassinKeyString = @"Assassin";
 NSString *GGKDoctorKeyString = @"Doctor";
+NSString *GGKKingpinKeyString = @"Kingpin";
 NSString *GGKPrivateEyeKeyString = @"Private Eye";
 // Key for storing a role's key.
 NSString *GGKRoleKeyKeyString = @"Role key.";
@@ -88,12 +89,15 @@ NSString *GGKVigilanteKeyString = @"Vigilante";
             self.youAreBlurb1 = [NSString stringWithFormat:@"You are a Vigilante."
                                  "\n\nYou win with the Town."
                                  "\n\nDuring the night, you may choose another player. That player is %@.", GGKEliminatedString];
-        } else if ([self.key isEqualToString:GGKAssassinKeyString]) {
-            self.name = @"Assassin";
-            self.longNameWithArticle = [NSString stringWithFormat:@"an %@", self.name];
+        } else if ([self.key isEqualToString:GGKKingpinKeyString]) {
+            self.name = @"Kingpin";
+            self.longNameWithArticle = [NSString stringWithFormat:@"a %@", self.name];
             self.isTraitor = YES;
-            self.shortBlurb = @"(Trait.) Assassin blurb1 here";
-            self.longBlurb = self.shortBlurb;
+            self.shortBlurb = @"(Trait.) Kingpin blurb1 here";
+            self.longBlurb = [NSString stringWithFormat:@"If another Traitor remains, then for attempts to reveal your role, you appear as “Townsperson.”"];
+            self.youAreBlurb1 = [NSString stringWithFormat:@"You are a Kingpin."
+                                 "\n\nYou win with the Traitors."
+                                 "\n\nIf another Traitor remains, then for attempts to reveal your role, you appear as “Townsperson.”"];
         } else {
             NSLog(@"Warning: unknown role:%@", self.key);
         }

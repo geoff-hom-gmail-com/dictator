@@ -112,7 +112,7 @@ NSString *GGKExiledString = @"exiled";
         // Order: Townsperson, Traitor, then alphabetically.
         GGKRole *aRole = [[GGKRole alloc] initWithType:GGKTownspersonKeyString];
         self.availableRolesMutableArray = [NSMutableArray arrayWithObject:aRole];
-        for (NSString *aKeyString in @[GGKTraitorKeyString, GGKDoctorKeyString, GGKPrivateEyeKeyString, GGKVigilanteKeyString]) {
+        for (NSString *aKeyString in @[GGKTraitorKeyString, GGKDoctorKeyString, GGKKingpinKeyString, GGKPrivateEyeKeyString, GGKVigilanteKeyString]) {
             aRole = [[GGKRole alloc] initWithType:aKeyString];
             [self.availableRolesMutableArray addObject:aRole];
         }

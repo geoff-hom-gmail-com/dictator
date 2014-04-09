@@ -33,7 +33,17 @@
         [self askForNextPlayerOrEnd];
     } else if ([theCurrentRoleString isEqualToString:GGKPrivateEyeKeyString]) {
         NSString *theWinConditionString = @"Town";
-        if (theChosenPlayer.role.isTraitor) {
+        // Kingpin with other Traitor remaining appears as Townie.
+        BOOL aKingpinPowerPertains = NO;
+        if ([theChosenPlayer.role.key isEqualToString:GGKKingpinKeyString]) {
+            for (GGKPlayer *aPlayer in self.gameModel.remainingPlayersMutableArray) {
+                if (aPlayer.role.isTraitor && aPlayer != theChosenPlayer) {
+                    aKingpinPowerPertains = YES;
+                    break;
+                }
+            }
+        }
+        if (theChosenPlayer.role.isTraitor && !aKingpinPowerPertains) {
             theWinConditionString = @"Traitors";
         }
         NSString *theMessageString = [NSString stringWithFormat:@"%@ wins with the %@.", theChosenPlayer.name, theWinConditionString];
