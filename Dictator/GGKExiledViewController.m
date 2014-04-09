@@ -27,6 +27,6 @@
     self.navigationItem.hidesBackButton = YES;
     GGKPlayer *theExiledPlayer = self.gameModel.currentlySelectedPlayer;
     self.exiledPlayerLabel.text = [NSString stringWithFormat:@"%@ was %@!", theExiledPlayer.name, GGKExiledString];
-    self.exiledRoleLabel.text = [NSString stringWithFormat:@"%@ was %@.", theExiledPlayer.name, theExiledPlayer.role.longNameWithArticle];
+    self.exiledRoleTextView.text = [NSString stringWithFormat:@"%@ was %@.", theExiledPlayer.name, theExiledPlayer.role.longNameWithArticle];
 }
 @end
