@@ -35,6 +35,8 @@ extern NSString *GGKExiledString;
 @property (strong, nonatomic) GGKPlayer *currentPlayer;
 // Player currently being targeted (for exile, etc.)
 @property (strong, nonatomic) GGKPlayer *currentlySelectedPlayer;
+// Whether to exile the current Dictator by Judge decree.
+@property (assign, nonatomic) BOOL doJudgeExileDictatorBOOL;
 // Roles assigned to a specific game.
 // Story: User assigns some roles, then adds/removes players, then comes back. User expects previously assigned roles to still be there.
 @property (strong, nonatomic) NSArray *explicitlyAssignedRolesArray;

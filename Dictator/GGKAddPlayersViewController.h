@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *playerNameTextField;
 // List of all players in the game.
 @property (weak, nonatomic) IBOutlet UITableView *playersTableView;
-// Override.
 // User handled alert. Could be delete all players.
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath;

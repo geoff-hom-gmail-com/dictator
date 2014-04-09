@@ -12,6 +12,7 @@
 
 // Keys for saving data.
 NSString *GGKAssassinKeyString = @"Assassin";
+NSString *GGKDarkJudgeKeyString = @"Dark Judge";
 NSString *GGKDoctorKeyString = @"Doctor";
 NSString *GGKKingpinKeyString = @"Kingpin";
 NSString *GGKPrivateEyeKeyString = @"Private Eye";
@@ -98,6 +99,15 @@ NSString *GGKVigilanteKeyString = @"Vigilante";
             self.youAreBlurb1 = [NSString stringWithFormat:@"You are a Kingpin."
                                  "\n\nYou win with the Traitors."
                                  "\n\nIf another Traitor remains, then for attempts to reveal your role, you appear as “Townsperson.”"];
+        } else if ([self.key isEqualToString:GGKDarkJudgeKeyString]) {
+            self.name = @"Dark Judge";
+            self.longNameWithArticle = [NSString stringWithFormat:@"a %@", self.name];
+            self.isTraitor = YES;
+            self.shortBlurb = @"(Trait.) Dark Judge blurb1 here";
+            self.longBlurb = [NSString stringWithFormat:@"During the night, the Dark Judge may %@ the Dictator, and it can't be prevented.", GGKExileString];
+            self.youAreBlurb1 = [NSString stringWithFormat:@"You are a Dark Judge."
+                                 "\n\nYou win with the Traitors."
+                                 "\n\nDuring the night, you may %@ the Dictator, and it can't be prevented.", GGKExileString];
         } else {
             NSLog(@"Warning: unknown role:%@", self.key);
         }

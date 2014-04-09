@@ -34,10 +34,12 @@ NSString *TimeIsUpAlertViewTitleString = @"Time's Up!";
     // If no dictator, go to night. If time up, go to night. If time up but canceled, use a shorter timer.
     if ([theAlertView.title isEqualToString:NoDictatorAlertViewTitleString]) {
         if ([[theAlertView buttonTitleAtIndex:theButtonIndex] isEqualToString:@"OK"]) {
+            self.gameModel.currentDictatorPlayer = nil;
             [self performSegueWithIdentifier:@"ShowNightSegue" sender:self];
         }
     } else if ([theAlertView.title isEqualToString:TimeIsUpAlertViewTitleString]) {
         if ([[theAlertView buttonTitleAtIndex:theButtonIndex] isEqualToString:@"OK"]) {
+            self.gameModel.currentDictatorPlayer = nil;
             [self performSegueWithIdentifier:@"ShowNightSegue" sender:self];
         } else if ([[theAlertView buttonTitleAtIndex:theButtonIndex] isEqualToString:MoreTimeButtonTitleString]) {
             self.numberOfSecondsToElectDictator = 60;
@@ -51,8 +53,7 @@ NSString *TimeIsUpAlertViewTitleString = @"Time's Up!";
     [self.countingTimer invalidate];
     self.countingTimer = nil;
 }
-- (IBAction)electDictator
-{
+- (IBAction)electDictator {
     // Selected player is dictator.
     NSIndexPath *anIndexPath = [self.playersTableView indexPathForSelectedRow];
     GGKPlayer *aPlayer = [self.gameModel.remainingPlayersMutableArray objectAtIndex:anIndexPath.row];
@@ -100,15 +101,11 @@ NSString *TimeIsUpAlertViewTitleString = @"Time's Up!";
 {
     return [self.gameModel.remainingPlayersMutableArray count];
 }
-
-- (IBAction)verifyNoDictator
-{
+- (IBAction)verifyNoDictator {
     UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:NoDictatorAlertViewTitleString message:@"Skip election and go directly to night phase?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [anAlertView show];
     self.noDictatorAlertView = anAlertView;
 }
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.

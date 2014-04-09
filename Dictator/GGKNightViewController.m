@@ -19,7 +19,7 @@
     NSString *theSegue;
     NSString *theCurrentRoleString = self.gameModel.currentPlayer.role.key;
     NSArray *theChoosePlayerRoleArray = @[GGKTownspersonKeyString, GGKDoctorKeyString, GGKPrivateEyeKeyString, GGKVigilanteKeyString];
-    NSArray *theTraitorRoleArray = @[GGKTraitorKeyString, GGKKingpinKeyString];
+    NSArray *theTraitorRoleArray = @[GGKTraitorKeyString, GGKDarkJudgeKeyString, GGKKingpinKeyString];
     if ([theChoosePlayerRoleArray containsObject:theCurrentRoleString]) {
         theSegue = @"ShowChoosePlayerNightSegue";
     } else if ([theTraitorRoleArray containsObject:theCurrentRoleString]) {

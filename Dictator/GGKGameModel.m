@@ -62,12 +62,18 @@ NSString *GGKExiledString = @"exiled";
         thePlayersToEliminateMutableArray = [NSMutableArray arrayWithObject:theEliminatedPlayer];
         self.thereWasATieBOOL = YES;
     }
-    // Check if the doctor saved someone.
+    // If Judge exiles Dictator, that trumps Traitors, Vigilantes eliminating that player.
+    if (self.doJudgeExileDictatorBOOL) {
+        [thePlayersToEliminateMutableArray removeObject:self.currentDictatorPlayer];
+        [self.playersToVigilanteEliminateMutableArray removeObject:self.currentDictatorPlayer];
+        [self exilePlayer:self.currentDictatorPlayer];
+    }
+    // Check if the Doctor saved someone.
     // Traitor elimination.
     [thePlayersToEliminateMutableArray removeObjectsInArray:self.playersToSaveMutableArray];
     // Vigilante-eliminate.
     [self.playersToVigilanteEliminateMutableArray removeObjectsInArray:self.playersToSaveMutableArray];
-    // If traitors and vigilantes choose same people, the elimination is done by the traitors.
+    // If Traitors and Vigilantes choose same people, the elimination is done by the traitors.
     [self.playersToVigilanteEliminateMutableArray removeObjectsInArray:thePlayersToEliminateMutableArray];
     [self eliminatePlayers:thePlayersToEliminateMutableArray];
     [self vigilanteEliminatePlayers];
@@ -112,7 +118,7 @@ NSString *GGKExiledString = @"exiled";
         // Order: Townsperson, Traitor, then alphabetically.
         GGKRole *aRole = [[GGKRole alloc] initWithType:GGKTownspersonKeyString];
         self.availableRolesMutableArray = [NSMutableArray arrayWithObject:aRole];
-        for (NSString *aKeyString in @[GGKTraitorKeyString, GGKDoctorKeyString, GGKKingpinKeyString, GGKPrivateEyeKeyString, GGKVigilanteKeyString]) {
+        for (NSString *aKeyString in @[GGKTraitorKeyString, GGKDarkJudgeKeyString, GGKDoctorKeyString, GGKKingpinKeyString, GGKPrivateEyeKeyString, GGKVigilanteKeyString]) {
             aRole = [[GGKRole alloc] initWithType:aKeyString];
             [self.availableRolesMutableArray addObject:aRole];
         }
@@ -148,6 +154,7 @@ NSString *GGKExiledString = @"exiled";
     [self.remainingPlayersMutableArray enumerateObjectsUsingBlock:^(GGKPlayer *aPlayer, NSUInteger idx, BOOL *stop) {
         aPlayer.numberOfVotesThisRoundInteger = 0;
     }];
+    self.doJudgeExileDictatorBOOL = NO;
     self.playersToSaveMutableArray = [NSMutableArray arrayWithCapacity:5];
     self.playersToVigilanteEliminateMutableArray = [NSMutableArray arrayWithCapacity:5];
     // Start to left of the current player/dictator. Will end with current player/dictator.

@@ -31,6 +31,11 @@
     NSArray *thePlayersEliminatedLastNightArray = self.gameModel.playersEliminatedLastNightArray;
     NSMutableString *theSummaryTextMutableString = [NSMutableString stringWithString:@"Reveal this to all:"
                                                     @"\n\nLast night … "];
+    if (self.gameModel.doJudgeExileDictatorBOOL) {
+        GGKPlayer *theDictatorPlayer = self.gameModel.currentDictatorPlayer;
+        [theSummaryTextMutableString appendFormat:@"\n\nA Judge %@ Dictator %@!"
+         "\n%@ was %@.", GGKExiledString, theDictatorPlayer.name, theDictatorPlayer.name, theDictatorPlayer.role.longNameWithArticle];
+    }
     if ([thePlayersEliminatedLastNightArray count] >= 1) {
         someoneWasEliminated = YES;
         // If there was a voting tie, note that.

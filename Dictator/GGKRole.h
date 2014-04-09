@@ -10,6 +10,7 @@
 
 // Keys for saving data.
 extern NSString *GGKAssassinKeyString;
+extern NSString *GGKDarkJudgeKeyString;
 extern NSString *GGKDoctorKeyString;
 extern NSString *GGKKingpinKeyString;
 extern NSString *GGKPrivateEyeKeyString;

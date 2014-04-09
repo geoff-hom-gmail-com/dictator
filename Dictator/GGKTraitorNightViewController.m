@@ -16,6 +16,13 @@
 @end
 
 @implementation GGKTraitorNightViewController
+- (void)alertView:(UIAlertView *)theAlertView clickedButtonAtIndex:(NSInteger)theButtonIndex {
+    [super alertView:theAlertView clickedButtonAtIndex:theButtonIndex];
+    // Dark Judge: exile Dictator.
+    if ([[theAlertView buttonTitleAtIndex:theButtonIndex] isEqualToString:@"Yes"]) {
+        self.gameModel.doJudgeExileDictatorBOOL = YES;
+    }
+}
 - (void)doRoleActions {
     [super doRoleActions];
     NSIndexPath *theSelectedIndexPath = [self.remainingPlayersTableView indexPathForSelectedRow];
@@ -60,5 +67,14 @@
             [self.hitListMutableArray addObject:aPlayer];
         }
     }];
+    // Dark Judge may exile Dictator.
+    GGKPlayer *theDictatorPlayer = self.gameModel.currentDictatorPlayer;
+    if ([self.gameModel.currentPlayer.role.key isEqualToString:GGKDarkJudgeKeyString] && theDictatorPlayer != nil) {
+        NSString *aTitleString = [NSString stringWithFormat:@"%@ Dictator?", GGKExileTitleString];
+        NSString *theDictatorString = theDictatorPlayer.name;
+        NSString *aMessageString = [NSString stringWithFormat:@"%@ was the Dictator today. %@ %@?", theDictatorString, GGKExileTitleString, theDictatorString];
+        UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:aTitleString message:aMessageString delegate:self cancelButtonTitle:nil otherButtonTitles:@"No", @"Yes", nil];
+        [anAlertView show];
+    }
 }
 @end

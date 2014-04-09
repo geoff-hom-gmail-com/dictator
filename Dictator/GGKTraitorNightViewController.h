@@ -15,6 +15,8 @@
 @property (strong, nonatomic) IBOutlet UITableView *remainingPlayersTableView;
 // Traitor has to vote for someone to eliminate. When done, taps this button.
 @property (strong, nonatomic) IBOutlet UIButton *thisPersonButton;
+// User handled alert. Could be exile Dictator.
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
 // Override.
 // Add an elimination vote to the selected player.
 - (void)doRoleActions;
