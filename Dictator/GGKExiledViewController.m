@@ -27,6 +27,11 @@
     self.navigationItem.hidesBackButton = YES;
     GGKPlayer *theExiledPlayer = self.gameModel.currentlySelectedPlayer;
     self.exiledPlayerLabel.text = [NSString stringWithFormat:@"%@ was %@!", theExiledPlayer.name, GGKExiledString];
-    self.exiledRoleTextView.text = [NSString stringWithFormat:@"%@ was %@.", theExiledPlayer.name, theExiledPlayer.role.longNameWithArticle];
+    NSMutableString *aMutableString = [NSMutableString stringWithFormat:@"%@ was %@.", theExiledPlayer.name, theExiledPlayer.role.longNameWithArticle];
+    // If Dictator was a Hermit, then note special night rules.
+    if (self.gameModel.hermitWasDictator) {
+        [aMutableString appendFormat:@"\n\nThanks to %@'s sacrifice, the Traitors cannot %@ anyone tonight!", theExiledPlayer.name, GGKEliminateString];
+    }
+    self.exiledRoleTextView.text = aMutableString;
 }
 @end

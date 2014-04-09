@@ -16,6 +16,8 @@ extern NSString *GGKEliminateString;
 extern NSString *GGKEliminateTitleString;
 // Verb, past tense, for a player being removed at night.
 extern NSString *GGKEliminatedString;
+// Noun for a player being removed at night.
+extern NSString *GGKEliminationString;
 // Verb for a player being removed during the day.
 extern NSString *GGKExileString;
 // Verb, capitalized, for a player being removed during the day.
@@ -40,6 +42,8 @@ extern NSString *GGKExiledString;
 // Roles assigned to a specific game.
 // Story: User assigns some roles, then adds/removes players, then comes back. User expects previously assigned roles to still be there.
 @property (strong, nonatomic) NSArray *explicitlyAssignedRolesArray;
+// Whether a Hermit was elected Dictator today.
+@property (assign, nonatomic) BOOL hermitWasDictator;
 // A round is just passing the device around to all players. After the last player checks the device, we can go to the next step.
 @property (strong, nonatomic) GGKPlayer *lastPlayerThisRound;
 // The players eliminated last night by Traitors.

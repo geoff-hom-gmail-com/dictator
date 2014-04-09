@@ -17,6 +17,7 @@ NSString *GGKPlayersKeyString = @"Players data";
 NSString *GGKEliminateString = @"eliminate";
 NSString *GGKEliminateTitleString = @"Eliminate";
 NSString *GGKEliminatedString = @"eliminated";
+NSString *GGKEliminationString = @"elimination";
 NSString *GGKExileString = @"exile";
 NSString *GGKExileTitleString = @"Exile";
 NSString *GGKExiledString = @"exiled";

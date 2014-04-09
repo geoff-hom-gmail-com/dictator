@@ -18,9 +18,13 @@
 @implementation GGKTraitorNightViewController
 - (void)alertView:(UIAlertView *)theAlertView clickedButtonAtIndex:(NSInteger)theButtonIndex {
     [super alertView:theAlertView clickedButtonAtIndex:theButtonIndex];
+    // If we get more alert views, should have more robust and easy-to-read way to determine which alertview sent. Could assign properties to each.
     // Dark Judge: exile Dictator.
     if ([[theAlertView buttonTitleAtIndex:theButtonIndex] isEqualToString:@"Yes"]) {
         self.gameModel.doJudgeExileDictatorBOOL = YES;
+    // Hermit Power: skip elimination.
+    } else if ([[theAlertView buttonTitleAtIndex:theButtonIndex] isEqualToString:@"OK"]) {
+        [self askForNextPlayerOrEnd];
     }
 }
 - (void)doRoleActions {
@@ -74,6 +78,12 @@
         NSString *theDictatorString = theDictatorPlayer.name;
         NSString *aMessageString = [NSString stringWithFormat:@"%@ was the Dictator today. %@ %@?", theDictatorString, GGKExileTitleString, theDictatorString];
         UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:aTitleString message:aMessageString delegate:self cancelButtonTitle:nil otherButtonTitles:@"No", @"Yes", nil];
+        [anAlertView show];
+    }
+    // If Hermit was Dictator, then Traitors can't eliminate.
+    if (self.gameModel.hermitWasDictator) {
+        NSString *aMessageString = [NSString stringWithFormat:@"No %@ tonight.", GGKEliminationString];
+        UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:@"Hermit Power!" message:aMessageString delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
         [anAlertView show];
     }
 }

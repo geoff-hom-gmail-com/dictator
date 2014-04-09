@@ -59,7 +59,11 @@ NSString *TimeIsUpAlertViewTitleString = @"Time's Up!";
     GGKPlayer *aPlayer = [self.gameModel.remainingPlayersMutableArray objectAtIndex:anIndexPath.row];
     self.gameModel.currentDictatorPlayer = aPlayer;
     self.gameModel.currentPlayer = aPlayer;
-    
+    self.gameModel.hermitWasDictator = NO;
+    // If Hermit, then Traitors don't get night elimination.
+    if ([aPlayer.role.key isEqualToString:GGKHermitKeyString]) {
+        self.gameModel.hermitWasDictator = YES;
+    }
     [self performSegueWithIdentifier:@"ShowDictatorElectedSegue" sender:self];
 }
 - (void)handleCountingTimerFired {
