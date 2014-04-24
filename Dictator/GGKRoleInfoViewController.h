@@ -12,13 +12,8 @@
 @class GGKRole;
 
 @interface GGKRoleInfoViewController : GGKViewController
-
 // The role to display info about.
 @property (strong, nonatomic) GGKRole *role;
-
-// Role title.
-@property (strong, nonatomic) IBOutlet UILabel *roleTitleLabel;
-
 // Role blurb, detailed.
 @property (strong, nonatomic) IBOutlet UILabel *roleBlurbDetailedLabel;
 // Override.

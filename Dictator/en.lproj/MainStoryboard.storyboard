@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vRT-7n-T0A">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vRT-7n-T0A">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -272,7 +272,9 @@
                             <constraint firstItem="OyA-nj-cOh" firstAttribute="baseline" secondItem="4VQ-Mg-qwl" secondAttribute="baseline" id="zdo-od-tgo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Set Roles" id="Nf4-9V-KAr"/>
+                    <navigationItem key="navigationItem" title="Set Roles" id="Nf4-9V-KAr">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="0I5-vC-MJS"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="addRoleButton" destination="u4I-a7-jp2" id="j7e-K8-38v"/>
                         <outlet property="assignedRolesTableView" destination="iBW-9h-RIh" id="aqX-ph-dan"/>
@@ -1039,7 +1041,7 @@ X was a Traitor.</string>
             </objects>
             <point key="canvasLocation" x="2360" y="46"/>
         </scene>
-        <!--Role Info View Controller - Role Info-->
+        <!--Role Info View Controller - Role Title-->
         <scene sceneID="Yo6-yE-TWt">
             <objects>
                 <viewController id="UaC-6E-Voj" customClass="GGKRoleInfoViewController" sceneMemberID="viewController">
@@ -1052,7 +1054,7 @@ X was a Traitor.</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="hLl-k6-H3P">
-                                <rect key="frame" x="20" y="48" width="280" height="54"/>
+                                <rect key="frame" x="20" y="20" width="280" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="ETb-fS-dfJ"/>
                                     <constraint firstAttribute="height" priority="249" constant="63" id="KPv-gB-kVD"/>
@@ -1063,29 +1065,16 @@ abcdefghijklmnopqrstuvwxyzabcdefghijklm</string>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Role title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WkW-dp-L5g">
-                                <rect key="frame" x="89" y="20" width="143" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="CMc-HX-uWO"/>
-                                    <constraint firstAttribute="width" constant="143" id="CPb-gV-LaQ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="WkW-dp-L5g" secondAttribute="centerX" id="3bL-A8-tAb"/>
-                            <constraint firstItem="hLl-k6-H3P" firstAttribute="centerX" secondItem="WkW-dp-L5g" secondAttribute="centerX" id="88h-ac-hf2"/>
-                            <constraint firstItem="hLl-k6-H3P" firstAttribute="top" secondItem="WkW-dp-L5g" secondAttribute="bottom" constant="8" symbolic="YES" id="dJv-kr-dRl"/>
-                            <constraint firstItem="WkW-dp-L5g" firstAttribute="top" secondItem="oOh-s2-RTq" secondAttribute="top" constant="20" symbolic="YES" id="i77-4b-W0j"/>
+                            <constraint firstItem="hLl-k6-H3P" firstAttribute="top" secondItem="KIQ-K4-FpJ" secondAttribute="bottom" constant="20" id="Fd0-dg-WwF"/>
+                            <constraint firstItem="hLl-k6-H3P" firstAttribute="leading" secondItem="oOh-s2-RTq" secondAttribute="leading" constant="20" id="iKa-2o-MJq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Role Info" id="i3F-Xq-Bf3"/>
+                    <navigationItem key="navigationItem" title="Role Title" id="i3F-Xq-Bf3"/>
                     <connections>
                         <outlet property="roleBlurbDetailedLabel" destination="hLl-k6-H3P" id="Llm-kG-GQ8"/>
-                        <outlet property="roleTitleLabel" destination="WkW-dp-L5g" id="CBQ-TB-Xw3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ma-zf-ve4" userLabel="First Responder" sceneMemberID="firstResponder"/>
