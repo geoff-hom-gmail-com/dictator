@@ -54,7 +54,7 @@ NSString *GGKVigilanteKeyString = @"Vigilante";
             self.name = @"Townsperson";
             self.longNameWithArticle = [NSString stringWithFormat:@"an Innocent %@", self.name];
             self.shortBlurb = @"(Towns.) Townsperson blurb here";
-            self.longBlurb = self.shortBlurb;
+            self.longBlurb = @"The Townsperson doesn’t have any powers, but don’t count her out! The Townsperson can put all her effort into sniffing out the Traitors and picking a good Dictator.";
             self.youAreBlurb1 = @"You are an Innocent Townsperson."
                 "\n\nYou win with the Town."
                 "\n\nDuring the night, you have no action.";
@@ -62,8 +62,8 @@ NSString *GGKVigilanteKeyString = @"Vigilante";
             self.name = @"Traitor";
             self.longNameWithArticle = [NSString stringWithFormat:@"a %@", self.name];
             self.isTraitor = YES;
-            self.shortBlurb = @"(Trait.) Traitor blurb1 here";
-            self.longBlurb = self.shortBlurb;
+            self.shortBlurb = @"(Trait.) abcdefghijklmnopqrstuvwxyz";
+            self.longBlurb = [NSString stringWithFormat:@"The Traitor doesn’t have any powers on her own, but each night, the Traitors can %@ a Townsperson! The Traitors win if all the Townspeople are %@.", GGKEliminateString, GGKEliminatedString];
             self.youAreBlurb1 = [NSString stringWithFormat:@"You are a Traitor."
                                  "\n\nYou win with the Traitors."
                                  "\n\nDuring the night, you and the other Traitors choose one player to %@.", GGKEliminateString];
@@ -78,7 +78,7 @@ NSString *GGKVigilanteKeyString = @"Vigilante";
         } else if ([self.key isEqualToString:GGKDoctorKeyString]) {
             self.name = @"Doctor";
             self.longNameWithArticle = [NSString stringWithFormat:@"a %@", self.name];
-            self.shortBlurb = @"(Towns.) Doctor blurb1 here";
+            self.shortBlurb = @"(Towns.) abcdefghijklmnopqrstuvwxy";
             self.longBlurb = [NSString stringWithFormat:@"During the night, the Doctor selects another player. If someone attempts to %@ that player that night, she survives.", GGKEliminateString];
             self.youAreBlurb1 = [NSString stringWithFormat:@"You are a Doctor."
                                  "\n\nYou win with the Town."
