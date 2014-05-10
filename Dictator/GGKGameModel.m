@@ -122,11 +122,11 @@ NSString *GGKExiledString = @"exiled";
         GGKRole *aRole = [[GGKRole alloc] initWithType:GGKTownspersonKeyString];
         self.availableRolesMutableArray = [NSMutableArray arrayWithObject:aRole];
         // All roles.
-//        for (NSString *aKeyString in @[GGKTraitorKeyString, GGKDarkJudgeKeyString, GGKDoctorKeyString, GGKHermitKeyString, GGKKingpinKeyString, GGKPrivateEyeKeyString, GGKVigilanteKeyString]) {
+//        for (NSString *aKeyString in @[GGKTraitorKeyString, GGKDarkJudgeKeyString, GGKDoctorKeyString, GGKGossipKeyString, GGKHermitKeyString, GGKKingpinKeyString, GGKPrivateEyeKeyString, GGKVigilanteKeyString]) {
 //            aRole = [[GGKRole alloc] initWithType:aKeyString];
 //            [self.availableRolesMutableArray addObject:aRole];
 //        }
-        for (NSString *aKeyString in @[GGKTraitorKeyString, GGKDoctorKeyString, GGKKingpinKeyString, GGKPrivateEyeKeyString, GGKVigilanteKeyString]) {
+        for (NSString *aKeyString in @[GGKTraitorKeyString, GGKDoctorKeyString, GGKGossipKeyString, GGKKingpinKeyString, GGKPrivateEyeKeyString, GGKVigilanteKeyString]) {
             aRole = [[GGKRole alloc] initWithType:aKeyString];
             [self.availableRolesMutableArray addObject:aRole];
         }

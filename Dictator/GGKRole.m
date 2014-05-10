@@ -14,6 +14,7 @@
 NSString *GGKAssassinKeyString = @"Assassin";
 NSString *GGKDarkJudgeKeyString = @"Dark Judge";
 NSString *GGKDoctorKeyString = @"Doctor";
+NSString *GGKGossipKeyString = @"Gossip";
 NSString *GGKHermitKeyString = @"Hermit";
 NSString *GGKKingpinKeyString = @"Kingpin";
 NSString *GGKPrivateEyeKeyString = @"Private Eye";
@@ -113,11 +114,18 @@ NSString *GGKVigilanteKeyString = @"Vigilante";
             self.name = @"Hermit";
             self.longNameWithArticle = [NSString stringWithFormat:@"a %@", self.name];
             self.shortBlurb = @"(Towns.) Hermit blurb1 here";
-            //
             self.longBlurb = [NSString stringWithFormat:@"If elected Dictator, the Hermit automatically %@s herself. That night, the Traitors do not get to %@ anyone.", GGKExileString, GGKEliminateString];
             self.youAreBlurb1 = [NSString stringWithFormat:@"You are a Hermit."
                                  "\n\nYou win with the Town."
                                  "\n\nIf elected Dictator, you automatically %@ yourself. That night, the Traitors do not get to %@ anyone.", GGKExileString, GGKEliminateString];
+        } else if ([self.key isEqualToString:GGKGossipKeyString]) {
+            self.name = @"Gossip";
+            self.longNameWithArticle = [NSString stringWithFormat:@"a %@", self.name];
+            self.shortBlurb = @"(Towns.) Gossip blurb1 here";
+            self.longBlurb = [NSString stringWithFormat:@"At night, the Gossip picks a player. That player cannot be Dictator tomorrow (due to gossip). Be careful: if more than one Gossip target the same player, that player will %@ herself (due to overwhelming gossip)!", GGKExileString];
+            self.youAreBlurb1 = [NSString stringWithFormat:@"You are a Gossip."
+                                 "\n\nYou win with the Town."
+                                 "\n\nAt night, you pick a player. The target cannot be elected Dictator tomorrow. If a player is targeted by multiple Gossips, the overwhelming gossip drives her into %@.", GGKExileString];
         } else {
             NSLog(@"Warning: unknown role:%@", self.key);
         }

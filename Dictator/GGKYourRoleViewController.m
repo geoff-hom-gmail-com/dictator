@@ -12,9 +12,7 @@
 
 @interface GGKYourRoleViewController ()
 @end
-
 @implementation GGKYourRoleViewController
-
 - (IBAction)askForNextPlayerOrEnd {
     NSInteger anIndex = [self.gameModel.allPlayersMutableArray indexOfObject:self.gameModel.currentPlayer];
     NSInteger theNextIndex = anIndex + 1;
@@ -35,9 +33,8 @@
 	// Do any additional setup after loading the view.
     GGKPlayer *theCurrentPlayer = self.gameModel.currentPlayer;
     self.playerNameLabel.text = theCurrentPlayer.name;
-    self.roleInfoLabel.text = theCurrentPlayer.role.youAreBlurb1;
+    NSMutableString *theRoleInfoMutableString = [theCurrentPlayer.role.youAreBlurb1 mutableCopy];
     if (theCurrentPlayer.role.isTraitor) {
-        self.otherMembersLabel.hidden = NO;
         // Show names of other traitors, or none if only 1.
         // Make string of each other traitor's name. Show it.
         NSMutableString *theOtherTraitorsMutableString;
@@ -56,10 +53,9 @@
         if (theOtherTraitorsMutableString == nil) {
             theOtherTraitorsMutableString = [NSMutableString stringWithFormat:@"none"];
         }
-        self.otherMembersLabel.text = [NSString stringWithFormat:@"Your fellow Traitors are: %@.", theOtherTraitorsMutableString];
-    } else {
-        self.otherMembersLabel.hidden = YES;
+        [theRoleInfoMutableString appendFormat:@"\n\nYour fellow Traitors are: %@.", theOtherTraitorsMutableString];
     }
+    self.roleInfoTextView.text = theRoleInfoMutableString;
     self.navigationItem.hidesBackButton = YES;
 }
 @end

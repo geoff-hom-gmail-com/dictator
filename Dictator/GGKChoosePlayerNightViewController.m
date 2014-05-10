@@ -54,13 +54,17 @@
             [self.gameModel.playersToVigilanteEliminateMutableArray addObject:theChosenPlayer];
         }
         [self askForNextPlayerOrEnd];
+    } else if ([theCurrentRoleString isEqualToString:GGKGossipKeyString]) {
+        // check if player is already gossiped about; if so, add to gossip-exile list; if not, add to gossip list
+//        [self.gameModel.playersToGossipAboutMutableArray addObject:theChosenPlayer];
+        [self askForNextPlayerOrEnd];
     } else {
         NSLog(@"CPNVC warning: unknown role, %@", theCurrentRoleString);
     }
 }
 - (IBAction)handleNoOneChosen {
     NSString *theCurrentRoleString = self.currentRole.key;
-    if ([theCurrentRoleString isEqualToString:GGKVigilanteKeyString]) {
+    if ([theCurrentRoleString isEqualToString:GGKVigilanteKeyString] || [theCurrentRoleString isEqualToString:GGKGossipKeyString]) {
         [self askForNextPlayerOrEnd];
     } else {
         NSLog(@"hNOC warning: unknown role, %@", theCurrentRoleString);
@@ -93,11 +97,13 @@
         thePromptString = @"Investigate whom?";
     } else if ([theCurrentRoleString isEqualToString:GGKVigilanteKeyString]) {
         thePromptString = [NSString stringWithFormat:@"%@ whom?", GGKEliminateTitleString];
+    } else if ([theCurrentRoleString isEqualToString:GGKGossipKeyString]) {
+        thePromptString = [NSString stringWithFormat:@"Gossip about whom?"];
     } else {
         NSLog(@"CPNVC warning: unknown role, %@", theCurrentRoleString);
     }
     self.promptLabel.text = thePromptString;
-    NSArray *theRolesWhichCanPassArray = @[GGKVigilanteKeyString];
+    NSArray *theRolesWhichCanPassArray = @[GGKGossipKeyString, GGKVigilanteKeyString];
     if ([theRolesWhichCanPassArray containsObject:theCurrentRoleString]) {
         self.noOneButton.hidden = NO;
     } else {

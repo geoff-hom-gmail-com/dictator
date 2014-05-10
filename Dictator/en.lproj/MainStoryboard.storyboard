@@ -375,49 +375,35 @@
                                     <action selector="askForNextPlayerOrEnd" destination="Sm9-4s-thj" eventType="touchUpInside" id="ymW-37-kiy"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="TO5-xd-QTV">
-                                <rect key="frame" x="20" y="50" width="280" height="126"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8Mu-xB-YXV">
+                                <rect key="frame" x="20" y="50" width="281" height="249"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">You are X.
 You want Y.
-Your abilties are Z.
-Line 4
-Line 5
-Line 6
-Line 7</string>
+Your abilties are Z.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="dh4-0a-Xtt">
-                                <rect key="frame" x="20" y="220" width="280" height="54"/>
-                                <string key="text">Your fellow Traitors are: x, y, z.
-line 2
-line 3</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dh4-0a-Xtt" firstAttribute="leading" secondItem="1NR-LB-cm4" secondAttribute="leading" constant="20" symbolic="YES" id="5Uh-kA-pRU"/>
-                            <constraint firstAttribute="trailing" secondItem="TO5-xd-QTV" secondAttribute="trailing" constant="20" symbolic="YES" id="5bL-gt-KNx"/>
-                            <constraint firstItem="TO5-xd-QTV" firstAttribute="top" secondItem="ufx-Xz-fT7" secondAttribute="bottom" constant="8" symbolic="YES" id="7xV-rq-e4R"/>
-                            <constraint firstItem="dh4-0a-Xtt" firstAttribute="top" secondItem="1NR-LB-cm4" secondAttribute="top" constant="220" id="9ro-SU-ocI"/>
-                            <constraint firstItem="TO5-xd-QTV" firstAttribute="leading" secondItem="1NR-LB-cm4" secondAttribute="leading" constant="20" symbolic="YES" id="GY0-HB-n6s"/>
+                            <constraint firstItem="8Mu-xB-YXV" firstAttribute="leading" secondItem="ufx-Xz-fT7" secondAttribute="leading" id="4Ys-Ga-WDG"/>
+                            <constraint firstItem="2CK-BI-TTL" firstAttribute="top" secondItem="8Mu-xB-YXV" secondAttribute="bottom" constant="8" symbolic="YES" id="8BX-9g-KT4"/>
                             <constraint firstItem="ufx-Xz-fT7" firstAttribute="top" secondItem="1NR-LB-cm4" secondAttribute="top" constant="20" symbolic="YES" id="RPD-e8-W8f"/>
                             <constraint firstAttribute="bottom" secondItem="2CK-BI-TTL" secondAttribute="bottom" constant="79" id="St4-aA-oi2"/>
-                            <constraint firstItem="2CK-BI-TTL" firstAttribute="centerX" secondItem="dh4-0a-Xtt" secondAttribute="centerX" id="V7p-xA-ak4"/>
-                            <constraint firstAttribute="trailing" secondItem="dh4-0a-Xtt" secondAttribute="trailing" constant="20" symbolic="YES" id="kEd-t5-TKu"/>
+                            <constraint firstItem="8Mu-xB-YXV" firstAttribute="top" secondItem="ufx-Xz-fT7" secondAttribute="bottom" constant="8" symbolic="YES" id="Yel-50-grf"/>
+                            <constraint firstItem="2CK-BI-TTL" firstAttribute="centerX" secondItem="ufx-Xz-fT7" secondAttribute="centerX" id="Zvb-eR-Gv3"/>
+                            <constraint firstItem="2CK-BI-TTL" firstAttribute="centerX" secondItem="8Mu-xB-YXV" secondAttribute="centerX" id="aO5-WK-RbI"/>
                             <constraint firstItem="ufx-Xz-fT7" firstAttribute="leading" secondItem="1NR-LB-cm4" secondAttribute="leading" constant="20" symbolic="YES" id="u8v-PO-g5a"/>
+                            <constraint firstItem="2CK-BI-TTL" firstAttribute="top" secondItem="8Mu-xB-YXV" secondAttribute="bottom" constant="8" id="xUc-vA-cP2"/>
                             <constraint firstAttribute="trailing" secondItem="ufx-Xz-fT7" secondAttribute="trailing" constant="20" symbolic="YES" id="yXd-xO-u57"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Your Role" id="cmw-by-I6P"/>
                     <connections>
-                        <outlet property="otherMembersLabel" destination="dh4-0a-Xtt" id="0Tu-OB-p0W"/>
                         <outlet property="playerNameLabel" destination="ufx-Xz-fT7" id="2pS-H9-Y36"/>
-                        <outlet property="roleInfoLabel" destination="TO5-xd-QTV" id="LLi-mv-FpG"/>
+                        <outlet property="roleInfoTextView" destination="8Mu-xB-YXV" id="qBa-V0-kOr"/>
                         <segue destination="J0R-g8-GJH" kind="push" identifier="ShowFirstDaySegue" id="0Xv-3A-upS"/>
                         <segue destination="iGj-Np-iq0" kind="push" identifier="ShowGameOverSegue" id="ruW-HK-vpc"/>
                     </connections>
@@ -1297,8 +1283,8 @@ abcdefghijklmnopqrstuvwxyzabcdefghijklm</string>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="NLO-Im-Luf"/>
-        <segue reference="lZo-Qd-yd0"/>
+        <segue reference="0Xv-3A-upS"/>
+        <segue reference="ruW-HK-vpc"/>
         <segue reference="kql-9d-lQN"/>
-        <segue reference="1Am-QM-DNe"/>
     </inferredMetricsTieBreakers>
 </document>
