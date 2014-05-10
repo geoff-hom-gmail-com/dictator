@@ -55,8 +55,14 @@
         }
         [self askForNextPlayerOrEnd];
     } else if ([theCurrentRoleString isEqualToString:GGKGossipKeyString]) {
-        // check if player is already gossiped about; if so, add to gossip-exile list; if not, add to gossip list
-//        [self.gameModel.playersToGossipAboutMutableArray addObject:theChosenPlayer];
+        // If player already has overwhelming gossip, do nothing. If regular gossip, move to overwhelming. Else, add to regular-gossip list.
+        if ([self.gameModel.playersWithOverwhelmingGossipMutableArray containsObject:theChosenPlayer]) {
+        } else if ([self.gameModel.playersWithRegularGossipMutableArray containsObject:theChosenPlayer]) {
+            [self.gameModel.playersWithRegularGossipMutableArray removeObject:theChosenPlayer];
+            [self.gameModel.playersWithOverwhelmingGossipMutableArray addObject:theChosenPlayer];
+        } else {
+            [self.gameModel.playersWithRegularGossipMutableArray addObject:theChosenPlayer];
+        }
         [self askForNextPlayerOrEnd];
     } else {
         NSLog(@"CPNVC warning: unknown role, %@", theCurrentRoleString);

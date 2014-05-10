@@ -23,10 +23,6 @@ NSString *GGKExileTitleString = @"Exile";
 NSString *GGKExiledString = @"exiled";
 
 @interface GGKGameModel ()
-// The Traitors eliminate players at night.
-- (void)eliminatePlayers:(NSArray *)thePlayersToEliminateArray;
-// Each vigilante eliminates a player at night.
-- (void)vigilanteEliminatePlayers;
 @end
 
 @implementation GGKGameModel
@@ -63,21 +59,46 @@ NSString *GGKExiledString = @"exiled";
         thePlayersToEliminateMutableArray = [NSMutableArray arrayWithObject:theEliminatedPlayer];
         self.thereWasATieBOOL = YES;
     }
-    // If Judge exiles Dictator, that trumps Traitors, Vigilantes eliminating that player.
+    // How do I condense this? map?
+    // Judge: exile Dictator.
     if (self.doJudgeExileDictatorBOOL) {
-        [thePlayersToEliminateMutableArray removeObject:self.currentDictatorPlayer];
-        [self.playersToVigilanteEliminateMutableArray removeObject:self.currentDictatorPlayer];
-        [self exilePlayer:self.currentDictatorPlayer];
+        if ([self.remainingPlayersMutableArray containsObject:self.currentDictatorPlayer]) {
+            [self removePlayer:self.currentDictatorPlayer];
+        }
     }
-    // Check if the Doctor saved someone.
-    // Traitor elimination.
+    // Gossip: overwhelming gossip exiles players.
+    for (GGKPlayer *aPlayer in self.playersWithOverwhelmingGossipMutableArray) {
+        if ([self.remainingPlayersMutableArray containsObject:aPlayer]) {
+            [self removePlayer:aPlayer];
+        } else {
+            [self.playersWithOverwhelmingGossipMutableArray removeObject:aPlayer];
+        }
+    }
+    // Doctor: save eliminated players.
     [thePlayersToEliminateMutableArray removeObjectsInArray:self.playersToSaveMutableArray];
-    // Vigilante-eliminate.
     [self.playersToVigilanteEliminateMutableArray removeObjectsInArray:self.playersToSaveMutableArray];
-    // If Traitors and Vigilantes choose same people, the elimination is done by the traitors.
-    [self.playersToVigilanteEliminateMutableArray removeObjectsInArray:thePlayersToEliminateMutableArray];
-    [self eliminatePlayers:thePlayersToEliminateMutableArray];
-    [self vigilanteEliminatePlayers];
+    // Traitor: eliminate players.
+    for (GGKPlayer *aPlayer in thePlayersToEliminateMutableArray) {
+        if ([self.remainingPlayersMutableArray containsObject:aPlayer]) {
+            [self removePlayer:aPlayer];
+            [self.playersEliminatedLastNightMutableArray addObject:aPlayer];
+        }
+    }
+    // Vigilante: eliminate players.
+    for (GGKPlayer *aPlayer in self.playersToVigilanteEliminateMutableArray) {
+        if ([self.remainingPlayersMutableArray containsObject:aPlayer]) {
+            [self removePlayer:aPlayer];
+        } else {
+            [self.playersToVigilanteEliminateMutableArray removeObject:aPlayer];
+        }
+    }
+    // Gossip: regular gossip prevents players from being Dictator.
+    for (GGKPlayer *aPlayer in self.playersWithRegularGossipMutableArray) {
+        // Remove exiled/eliminated players.
+        if (![self.remainingPlayersMutableArray containsObject:aPlayer]) {
+            [self.playersWithRegularGossipMutableArray removeObject:aPlayer];
+        }
+    }
 }
 - (void)deleteAllPlayers {
     [self.allPlayersMutableArray removeAllObjects];
@@ -87,23 +108,15 @@ NSString *GGKExiledString = @"exiled";
     [self.allPlayersMutableArray removeObject:thePlayerToDelete];
     [self savePlayers];
 }
-- (void)eliminatePlayers:(NSArray *)thePlayersToEliminateArray {
-    [thePlayersToEliminateArray enumerateObjectsUsingBlock:^(GGKPlayer *aPlayer, NSUInteger idx, BOOL *stop) {
-        [self.remainingPlayersMutableArray removeObject:aPlayer];
-    }];
-    self.playersEliminatedLastNightArray = thePlayersToEliminateArray;
-}
-- (void)exilePlayer:(GGKPlayer *)thePlayer {
-    // If the dictator exiled herself, make the previous person the current player.
-    if (thePlayer == self.currentDictatorPlayer) {
-//        NSLog(@"Dictator exiled herself!");
-        NSInteger anIndex = [self.remainingPlayersMutableArray indexOfObject:thePlayer];
-//        NSInteger theNextIndex = (anIndex + 1) % [self.remainingPlayersMutableArray count];
-        NSInteger thePreviousIndex = (anIndex - 1) % [self.remainingPlayersMutableArray count];
-        self.currentDictatorPlayer = nil;
-        self.currentPlayer = self.remainingPlayersMutableArray[thePreviousIndex];
+- (NSArray *)electablePlayersArray {
+    NSMutableArray *theElectablePlayersMutableArray = [NSMutableArray arrayWithCapacity:20];
+    // If player is not being gossiped about, she can be elected.
+    for (GGKPlayer *aPlayer in self.remainingPlayersMutableArray) {
+        if (![self.playersWithRegularGossipMutableArray containsObject:aPlayer]) {
+            [theElectablePlayersMutableArray addObject:aPlayer];
+        }
     }
-    [self.remainingPlayersMutableArray removeObject:thePlayer];
+    return [theElectablePlayersMutableArray copy];
 }
 - (id)init {
     self = [super init];
@@ -130,6 +143,8 @@ NSString *GGKExiledString = @"exiled";
             aRole = [[GGKRole alloc] initWithType:aKeyString];
             [self.availableRolesMutableArray addObject:aRole];
         }
+        // The first day, everyone can be elected.
+        self.playersWithRegularGossipMutableArray = [NSMutableArray arrayWithCapacity:5];
     }
     return self;
 }
@@ -163,22 +178,29 @@ NSString *GGKExiledString = @"exiled";
         aPlayer.numberOfVotesThisRoundInteger = 0;
     }];
     self.doJudgeExileDictatorBOOL = NO;
+    self.playersEliminatedLastNightMutableArray = [NSMutableArray arrayWithCapacity:5];
     self.playersToSaveMutableArray = [NSMutableArray arrayWithCapacity:5];
     self.playersToVigilanteEliminateMutableArray = [NSMutableArray arrayWithCapacity:5];
+    self.playersWithRegularGossipMutableArray = [NSMutableArray arrayWithCapacity:5];
+    self.playersWithOverwhelmingGossipMutableArray = [NSMutableArray arrayWithCapacity:5];
     // Start to left of the current player/dictator. Will end with current player/dictator.
     self.lastPlayerThisRound = self.currentPlayer;
     NSInteger anIndex = [self.remainingPlayersMutableArray indexOfObject:self.currentPlayer];
     NSInteger theNextIndex = (anIndex + 1) % [self.remainingPlayersMutableArray count];
     self.currentPlayer = self.remainingPlayersMutableArray[theNextIndex];
 }
+- (void)removePlayer:(GGKPlayer *)thePlayer {
+    // If the dictator exiled herself, make the previous person the current player.
+    if (thePlayer == self.currentDictatorPlayer) {
+        NSInteger anIndex = [self.remainingPlayersMutableArray indexOfObject:thePlayer];
+        NSInteger thePreviousIndex = (anIndex - 1) % [self.remainingPlayersMutableArray count];
+        self.currentDictatorPlayer = nil;
+        self.currentPlayer = self.remainingPlayersMutableArray[thePreviousIndex];
+    }
+    [self.remainingPlayersMutableArray removeObject:thePlayer];
+}
 - (void)savePlayers {
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.allPlayersMutableArray];
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:GGKPlayersKeyString];
-}
-- (void)vigilanteEliminatePlayers {
-    [self.playersToVigilanteEliminateMutableArray enumerateObjectsUsingBlock:^(GGKPlayer *aPlayer, NSUInteger idx, BOOL *stop) {
-        [self.remainingPlayersMutableArray removeObject:aPlayer];
-    }];
-    self.playersVigilanteEliminatedLastNightArray = [self.playersToVigilanteEliminateMutableArray copy];
 }
 @end

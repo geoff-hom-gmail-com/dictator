@@ -125,7 +125,7 @@ NSString *GGKVigilanteKeyString = @"Vigilante";
             self.longBlurb = [NSString stringWithFormat:@"At night, the Gossip picks a player. That player cannot be Dictator tomorrow (due to gossip). Be careful: if more than one Gossip target the same player, that player will %@ herself (due to overwhelming gossip)!", GGKExileString];
             self.youAreBlurb1 = [NSString stringWithFormat:@"You are a Gossip."
                                  "\n\nYou win with the Town."
-                                 "\n\nAt night, you pick a player. The target cannot be elected Dictator tomorrow. If a player is targeted by multiple Gossips, the overwhelming gossip drives her into %@.", GGKExileString];
+                                 "\n\nAt night, you pick a player. She cannot be elected Dictator tomorrow. If a player is targeted by multiple Gossips, the overwhelming gossip drives her into %@.", GGKExileString];
         } else {
             NSLog(@"Warning: unknown role:%@", self.key);
         }

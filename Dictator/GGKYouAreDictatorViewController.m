@@ -30,7 +30,7 @@
     } else if ([theAlertView.title isEqualToString:self.exileTitleString]) {
         if ([[theAlertView buttonTitleAtIndex:theButtonIndex] isEqualToString:@"OK"]) {
             // Exile selected player.
-            [self.gameModel exilePlayer:self.gameModel.currentlySelectedPlayer];
+            [self.gameModel removePlayer:self.gameModel.currentlySelectedPlayer];
             [self performSegueWithIdentifier:@"ExileSegue1" sender:self];
         }
     }

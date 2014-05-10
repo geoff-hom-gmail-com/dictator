@@ -16,6 +16,7 @@ NSString *TimeIsUpAlertViewTitleString = @"Time's Up!";
 // This timer goes off each second and serves two purposes: 1) The user can get frequent visual feedback, e.g., for timers she sees. 2) We can track number of seconds passed/remaining.
 // Need this property to invalidate the timer later.
 @property (nonatomic, strong) NSTimer *countingTimer;
+@property (nonatomic, strong) NSArray *electablePlayersArray;
 // Alert verifying whether to elect no dictator.
 // Need this to dismiss programmatically.
 @property (nonatomic, strong) UIAlertView *noDictatorAlertView;
@@ -80,30 +81,23 @@ NSString *TimeIsUpAlertViewTitleString = @"Time's Up!";
         [anAlertView show];
     }
 }
-- (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)theIndexPath {
     static NSString *PlayerCellIdentifier = @"PlayerNameCell";
-    
     UITableViewCell *aTableViewCell = [theTableView dequeueReusableCellWithIdentifier:PlayerCellIdentifier];
     if (aTableViewCell == nil) {
-        
         aTableViewCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PlayerCellIdentifier];
     }
-    
-    GGKPlayer *aPlayer = [self.gameModel.remainingPlayersMutableArray objectAtIndex:theIndexPath.row];
+//    GGKPlayer *aPlayer = [self.gameModel.remainingPlayersMutableArray objectAtIndex:theIndexPath.row];
+    GGKPlayer *aPlayer = [self.electablePlayersArray objectAtIndex:theIndexPath.row];
     aTableViewCell.textLabel.text = aPlayer.name;
     
     return aTableViewCell;
 }
-
-- (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)theIndexPath
-{    
+- (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)theIndexPath {
     self.electDictatorButton.enabled = YES;
 }
-
-- (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)theSection
-{
-    return [self.gameModel.remainingPlayersMutableArray count];
+- (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)theSection {
+    return [self.electablePlayersArray count];
 }
 - (IBAction)verifyNoDictator {
     UIAlertView *anAlertView = [[UIAlertView alloc] initWithTitle:NoDictatorAlertViewTitleString message:@"Skip election and go directly to night phase?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
@@ -113,6 +107,7 @@ NSString *TimeIsUpAlertViewTitleString = @"Time's Up!";
 - (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.electablePlayersArray = [self.gameModel electablePlayersArray];
     NSInteger theNumberOfPlayersInteger = [self.gameModel.remainingPlayersMutableArray count];
     self.numberOfPlayersLabel.text = [NSString stringWithFormat:@"%ld", (long)theNumberOfPlayersInteger];
     NSInteger theNumberOfVotesNeededInteger = (theNumberOfPlayersInteger / 2) + 1;

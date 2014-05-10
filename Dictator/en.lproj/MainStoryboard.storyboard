@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFp-mq-kIK">
-                                <rect key="frame" x="88" y="20" width="144" height="30"/>
+                                <rect key="frame" x="88" y="58" width="144" height="30"/>
                                 <state key="normal" title="Add/Remove Players">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -27,7 +27,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7pS-o8-QmR">
-                                <rect key="frame" x="88" y="58" width="144" height="30"/>
+                                <rect key="frame" x="88" y="96" width="144" height="30"/>
                                 <state key="normal" title="Set Roles">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -36,7 +36,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAb-nZ-D68">
-                                <rect key="frame" x="88" y="96" width="144" height="30"/>
+                                <rect key="frame" x="88" y="134" width="144" height="30"/>
                                 <state key="normal" title="Options/Settings">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -53,6 +53,16 @@
                                     <action selector="startGame" destination="bWE-hM-Xaq" eventType="touchUpInside" id="Weo-fm-EBt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ao-jo-BzV">
+                                <rect key="frame" x="119" y="20" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="How to Play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="44w-qb-Q9f" kind="push" id="59n-Az-QuR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -60,7 +70,7 @@
                             <constraint firstItem="WAb-nZ-D68" firstAttribute="trailing" secondItem="7pS-o8-QmR" secondAttribute="trailing" id="K6a-uL-g7R"/>
                             <constraint firstItem="Y2l-mp-jBv" firstAttribute="centerX" secondItem="WAb-nZ-D68" secondAttribute="centerX" id="RER-VY-fUK"/>
                             <constraint firstItem="7pS-o8-QmR" firstAttribute="trailing" secondItem="yFp-mq-kIK" secondAttribute="trailing" id="TS3-5t-EnF"/>
-                            <constraint firstItem="yFp-mq-kIK" firstAttribute="top" secondItem="0ma-xM-RzF" secondAttribute="top" constant="20" symbolic="YES" id="UxQ-7g-AhO"/>
+                            <constraint firstItem="yFp-mq-kIK" firstAttribute="top" secondItem="0ma-xM-RzF" secondAttribute="top" constant="58" id="UxQ-7g-AhO"/>
                             <constraint firstItem="WAb-nZ-D68" firstAttribute="centerX" secondItem="0ma-xM-RzF" secondAttribute="centerX" id="WxW-y3-FJP"/>
                             <constraint firstItem="7pS-o8-QmR" firstAttribute="leading" secondItem="yFp-mq-kIK" secondAttribute="leading" id="e9i-s4-zgw"/>
                             <constraint firstItem="WAb-nZ-D68" firstAttribute="leading" secondItem="7pS-o8-QmR" secondAttribute="leading" id="jhe-O5-nIr"/>
@@ -1066,6 +1076,34 @@ abcdefghijklmnopqrstuvwxyzabcdefghijklm</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ma-zf-ve4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1938" y="-633"/>
+        </scene>
+        <!--View Controller - How to Play-->
+        <scene sceneID="Lfu-yA-y7m">
+            <objects>
+                <viewController id="44w-qb-Q9f" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PxT-mO-7Xz"/>
+                        <viewControllerLayoutGuide type="bottom" id="hz5-A2-TgD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hhw-yb-TwD">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Basic instructions go here. For grounding a new player." translatesAutoresizingMaskIntoConstraints="NO" id="et0-mH-g0n">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="How to Play" id="G9C-PZ-54X"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vRJ-Jt-mgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1502" y="-1948"/>
         </scene>
         <!--Add Players View Controller - Add Players-->
         <scene sceneID="jbO-Nn-6js">

@@ -48,13 +48,15 @@ extern NSString *GGKExiledString;
 @property (strong, nonatomic) GGKPlayer *lastPlayerThisRound;
 // The players eliminated last night by Traitors.
 // Currently, either nil or 1 player.
-@property (strong, nonatomic) NSArray *playersEliminatedLastNightArray;
-// The players eliminated last night by Vigilantes.
-@property (strong, nonatomic) NSArray *playersVigilanteEliminatedLastNightArray;
+@property (strong, nonatomic) NSMutableArray *playersEliminatedLastNightMutableArray;
 // Players to save from elimination tonight.
 @property (strong, nonatomic) NSMutableArray *playersToSaveMutableArray;
 // Players to eliminate tonight via the Vigilantes.
 @property (strong, nonatomic) NSMutableArray *playersToVigilanteEliminateMutableArray;
+// Players affected by multiple Gossips.
+@property (strong, nonatomic) NSMutableArray *playersWithOverwhelmingGossipMutableArray;
+// Players affected by one Gossip.
+@property (strong, nonatomic) NSMutableArray *playersWithRegularGossipMutableArray;
 // Non-eliminated players.
 @property (strong, nonatomic) NSMutableArray *remainingPlayersMutableArray;
 // Whether there was a tie at night from the Traitors.
@@ -69,8 +71,8 @@ extern NSString *GGKExiledString;
 - (void)deleteAllPlayers;
 // Remove the player from the permanent roster.
 - (void)deletePlayer:(GGKPlayer *)thePlayerToDelete;
-// The Dictator exiles a player during the day.
-- (void)exilePlayer:(GGKPlayer *)thePlayer;
+// Return players who can be Dictator today. Some roles affect this. (E.g., Gossip.)
+- (NSArray *)electablePlayersArray;
 // Override.
 - (id)init;
 // Return whether the game is over.
@@ -80,4 +82,6 @@ extern NSString *GGKExiledString;
 - (void)movePlayer:(GGKPlayer *)thePlayerToMove toIndex:(NSUInteger)theIndex;
 // Set up for night phase.
 - (void)prepForNight;
+// Player is removed from game. If Dictator, then current player is previous player.
+- (void)removePlayer:(GGKPlayer *)thePlayer;
 @end
