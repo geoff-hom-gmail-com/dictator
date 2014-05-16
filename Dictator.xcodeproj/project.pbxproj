@@ -30,6 +30,8 @@
 		93B1F86317B2BA49002C2353 /* GGKAddPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B1F86217B2BA49002C2353 /* GGKAddPlayersViewController.m */; };
 		93B1F86617B2BC0D002C2353 /* GGKGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B1F86517B2BC0D002C2353 /* GGKGameModel.m */; };
 		93B1F86917B43949002C2353 /* GGKSetRolesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B1F86817B43949002C2353 /* GGKSetRolesViewController.m */; };
+		93B4BB1F1925D726009F5E84 /* GGKFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B4BB1E1925D726009F5E84 /* GGKFeedbackViewController.m */; };
+		93B4BB211925DA19009F5E84 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B4BB201925DA19009F5E84 /* MessageUI.framework */; };
 		93D9CA0618AB26B800060531 /* GGKTraitorNightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D9CA0518AB26B800060531 /* GGKTraitorNightViewController.m */; };
 		93D9CA0918AB2A6E00060531 /* GGKNightSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D9CA0818AB2A6E00060531 /* GGKNightSummaryViewController.m */; };
 		93D9CA0C18AB313300060531 /* GGKAbstractRoleNightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D9CA0B18AB313300060531 /* GGKAbstractRoleNightViewController.m */; };
@@ -81,6 +83,9 @@
 		93B1F86517B2BC0D002C2353 /* GGKGameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKGameModel.m; sourceTree = "<group>"; };
 		93B1F86717B43949002C2353 /* GGKSetRolesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKSetRolesViewController.h; sourceTree = "<group>"; };
 		93B1F86817B43949002C2353 /* GGKSetRolesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKSetRolesViewController.m; sourceTree = "<group>"; };
+		93B4BB1D1925D726009F5E84 /* GGKFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKFeedbackViewController.h; sourceTree = "<group>"; };
+		93B4BB1E1925D726009F5E84 /* GGKFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKFeedbackViewController.m; sourceTree = "<group>"; };
+		93B4BB201925DA19009F5E84 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		93D9CA0418AB26B800060531 /* GGKTraitorNightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKTraitorNightViewController.h; sourceTree = "<group>"; };
 		93D9CA0518AB26B800060531 /* GGKTraitorNightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKTraitorNightViewController.m; sourceTree = "<group>"; };
 		93D9CA0718AB2A6E00060531 /* GGKNightSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKNightSummaryViewController.h; sourceTree = "<group>"; };
@@ -106,9 +111,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9305C76D17B2A0900020A156 /* UIKit.framework in Frameworks */,
-				9305C76F17B2A0900020A156 /* Foundation.framework in Frameworks */,
 				9305C77117B2A0900020A156 /* CoreGraphics.framework in Frameworks */,
+				9305C76F17B2A0900020A156 /* Foundation.framework in Frameworks */,
+				93B4BB211925DA19009F5E84 /* MessageUI.framework in Frameworks */,
+				9305C76D17B2A0900020A156 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +141,7 @@
 		9305C76B17B2A0900020A156 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93B4BB201925DA19009F5E84 /* MessageUI.framework */,
 				9305C76C17B2A0900020A156 /* UIKit.framework */,
 				9305C76E17B2A0900020A156 /* Foundation.framework */,
 				9305C77017B2A0900020A156 /* CoreGraphics.framework */,
@@ -159,6 +166,8 @@
 				930D9FDB17C77060006ED023 /* GGKDictatorElectedViewController.m */,
 				93F5ECAA18A1FA5E00248022 /* GGKExiledViewController.h */,
 				93F5ECAB18A1FA5E00248022 /* GGKExiledViewController.m */,
+				93B4BB1D1925D726009F5E84 /* GGKFeedbackViewController.h */,
+				93B4BB1E1925D726009F5E84 /* GGKFeedbackViewController.m */,
 				93B1F86417B2BC0D002C2353 /* GGKGameModel.h */,
 				93B1F86517B2BC0D002C2353 /* GGKGameModel.m */,
 				93EE6EC018B4AAB100D4A059 /* GGKGameOverViewController.h */,
@@ -289,6 +298,7 @@
 				93B1F86617B2BC0D002C2353 /* GGKGameModel.m in Sources */,
 				93B1F86917B43949002C2353 /* GGKSetRolesViewController.m in Sources */,
 				9321B43917B72C6800A612CA /* GGKRole.m in Sources */,
+				93B4BB1F1925D726009F5E84 /* GGKFeedbackViewController.m in Sources */,
 				9321B43C17B7445A00A612CA /* GGKRoleInfoViewController.m in Sources */,
 				93F5ECB218A2112800248022 /* GGKViewController.m in Sources */,
 				93F5ECAC18A1FA5F00248022 /* GGKExiledViewController.m in Sources */,
