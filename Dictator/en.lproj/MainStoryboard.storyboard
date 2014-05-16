@@ -1160,10 +1160,10 @@ abcdefghijklmnopqrstuvwxyzabcdefghijklm</string>
             </objects>
             <point key="canvasLocation" x="1938" y="-633"/>
         </scene>
-        <!--View Controller - How to Play-->
+        <!--How To Play View Controller - How to Play-->
         <scene sceneID="Lfu-yA-y7m">
             <objects>
-                <viewController id="44w-qb-Q9f" sceneMemberID="viewController">
+                <viewController id="44w-qb-Q9f" customClass="GGKHowToPlayViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PxT-mO-7Xz"/>
                         <viewControllerLayoutGuide type="bottom" id="hz5-A2-TgD"/>
@@ -1172,17 +1172,20 @@ abcdefghijklmnopqrstuvwxyzabcdefghijklm</string>
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Basic instructions go here. For grounding a new player." translatesAutoresizingMaskIntoConstraints="NO" id="et0-mH-g0n">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Basic instructions go here. For grounding a new player." translatesAutoresizingMaskIntoConstraints="NO" id="et0-mH-g0n">
+                                <rect key="frame" x="20" y="0.0" width="280" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="How to Play" id="G9C-PZ-54X"/>
+                    <connections>
+                        <outlet property="textView" destination="et0-mH-g0n" id="Rtq-qv-co8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vRJ-Jt-mgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
