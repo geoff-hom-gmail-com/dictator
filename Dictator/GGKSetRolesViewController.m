@@ -147,6 +147,11 @@
         }
         GGKRole *aRole = [self.availableRolesArray objectAtIndex:theIndexPath.row];
         aTableViewCell.textLabel.text = aRole.name;
+        if (aRole.isTraitor) {
+            aTableViewCell.detailTextLabel.textColor = [UIColor redColor];
+        } else {
+            aTableViewCell.detailTextLabel.textColor = [UIColor grayColor];
+        }
         aTableViewCell.detailTextLabel.text = aRole.shortBlurb;
     } else if (theTableView == self.assignedRolesTableView) {
         
