@@ -22,6 +22,7 @@
 		930D9FDF17C774AC006ED023 /* GGKYouAreDictatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 930D9FDE17C774AC006ED023 /* GGKYouAreDictatorViewController.m */; };
 		9321B43917B72C6800A612CA /* GGKRole.m in Sources */ = {isa = PBXBuildFile; fileRef = 9321B43817B72C6800A612CA /* GGKRole.m */; };
 		9321B43C17B7445A00A612CA /* GGKRoleInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9321B43B17B7445A00A612CA /* GGKRoleInfoViewController.m */; };
+		9386641D192FD27500251A2D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9386641C192FD27500251A2D /* Images.xcassets */; };
 		9396151817B8AEDE005D6BAB /* GGKStartGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9396151717B8AEDE005D6BAB /* GGKStartGameViewController.m */; };
 		9396151B17B8C6BC005D6BAB /* GGKPregameNightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9396151A17B8C6BC005D6BAB /* GGKPregameNightViewController.m */; };
 		9396151E17B8C6DA005D6BAB /* GGKYourRoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9396151D17B8C6D9005D6BAB /* GGKYourRoleViewController.m */; };
@@ -69,6 +70,7 @@
 		9321B43817B72C6800A612CA /* GGKRole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKRole.m; sourceTree = "<group>"; };
 		9321B43A17B7445A00A612CA /* GGKRoleInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKRoleInfoViewController.h; sourceTree = "<group>"; };
 		9321B43B17B7445A00A612CA /* GGKRoleInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKRoleInfoViewController.m; sourceTree = "<group>"; };
+		9386641C192FD27500251A2D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9396151617B8AEDE005D6BAB /* GGKStartGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKStartGameViewController.h; sourceTree = "<group>"; };
 		9396151717B8AEDE005D6BAB /* GGKStartGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGKStartGameViewController.m; sourceTree = "<group>"; };
 		9396151917B8C6BC005D6BAB /* GGKPregameNightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGKPregameNightViewController.h; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				9305C78417B2A0900020A156 /* MainStoryboard.storyboard */,
 				93F5ECA718A1CC5900248022 /* NSDate+GGKAdditions.h */,
 				93F5ECA818A1CC5900248022 /* NSDate+GGKAdditions.m */,
+				9386641C192FD27500251A2D /* Images.xcassets */,
 				9305C77317B2A0900020A156 /* Supporting Files */,
 			);
 			path = Dictator;
@@ -278,6 +281,7 @@
 			files = (
 				9305C77717B2A0900020A156 /* InfoPlist.strings in Resources */,
 				9305C77F17B2A0900020A156 /* Default.png in Resources */,
+				9386641D192FD27500251A2D /* Images.xcassets in Resources */,
 				9305C78117B2A0900020A156 /* Default@2x.png in Resources */,
 				9305C78317B2A0900020A156 /* Default-568h@2x.png in Resources */,
 				9305C78617B2A0900020A156 /* MainStoryboard.storyboard in Resources */,
@@ -401,6 +405,8 @@
 		9305C78D17B2A0900020A156 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dictator/Dictator-Prefix.pch";
 				INFOPLIST_FILE = "Dictator/Dictator-Info.plist";
@@ -412,6 +418,8 @@
 		9305C78E17B2A0900020A156 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dictator/Dictator-Prefix.pch";
 				INFOPLIST_FILE = "Dictator/Dictator-Info.plist";
@@ -449,6 +457,8 @@
 		93B1F85E17B2A620002C2353 /* user-testing */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dictator/Dictator-Prefix.pch";
