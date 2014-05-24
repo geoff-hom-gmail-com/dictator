@@ -113,11 +113,16 @@ NSString *TimeIsUpAlertViewTitleString = @"Time's Up!";
     NSInteger theNumberOfVotesNeededInteger = (theNumberOfPlayersInteger / 2) + 1;
     self.numberOfVotesNeededLabel.text = [NSString stringWithFormat:@"%ld", (long)theNumberOfVotesNeededInteger];
     self.noDictatorButton.enabled = YES;
-    self.numberOfSecondsToElectDictator = 60 * 3;
-    self.electDictatorTimerLabel.text = [NSDate ggk_minuteSecondStringForTimeInterval:self.numberOfSecondsToElectDictator];
-    // Start counting timer.
-    NSTimer *aTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(handleCountingTimerFired) userInfo:nil repeats:YES];
-    self.countingTimer = aTimer;
+    if (self.gameModel.electionHasTimeLimitBOOL) {
+        self.electDictatorTimerLabel.hidden = NO;
+        self.numberOfSecondsToElectDictator = 60 * 3;
+        self.electDictatorTimerLabel.text = [NSDate ggk_minuteSecondStringForTimeInterval:self.numberOfSecondsToElectDictator];
+        // Start counting timer.
+        NSTimer *aTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(handleCountingTimerFired) userInfo:nil repeats:YES];
+        self.countingTimer = aTimer;
+    } else {
+        self.electDictatorTimerLabel.hidden = YES;
+    }
     self.electDictatorButton.enabled = NO;
     self.navigationItem.hidesBackButton = YES;
 }

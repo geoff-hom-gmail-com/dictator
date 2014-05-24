@@ -10,6 +10,9 @@
 
 #import "GGKPlayer.h"
 
+// Keys for saving data.
+extern NSString *GGKElectionHasTimeLimitBOOLKeyString;
+
 // Verb for a player being removed at night.
 extern NSString *GGKEliminateString;
 // Verb, capitalized, for a player being removed at night.
@@ -39,6 +42,9 @@ extern NSString *GGKExiledString;
 @property (strong, nonatomic) GGKPlayer *currentlySelectedPlayer;
 // Whether to exile the current Dictator by Judge decree.
 @property (assign, nonatomic) BOOL doJudgeExileDictatorBOOL;
+// Whether to have a timer when electing the Dictator.
+// Custom accessors.
+@property (assign, nonatomic) BOOL electionHasTimeLimitBOOL;
 // Roles assigned to a specific game.
 // Story: User assigns some roles, then adds/removes players, then comes back. User expects previously assigned roles to still be there.
 @property (strong, nonatomic) NSArray *explicitlyAssignedRolesArray;

@@ -13,6 +13,7 @@
 // Keys for saving data.
 // Key for storing data for all players.
 NSString *GGKPlayersKeyString = @"Players data";
+NSString *GGKElectionHasTimeLimitBOOLKeyString = @"Election has time limit?";
 
 NSString *GGKEliminateString = @"eliminate";
 NSString *GGKEliminateTitleString = @"Eliminate";
@@ -26,6 +27,15 @@ NSString *GGKExiledString = @"exiled";
 @end
 
 @implementation GGKGameModel
+// Custom accessors.
+- (BOOL)electionHasTimeLimitBOOL {
+    BOOL theElectionHasTimeLimitBOOL = [[NSUserDefaults standardUserDefaults] boolForKey:GGKElectionHasTimeLimitBOOLKeyString];
+    return theElectionHasTimeLimitBOOL;
+}
+- (void)setElectionHasTimeLimitBOOL:(BOOL)theElectionHasTimeLimitBOOL {
+    [[NSUserDefaults standardUserDefaults] setBool:theElectionHasTimeLimitBOOL forKey:GGKElectionHasTimeLimitBOOLKeyString];
+}
+
 - (void)addPlayerWithName:(NSString *)theName {
     GGKPlayer *aPlayer = [[GGKPlayer alloc] init];
     aPlayer.name = theName;

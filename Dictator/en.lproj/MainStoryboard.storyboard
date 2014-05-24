@@ -45,7 +45,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2l-mp-jBv">
-                                <rect key="frame" x="144" y="256" width="33" height="30"/>
+                                <rect key="frame" x="131" y="227" width="58" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="58" id="ENW-RP-nFN"/>
+                                </constraints>
                                 <state key="normal" title="Start">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -67,7 +70,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPP-SN-34A">
-                                <rect key="frame" x="88" y="172" width="144" height="30"/>
+                                <rect key="frame" x="88" y="366" width="144" height="30"/>
                                 <state key="normal" title="Feedback">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -78,7 +81,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Y2l-mp-jBv" firstAttribute="top" secondItem="0ma-xM-RzF" secondAttribute="top" constant="256" id="J9F-o4-12T"/>
+                            <constraint firstItem="Y2l-mp-jBv" firstAttribute="top" secondItem="0ma-xM-RzF" secondAttribute="top" constant="227" id="J9F-o4-12T"/>
                             <constraint firstItem="WAb-nZ-D68" firstAttribute="trailing" secondItem="7pS-o8-QmR" secondAttribute="trailing" id="K6a-uL-g7R"/>
                             <constraint firstItem="Y2l-mp-jBv" firstAttribute="centerX" secondItem="WAb-nZ-D68" secondAttribute="centerX" id="RER-VY-fUK"/>
                             <constraint firstItem="7pS-o8-QmR" firstAttribute="trailing" secondItem="yFp-mq-kIK" secondAttribute="trailing" id="TS3-5t-EnF"/>
@@ -91,7 +94,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Dictator!" id="MU4-3R-J9b">
-                        <barButtonItem key="backBarButtonItem" title="Start" id="DIP-Ye-f9E"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="DIP-Ye-f9E"/>
                     </navigationItem>
                     <connections>
                         <outlet property="startButton" destination="Y2l-mp-jBv" id="wsg-kc-Yck"/>
@@ -420,10 +423,10 @@
             </objects>
             <point key="canvasLocation" x="1502" y="46"/>
         </scene>
-        <!--View Controller - Options-->
+        <!--Options View Controller - Options-->
         <scene sceneID="Rc9-3K-rBa">
             <objects>
-                <viewController id="XI2-I7-sRV" sceneMemberID="viewController">
+                <viewController id="XI2-I7-sRV" customClass="GGKOptionsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zfa-F7-dbP"/>
                         <viewControllerLayoutGuide type="bottom" id="Oiz-fV-azm"/>
@@ -431,11 +434,31 @@
                     <view key="view" contentMode="scaleToFill" id="xYz-il-A9e">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dictator election: time limit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xW4-4H-Dhp">
+                                <rect key="frame" x="29" y="25" width="205" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0EQ-r6-hN7">
+                                <rect key="frame" x="242" y="20" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="handleElectionHasTimeLimitSwitchChanged:" destination="XI2-I7-sRV" eventType="valueChanged" id="hww-jD-Dw0"/>
+                                </connections>
+                            </switch>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Options" id="8zl-e8-tsv">
                         <barButtonItem key="backBarButtonItem" title="Back" id="N20-0f-P5o"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="electionHasTimeLimitLabel" destination="xW4-4H-Dhp" id="57n-p6-nkQ"/>
+                        <outlet property="electionHasTimeLimitSwitch" destination="0EQ-r6-hN7" id="PtO-kl-Qq9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pJb-sO-1CE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
