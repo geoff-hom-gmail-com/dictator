@@ -325,17 +325,13 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYU-q3-Gqc">
-                                <rect key="frame" x="20" y="20" width="280" height="118"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zz0-cB-bth">
+                                <rect key="frame" x="173" y="130" width="127" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">"Dictator!" is the brainchild of Ian Hart. iOS development was done by Geoff Hom. Give them feedback via App Store reviews or email.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zz0-cB-bth">
-                                <rect key="frame" x="173" y="146" width="127" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="127" id="aUp-Ub-xao"/>
+                                    <constraint firstAttribute="height" constant="30" id="hAz-Wi-Ff2"/>
+                                </constraints>
                                 <state key="normal" title="Email the Creators">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -349,8 +345,39 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Updates we are considering: more roles, more game modes (e.g., Random). Let us know your thoughts!]" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="pk5-jg-h1M">
+                                <rect key="frame" x="20" y="168" width="280" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="F1H-sP-UyN"/>
+                                    <constraint firstAttribute="height" priority="249" constant="61" id="UDj-UP-i0H"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="vsK-ce-XGS">
+                                <rect key="frame" x="20" y="20" width="280" height="102"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="249" constant="47" id="Jl6-3n-QPp"/>
+                                    <constraint firstAttribute="width" constant="280" id="pq4-mV-w2u"/>
+                                </constraints>
+                                <string key="text">"Dictator!" is the brainchild of Ian Hart. iOS development was done by Geoff Hom. Give them feedback via email, or write a review on the App Store!</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pk5-jg-h1M" firstAttribute="top" secondItem="zz0-cB-bth" secondAttribute="bottom" constant="8" id="V88-2s-yK6"/>
+                            <constraint firstItem="zz0-cB-bth" firstAttribute="top" secondItem="vsK-ce-XGS" secondAttribute="bottom" constant="8" id="Yzh-ZA-d4O"/>
+                            <constraint firstItem="vsK-ce-XGS" firstAttribute="top" secondItem="LkM-Eh-Srn" secondAttribute="bottom" constant="20" id="c2u-Kv-7ml"/>
+                            <constraint firstAttribute="trailing" secondItem="zz0-cB-bth" secondAttribute="trailing" constant="20" id="hTI-TR-6R3"/>
+                            <constraint firstItem="pk5-jg-h1M" firstAttribute="leading" secondItem="id6-ic-aHz" secondAttribute="leading" constant="20" symbolic="YES" id="pXk-XH-qEc"/>
+                            <constraint firstItem="vsK-ce-XGS" firstAttribute="leading" secondItem="id6-ic-aHz" secondAttribute="leading" constant="20" id="stk-cV-6lq"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Feedback" id="eat-va-sT4">
                         <barButtonItem key="backBarButtonItem" title="Back" id="rx2-sd-8Q2"/>
