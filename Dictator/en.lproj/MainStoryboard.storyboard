@@ -940,10 +940,10 @@ Line 5</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="afW-AN-vIY">
-                                <rect key="frame" x="20" y="130" width="280" height="228"/>
+                                <rect key="frame" x="20" y="130" width="280" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="228" id="oDG-9c-y4K"/>
+                                    <constraint firstAttribute="height" constant="200" id="oDG-9c-y4K"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="PlayerNameCell" id="nYM-Qq-q95">
@@ -1456,9 +1456,9 @@ abcdefghijklmnopqrstuvwxyzabcdefghijklm</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="0Xv-3A-upS"/>
         <segue reference="ruW-HK-vpc"/>
-        <segue reference="NLO-Im-Luf"/>
+        <segue reference="0Xv-3A-upS"/>
+        <segue reference="XrI-Y5-9ZJ"/>
         <segue reference="kql-9d-lQN"/>
     </inferredMetricsTieBreakers>
 </document>
