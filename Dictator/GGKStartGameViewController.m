@@ -48,8 +48,21 @@
     }
     [self performSegueWithIdentifier:@"ShowPregameSegue" sender:self];
 }
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewDidLoad {
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+    // Make UI blank so we can make launch images via screenshot.
+    BOOL aCreateLaunchImagesBOOL = NO;
+    // Uncomment to create launch images.
+//    aCreateLaunchImagesBOOL = YES;
+    if (aCreateLaunchImagesBOOL) {
+        self.navigationItem.title = @"";
+        for (UIView *aSubView in self.view.subviews) {
+            aSubView.hidden = YES;
+        }
+    }
+}
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     // Enable start only if players >= minimum players.
@@ -69,5 +82,4 @@
         self.startButton.enabled = NO;
     }
 }
-
 @end

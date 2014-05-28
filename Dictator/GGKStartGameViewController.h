@@ -9,15 +9,13 @@
 #import <UIKit/UIKit.h>
 
 #import "GGKViewController.h"
-
 @interface GGKStartGameViewController : GGKViewController
-
 @property (strong, nonatomic) IBOutlet UIButton *startButton;
-
 // Calculate stuff for starting the game.
 - (IBAction)startGame;
 // Override.
-// Note: Works when the view appears from another view in this app, not from the app entering the foregroun.
+- (void)viewDidLoad;
+// Override.
+// Note: Works when the view appears from another view in this app, not from the app entering the foreground.
 - (void)viewWillAppear:(BOOL)animated;
-
 @end
