@@ -10,25 +10,14 @@
 #import "GGKAppDelegate.h"
 
 #import "GGKGameModel.h"
-
-// Key for storing whether app has finished first launch.
-NSString *GGKIsPastFirstLaunchKeyString = @"Is past first launch?";
-
 @interface GGKAppDelegate ()
-// Save default data to disk.
-- (void)storeDefaultData;
+// Register default values.
+- (void)registerDefaults;
 @end
 @implementation GGKAppDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    // Check if first launch. Note for -boolForKey:: if no value found, returns NO.
-    BOOL isFirstLaunch = ![[NSUserDefaults standardUserDefaults] boolForKey:GGKIsPastFirstLaunchKeyString];
-    // Uncomment to reset to defaults.
-//    isFirstLaunch = YES;
-    if (isFirstLaunch) {
-        [self storeDefaultData];
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:GGKIsPastFirstLaunchKeyString];
-    }
+    [self registerDefaults];
     self.gameModel = [[GGKGameModel alloc] init];
     return YES;
 }
@@ -56,7 +45,8 @@ NSString *GGKIsPastFirstLaunchKeyString = @"Is past first launch?";
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-- (void)storeDefaultData {
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:GGKElectionHasTimeLimitBOOLKeyString];
+- (void)registerDefaults {
+    NSDictionary *aDefaultsDictionary = @{GGKElectionHasTimeLimitBOOLKeyString:@YES};
+    [[NSUserDefaults standardUserDefaults] registerDefaults:aDefaultsDictionary];
 }
 @end
