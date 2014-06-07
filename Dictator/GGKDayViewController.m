@@ -57,7 +57,7 @@ NSString *TimeIsUpAlertViewTitleString = @"Time's Up!";
 - (IBAction)electDictator {
     // Selected player is dictator.
     NSIndexPath *anIndexPath = [self.playersTableView indexPathForSelectedRow];
-    GGKPlayer *aPlayer = [self.gameModel.remainingPlayersMutableArray objectAtIndex:anIndexPath.row];
+    GGKPlayer *aPlayer = [self.electablePlayersArray objectAtIndex:anIndexPath.row];
     self.gameModel.currentDictatorPlayer = aPlayer;
     self.gameModel.currentPlayer = aPlayer;
     self.gameModel.hermitWasDictator = NO;
