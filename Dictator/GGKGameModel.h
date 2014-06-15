@@ -86,8 +86,12 @@ extern NSString *GGKExiledString;
 - (BOOL)isGameOver;
 // Move the player to the given position in the roster.
 - (void)movePlayer:(GGKPlayer *)thePlayerToMove toIndex:(NSUInteger)theIndex;
+// Return the number of (plain) Townspeople if the game started now. A negative number indicates more players or fewer explicit roles are needed.
+- (NSInteger)numberOfTownspeopleAtStart;
 // Set up for night phase.
 - (void)prepForNight;
 // Player is removed from game. If Dictator, then current player is previous player.
 - (void)removePlayer:(GGKPlayer *)thePlayer;
+// Set up stuff. Assign player roles.
+- (void)startGame;
 @end

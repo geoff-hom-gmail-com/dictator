@@ -153,8 +153,6 @@ NSString *GGKExiledString = @"exiled";
             aRole = [[GGKRole alloc] initWithType:aKeyString];
             [self.availableRolesMutableArray addObject:aRole];
         }
-        // The first day, everyone can be elected.
-        self.playersWithRegularGossipMutableArray = [NSMutableArray arrayWithCapacity:5];
     }
     return self;
 }
@@ -181,6 +179,16 @@ NSString *GGKExiledString = @"exiled";
     [self.allPlayersMutableArray removeObject:thePlayerToMove];
     [self.allPlayersMutableArray insertObject:thePlayerToMove atIndex:theIndex];
     [self savePlayers];
+}
+- (NSInteger)numberOfTownspeopleAtStart {
+    NSInteger theNumberOfTownspeople;
+    NSInteger theNumberOfPlayersInteger = [self.allPlayersMutableArray count];
+    NSInteger theMinimumNumberOfPlayersInteger = 0;
+    for (GGKRole *aRole in self.explicitlyAssignedRolesArray) {
+        theMinimumNumberOfPlayersInteger += aRole.startingCount;
+    }
+    theNumberOfTownspeople = theNumberOfPlayersInteger - theMinimumNumberOfPlayersInteger;
+    return theNumberOfTownspeople;
 }
 - (void)prepForNight {
     // Reset night counters.
@@ -212,5 +220,33 @@ NSString *GGKExiledString = @"exiled";
 - (void)savePlayers {
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.allPlayersMutableArray];
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:GGKPlayersKeyString];
+}
+- (void)startGame {
+    // The first day, everyone can be elected.
+    self.playersWithRegularGossipMutableArray = [NSMutableArray arrayWithCapacity:5];
+    // Make an array of all roles. Remove random role: assign to first player. Repeat.
+    NSMutableArray *theAssignedRolesMutableArray = [NSMutableArray arrayWithCapacity:30];
+    for (GGKRole *aRole in self.explicitlyAssignedRolesArray) {
+        for (int i = 0; i < aRole.startingCount; i++) {
+            GGKRole *anIndividualRole = [[GGKRole alloc] initWithType:aRole.key];
+            [theAssignedRolesMutableArray addObject:anIndividualRole];
+        }
+    }
+    for (int i = 0; i < [self numberOfTownspeopleAtStart]; i++) {
+        GGKRole *anIndividualRole = [[GGKRole alloc] initWithType:GGKTownspersonKeyString];
+        [theAssignedRolesMutableArray addObject:anIndividualRole];
+    }
+    for (GGKPlayer *aPlayer in self.allPlayersMutableArray) {
+        uint32_t aRandomNumberInt = arc4random_uniform((uint32_t)[theAssignedRolesMutableArray count]);
+        GGKRole *theAssignedRole = [theAssignedRolesMutableArray objectAtIndex:aRandomNumberInt];
+        aPlayer.role = theAssignedRole;
+        [theAssignedRolesMutableArray removeObject:theAssignedRole];
+    }
+    self.remainingPlayersMutableArray = [self.allPlayersMutableArray mutableCopy];
+    self.currentPlayer = self.allPlayersMutableArray[0];
+    // Check via log. For testing.
+    for (GGKPlayer *aPlayer in self.allPlayersMutableArray) {
+        NSLog(@"startGame, player: %@, role: %@", aPlayer.name, aPlayer.role.name);
+    }
 }
 @end
